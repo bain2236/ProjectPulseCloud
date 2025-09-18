@@ -164,7 +164,7 @@ export default function ConceptModal({ concept, evidence, onClose }: ConceptModa
               <div className="text-center py-12">
                 <div className="text-gray-400 text-lg mb-2">No evidence found</div>
                 <div className="text-gray-600 text-sm">
-                  This concept doesn't have any supporting evidence yet.
+                  This concept doesn&apos;t have any supporting evidence yet.
                 </div>
               </div>
             )}

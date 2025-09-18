@@ -1,23 +1,15 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, it, expect, jest } from '@jest/globals';
 import VoronoiCloud from '../VoronoiCloud';
 import { Concept, Evidence } from '@/lib/types';
+import { JSX } from 'react/jsx-runtime';
 import '@testing-library/jest-dom';
-
-// Mock d3-delaunay
-jest.mock('d3-delaunay', () => ({
-    Delaunay: {
-        from: jest.fn().mockReturnThis(),
-        voronoi: jest.fn(() => ({
-            cellPolygon: jest.fn(() => [[0, 0], [10, 0], [10, 10], [0, 10]]),
-        })),
-    },
-}));
 
 // Mock Framer Motion
 jest.mock('framer-motion', () => {
     const original = jest.requireActual('framer-motion');
-    const mockMotionComponent = (tag) => {
-        const Component = ({ children, ...props }) => {
+    const mockMotionComponent = (tag: keyof JSX.IntrinsicElements) => {
+        const Component = ({ children, ...props }: { children: React.ReactNode; [key: string]: any }) => {
             const {
                 animate, initial, exit, variants, transition,
                 layoutId, whileHover, whileTap,
@@ -31,7 +23,7 @@ jest.mock('framer-motion', () => {
     };
 
     return {
-        ...original,
+        ...(typeof original === 'object' && original !== null ? original : {}),
         motion: {
             div: mockMotionComponent('div'),
             button: mockMotionComponent('button'),
@@ -39,7 +31,7 @@ jest.mock('framer-motion', () => {
             path: mockMotionComponent('path'),
             text: mockMotionComponent('text'),
         },
-        AnimatePresence: ({ children }) => <>{children}</>,
+        AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>,
     };
 });
 
@@ -81,7 +73,7 @@ describe('VoronoiCloud', () => {
     });
 
     it('should call onConceptClick when a concept is clicked', () => {
-        const handleClick = jest.fn();
+        const handleClick = jest.fn() as (concept: Concept) => void;
         const { container } = render(
             <VoronoiCloud
                 concepts={mockConcepts}

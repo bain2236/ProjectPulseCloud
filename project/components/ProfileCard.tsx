@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Profile } from '@/lib/types';
 import { MapPin, Globe, User } from 'lucide-react';
+import Image from 'next/image';
 
 interface ProfileCardProps {
   profile: Profile;
@@ -24,9 +25,11 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
         className="relative mb-6"
       >
         {profile.avatar ? (
-          <img
+          <Image
             src={profile.avatar}
             alt={profile.displayName}
+            width={96}
+            height={96}
             className="w-24 h-24 rounded-full mx-auto border-2 border-gradient-to-r from-cyan-400 to-pink-500 p-0.5"
           />
         ) : (

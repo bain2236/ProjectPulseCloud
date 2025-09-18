@@ -40,17 +40,18 @@ export default function VoronoiCloud({
   const [dimensions, setDimensions] = useState({ width, height });
   const svgRef = useRef<SVGSVGElement>(null);
 
-  // Debounced resize handler
-  const handleResize = useCallback(
-    debounce(() => {
-      setDimensions({ width, height });
-    }, 150),
-    [width, height]
-  );
-
   useEffect(() => {
+    const handleResize = debounce(() => {
+      setDimensions({ width, height });
+    }, 150);
+
     handleResize();
-  }, [width, height, handleResize]);
+
+    // Cleanup the debounced function on component unmount
+    return () => {
+      handleResize.cancel();
+    };
+  }, [width, height]);
 
   // Calculate Voronoi cells with recency weighting
   const voronoiCells = useMemo(() => {
@@ -80,7 +81,7 @@ export default function VoronoiCloud({
     const totalWeight = weightedConcepts.reduce((sum, concept) => sum + concept.weight, 0);
     
     // Generate seed points for Voronoi diagram - distribute across canvas based on weight
-    const points: number[][] = [];
+    const points: [number, number][] = [];
     const conceptMapping: { [key: number]: Concept } = {};
     
     // Create a grid-like distribution but weighted by concept importance
