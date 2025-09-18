@@ -1,0 +1,270 @@
+{
+  "profile": {
+    "slug": "alex-bainbridge",
+    "displayName": "Alex Bainbridge",
+    "public": true,
+    "theme": "neon-dark",
+    "createdAt": "2025-09-18T00:00:00Z",
+    "bio": "Full-stack engineer passionate about building beautiful, accessible experiences.",
+    "avatar": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=200&h=200",
+    "location": "United Kingdom",
+    "website": "https://alex.dev"
+  },
+  "tabs": [
+    { "id": "personal", "title": "Personal", "order": 0 },
+    { "id": "leader", "title": "Leader", "order": 1 },
+    { "id": "engineer", "title": "Engineer", "order": 2 },
+    { "id": "colleague", "title": "Colleague", "order": 3 }
+  ],
+  "evidence": [
+    {
+      "id": "evidence-0001",
+      "tabId": "leader",
+      "source": "LinkedIn Recommendation",
+      "author": "Phil Davies",
+      "authorRole": "CIO at Clinithink",
+      "date": "2025-09-02",
+      "text": "I worked with Alex for over 4 years and during that time he has grown from a software engineer through to a tech lead. Alex is extremely positive and is a real asset to any team. He has used his excellent interpersonal skills both with UK engineers as well as offshore engineers (India). Alex will try out any new technology and make a success of it. He changed from python to .Net during our time together and most recently has made huge strides with utilising AI as part of engineering practice through using Cursor. Alex's positivity, creativity and personality also provided significant input and support of the Wellness team at Clinithink as well as the company wide internal comms team. His interpersonal skills also mean that he is interested, and I'd expect would flourish, in line management. We didn't manage to create the opportunity for Alex at Clinithink but I know he'll achieve this somewhere along his journey.",
+      "imageUrl": null,
+      "externalUrl": null,
+      "createdAt": "2025-09-18T00:00:00Z"
+    },
+    {
+      "id": "evidence-0002",
+      "tabId": "colleague",
+      "source": "LinkedIn Recommendation",
+      "author": "Katya Chetina",
+      "authorRole": "Software Engineer",
+      "date": "2025-09-01",
+      "text": "I had the pleasure of working alongside Alex at Clinithink. Although we were on different teams, I quickly came to appreciate his exceptional talent and work ethic. Alex consistently demonstrated initiative by developing functional prototypes that helped teams clearly visualise both problems and potential solutions—an invaluable asset in a collaborative environment. He's not only a dedicated and high-performing developer who delivers clean, high-quality code, but also someone who goes out of his way to support others. Personally, Alex took the time to help me understand parts of the codebase I was less familiar with, and his clarity and patience made a real difference. He's a natural mentor and a great and funny teammate. Any company would be fortunate to have Alex on their team—he brings both technical excellence and a collaborative spirit to everything he does.",
+      "imageUrl": null,
+      "externalUrl": null,
+      "createdAt": "2025-09-18T00:00:00Z"
+    },
+    {
+      "id": "evidence-0003",
+      "tabId": "leader",
+      "source": "LinkedIn Recommendation",
+      "author": "Martin O'Donnell",
+      "authorRole": "Senior Product Manager",
+      "date": "2025-08-31",
+      "text": "I had the pleasure of working with Alex when he was the Tech Lead and I was the Product Manager. He has that rare combination of technical depth and pragmatic execution, always focused on delivering impact, unblocking the team, and just getting things done. Partnering with him made complex projects move faster and smoother, and I'd happily work with him again on any team.",
+      "imageUrl": null,
+      "externalUrl": null,
+      "createdAt": "2025-09-18T00:00:00Z"
+    },
+    {
+      "id": "evidence-0004",
+      "tabId": "engineer",
+      "source": "LinkedIn Recommendation",
+      "author": "Thomas Guest",
+      "authorRole": "Principal Engineer at Clinithink",
+      "date": "2025-08-28",
+      "text": "Wow, it has been great working with Alex and watching him develop and grow in expertise. He is an expert coder who can turn his hand to any part of the software stack - backend, frontend, CI, design, test. He has become expert in handling some jobs over to an LLM. He doesn't just do the job as specified: he can see when there's an easier solution. He is quick to help others. He is collaborative, good humoured and hard working.",
+      "imageUrl": null,
+      "externalUrl": null,
+      "createdAt": "2025-09-18T00:00:00Z"
+    },
+    {
+      "id": "evidence-0005",
+      "tabId": "leader",
+      "source": "LinkedIn Recommendation",
+      "author": "Peter Hatton",
+      "authorRole": "Technical Lead",
+      "date": "2025-08-28",
+      "text": "Alex is an excellent software engineer with outstanding technical skills who consistently delivers high-quality, production-ready code. His expertise in software development and problem-solving abilities make him an asset to any engineering team. He fearlessly voices his honest opinions and actively contributes innovative ideas that drive product advancement and elevate software quality across the team. Alex has successfully transitioned into a Tech Lead role, where he effectively mentors other engineers and guides them to deliver tasks with excellence. I would gladly work alongside Alex again.",
+      "imageUrl": null,
+      "externalUrl": null,
+      "createdAt": "2025-09-18T00:00:00Z"
+    },
+    {
+      "id": "evidence-0006",
+      "tabId": "leader",
+      "source": "LinkedIn Recommendation",
+      "author": "Yashaswi Ponagoti",
+      "authorRole": "Principle Software Engineer at ACS Solutions",
+      "date": "2025-08-28",
+      "text": "I had the pleasure of working with Alex, and he truly stand out for his positive attitude, adaptability, and willingness to embrace change. His optimism and creativity in tackling challenges made a big difference in driving our projects to success. He quickly grasp new concepts and technologies, and his collaborative approach created a productive environment for the team. On a personal note, he encouraged me to expand my own skills and always made time to offer support and advice. Alex is someone who brings both professional excellence and a motivating presence to any team.",
+      "imageUrl": null,
+      "externalUrl": null,
+      "createdAt": "2025-09-18T00:00:00Z"
+    },
+    {
+      "id": "evidence-0007",
+      "tabId": "engineer",
+      "source": "LinkedIn Recommendation",
+      "author": "Janaranjani Maram",
+      "authorRole": "Senior Associate - Projects",
+      "date": "2025-08-28",
+      "text": "Collaborating with Alex for over four years has been an incredibly rewarding experience. He's one of those rare professionals who can seamlessly adapt to any technology stack, often mastering new tools and frameworks faster than expected. His proactive nature means he's always a step ahead—whether it's anticipating project needs, resolving blockers before they escalate, or volunteering to take on complex tasks others might shy away from. He's not just a tech expert—he's an all-rounder who brings energy, insight, and collaboration to every team interaction. If you're looking for someone who combines technical depth with a can-do attitude and a growth mindset, Alex is your person.",
+      "imageUrl": null,
+      "externalUrl": null,
+      "createdAt": "2025-09-18T00:00:00Z"
+    },
+    {
+      "id": "evidence-0008",
+      "tabId": "engineer",
+      "source": "LinkedIn Recommendation",
+      "author": "Otis Jackson",
+      "authorRole": "DevOps expert",
+      "date": "2025-08-27",
+      "text": "Alex is the man! Python .Net you name it he captures the essence of being a good developer agile and pluggable in almost any language, spent many of hours on troubleshooting sessions with him and trust me he is a resource you need to have in your tool chest!!",
+      "imageUrl": null,
+      "externalUrl": null,
+      "createdAt": "2025-09-18T00:00:00Z"
+    },
+    {
+      "id": "evidence-0009",
+      "tabId": "engineer",
+      "source": "LinkedIn Recommendation",
+      "author": "Sarah Bucknall",
+      "authorRole": "Product owner",
+      "date": "2025-08-27",
+      "text": "I've been very lucky to work with Alex on 3 different products. Massively impressive ability to grasp new tech, concepts and tooling to achieve our product goals. Alex is innovative - always finding ways to evolve and improve on how product features get built. He is efficient, quickly grasps what product - or anyone else - needs - and turns out quality code to boot. I wouldn't hesitate at the opportunity to work with Alex again and would highly recommend him to any future employer.",
+      "imageUrl": null,
+      "externalUrl": null,
+      "createdAt": "2025-09-18T00:00:00Z"
+    },
+    {
+      "id": "evidence-0010",
+      "tabId": "engineer",
+      "source": "LinkedIn Recommendation",
+      "author": "Joel Blackie",
+      "authorRole": "Agile Delivery Lead and Scrum Master",
+      "date": "2025-08-27",
+      "text": "I've worked with Alex for the past four years and can honestly say he's one of the best, most proactive, well-rounded engineers I've ever worked with. Whatever thing was thrown Alex's way, he tackled it with passion - from UX, UI/front-end design, backend design, CI/CD pipelines, nothing fazed him. Alex is comfortable using his initiative to learn the things and tools he doesn't know, but needs to know to get the job done. He is curious, inquisitive and gets stuff done to a high standard. None of this is evidenced more by his ability and experience throwing himself deep into using the latest AI engineering technology and tooling to make himself far more productive. Alex would be an asset for any engineering or modern product team.",
+      "imageUrl": null,
+      "externalUrl": null,
+      "createdAt": "2025-09-18T00:00:00Z"
+    },
+    {
+      "id": "evidence-0011",
+      "tabId": "colleague",
+      "source": "LinkedIn Recommendation",
+      "author": "Sameer Pande",
+      "authorRole": "Principal Software Engineer at Innova Solutions",
+      "date": "2025-08-27",
+      "text": "Great experience working along with Alex. Always on to problem solving, fun refinements and code reviews, always available for discussion on technical tasks.",
+      "imageUrl": null,
+      "externalUrl": null,
+      "createdAt": "2025-09-18T00:00:00Z"
+    },
+    {
+      "id": "evidence-0012",
+      "tabId": "leader",
+      "source": "LinkedIn Recommendation",
+      "author": "Uday Kumar Gujju",
+      "authorRole": "Senior Software Engineer at ACS Solutions",
+      "date": "2025-08-27",
+      "text": "I've had the privilege of working closely with Alex, and I can confidently say he is one of the most dependable and knowledgeable professional I've worked with. As a Tech Lead and Full Stack Developer, he brings deep expertise in .NET Core, React, and Azure, combined with strong leadership qualities. What makes him special is his constant support and willingness to guide. He has got the ability to simplify complex problems, mentor team members, and drive projects to success with both technical excellence and collaboration. His calm approach under pressure and focus on delivering quality solutions have been a great source of learning and motivation for me. Any team would be fortunate to have him as a leader, mentor, and teammate.",
+      "imageUrl": null,
+      "externalUrl": null,
+      "createdAt": "2025-09-18T00:00:00Z"
+    },
+    {
+      "id": "evidence-0013",
+      "tabId": "colleague",
+      "source": "LinkedIn Recommendation",
+      "author": "Jean Rollinson",
+      "authorRole": "Experienced technical author and editor",
+      "date": "2025-08-27",
+      "text": "I worked with Alex for just over 3 years. I found him to be very flexible and versatile in his approach to work, and he has a broad-range of knowledge across the software landscape. Alex was always happy to help me with my technical problems; nothing was too much trouble for him. I would be very happy to work with Alex again.",
+      "imageUrl": null,
+      "externalUrl": null,
+      "createdAt": "2025-09-18T00:00:00Z"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "concept-0001",
+      "label": "leadership",
+      "tabId": "leader",
+      "weight": 0.9,
+      "confidence": 0.9,
+      "sourceEvidenceIds": ["evidence-0001", "evidence-0003", "evidence-0005", "evidence-0006", "evidence-0012"],
+      "createdByLLM": false,
+      "createdAt": "2025-09-18T00:00:00Z"
+    },
+    {
+      "id": "concept-0002",
+      "label": "mentorship",
+      "tabId": "leader",
+      "weight": 0.8,
+      "confidence": 0.9,
+      "sourceEvidenceIds": ["evidence-0002", "evidence-0005", "evidence-0006", "evidence-0012"],
+      "createdByLLM": false,
+      "createdAt": "2025-09-18T00:00:00Z"
+    },
+    {
+      "id": "concept-0003",
+      "label": "technical-expertise",
+      "tabId": "engineer",
+      "weight": 0.95,
+      "confidence": 0.9,
+      "sourceEvidenceIds": ["evidence-0004", "evidence-0007", "evidence-0008", "evidence-0009", "evidence-0010", "evidence-0012"],
+      "createdByLLM": false,
+      "createdAt": "2025-09-18T00:00:00Z"
+    },
+    {
+      "id": "concept-0004",
+      "label": "collaboration",
+      "tabId": "colleague",
+      "weight": 0.9,
+      "confidence": 0.9,
+      "sourceEvidenceIds": ["evidence-0002", "evidence-0004", "evidence-0006", "evidence-0011", "evidence-0013"],
+      "createdByLLM": false,
+      "createdAt": "2025-09-18T00:00:00Z"
+    },
+    {
+      "id": "concept-0005",
+      "label": "adaptability",
+      "tabId": "engineer",
+      "weight": 0.85,
+      "confidence": 0.85,
+      "sourceEvidenceIds": ["evidence-0001", "evidence-0006", "evidence-0007", "evidence-0008", "evidence-0013"],
+      "createdByLLM": false,
+      "createdAt": "2025-09-18T00:00:00Z"
+    },
+    {
+      "id": "concept-0006",
+      "label": "problem-solving",
+      "tabId": "engineer",
+      "weight": 0.88,
+      "confidence": 0.87,
+      "sourceEvidenceIds": ["evidence-0004", "evidence-0005", "evidence-0011"],
+      "createdByLLM": false,
+      "createdAt": "2025-09-18T00:00:00Z"
+    },
+    {
+      "id": "concept-0007",
+      "label": "AI-Engineering",
+      "tabId": "engineer",
+      "weight": 0.8,
+      "confidence": 0.9,
+      "sourceEvidenceIds": ["evidence-0001", "evidence-0010"],
+      "createdByLLM": false,
+      "createdAt": "2025-09-18T00:00:00Z"
+    },
+    {
+      "id": "concept-0008",
+      "label": "full-stack",
+      "tabId": "engineer",
+      "weight": 0.9,
+      "confidence": 0.9,
+      "sourceEvidenceIds": ["evidence-0004", "evidence-0010", "evidence-0012"],
+      "createdByLLM": false,
+      "createdAt": "2025-09-18T00:00:00Z"
+    }
+  ],
+  "settings": {
+    "recencyDecayDays": 365,
+    "llm": {
+      "enabled": false,
+      "provider": "openai",
+      "model": "gpt-4o-mini"
+    },
+    "publish": {
+      "autoPublishOnCreate": false
+    }
+  }
+}

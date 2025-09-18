@@ -1,0 +1,300 @@
+{
+  "profile": {
+    "slug": "jane-developer",
+    "displayName": "Jane Developer",
+    "public": true,
+    "theme": "neon-dark",
+    "createdAt": "2025-01-15T00:00:00Z",
+    "bio": "Full-stack engineer passionate about building beautiful, accessible experiences.",
+    "avatar": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=200&h=200",
+    "location": "San Francisco, CA",
+    "website": "https://jane.dev"
+  },
+
+  "tabs": [
+    {
+      "id": "personal",
+      "title": "Personal",
+      "order": 0
+    },
+    {
+      "id": "leader",
+      "title": "Leader",
+      "order": 1
+    },
+    {
+      "id": "engineer",
+      "title": "Engineer",
+      "order": 2
+    },
+    {
+      "id": "colleague",
+      "title": "Colleague",
+      "order": 3
+    }
+  ],
+
+  "evidence": [
+    {
+      "id": "evidence-0001",
+      "tabId": "leader",
+      "source": "LinkedIn Recommendation",
+      "author": "Mike Chen",
+      "authorRole": "Senior Engineering Manager",
+      "date": "2024-11-15",
+      "text": "Jane consistently demonstrates exceptional leadership qualities, guiding our team through complex technical challenges while maintaining a collaborative and inclusive environment. Her ability to translate business requirements into actionable technical strategies has been instrumental in our product's success. She mentors junior developers with patience and creates psychological safety that allows everyone to contribute their best work.",
+      "imageUrl": null,
+      "externalUrl": null,
+      "createdAt": "2025-01-15T00:00:00Z"
+    },
+    {
+      "id": "evidence-0002",
+      "tabId": "engineer",
+      "source": "Peer Review",
+      "author": "Sarah Kim",
+      "authorRole": "Senior Frontend Developer",
+      "date": "2024-10-22",
+      "text": "Working with Jane on the redesign project was incredible. Her technical depth in React and TypeScript is matched only by her attention to user experience details. She architected a component system that's both performant and maintainable, and her code reviews always include thoughtful suggestions that make the entire codebase better.",
+      "imageUrl": null,
+      "externalUrl": null,
+      "createdAt": "2025-01-15T00:00:00Z"
+    },
+    {
+      "id": "evidence-0003",
+      "tabId": "colleague",
+      "source": "360 Review",
+      "author": "David Rodriguez",
+      "authorRole": "Product Manager",
+      "date": "2024-09-18",
+      "text": "Jane brings positive energy to every meeting and collaboration. She's always willing to help others debug issues, share knowledge about new technologies, and contribute to team retrospectives with constructive feedback. Her communication style is clear and inclusive, making complex technical concepts accessible to non-technical stakeholders.",
+      "imageUrl": null,
+      "externalUrl": null,
+      "createdAt": "2025-01-15T00:00:00Z"
+    },
+    {
+      "id": "evidence-0004",
+      "tabId": "personal",
+      "source": "Community Contribution",
+      "author": "Alex Thompson",
+      "authorRole": "Open Source Contributor",
+      "date": "2024-08-10",
+      "text": "Jane's contributions to our open source accessibility toolkit have been transformative. She not only writes clean, well-documented code but also takes time to create comprehensive examples and tutorials. Her commitment to making the web more accessible extends beyond her day job and truly makes a difference in the developer community.",
+      "imageUrl": null,
+      "externalUrl": null,
+      "createdAt": "2025-01-15T00:00:00Z"
+    },
+    {
+      "id": "evidence-0005",
+      "tabId": "leader",
+      "source": "Team Feedback",
+      "author": "Lisa Wang",
+      "authorRole": "Junior Developer",
+      "date": "2024-07-25",
+      "text": "Jane has been an incredible mentor to me. She takes time to explain not just what to do, but why we're doing it. Her 1:1s are always focused on my growth, and she's helped me navigate challenging technical decisions with confidence. She creates an environment where it's safe to ask questions and make mistakes.",
+      "imageUrl": null,
+      "externalUrl": null,
+      "createdAt": "2025-01-15T00:00:00Z"
+    },
+    {
+      "id": "evidence-0006",
+      "tabId": "engineer",
+      "source": "Code Review",
+      "author": "Tom Martinez",
+      "authorRole": "Staff Engineer",
+      "date": "2024-06-30",
+      "text": "Jane's approach to system design is methodical and thorough. She considers edge cases that others miss and always thinks about scalability from day one. Her recent work on our microservices architecture reduced our deployment time by 60% while improving reliability. She documents everything clearly and shares knowledge generously.",
+      "imageUrl": null,
+      "externalUrl": null,
+      "createdAt": "2025-01-15T00:00:00Z"
+    },
+    {
+      "id": "evidence-0007",
+      "tabId": "colleague",
+      "source": "Project Retrospective",
+      "author": "Emma Johnson",
+      "authorRole": "UX Designer",
+      "date": "2024-05-15",
+      "text": "Jane is the kind of engineer every designer dreams of working with. She understands the importance of user experience and always asks thoughtful questions about design decisions. During our recent redesign, she proactively suggested technical solutions that enhanced the user experience while staying within our constraints.",
+      "imageUrl": null,
+      "externalUrl": null,
+      "createdAt": "2025-01-15T00:00:00Z"
+    },
+    {
+      "id": "evidence-0008",
+      "tabId": "personal",
+      "source": "Conference Talk",
+      "author": "React Summit Organizer",
+      "authorRole": "Conference Organizer",
+      "date": "2024-04-20",
+      "text": "Jane's talk on 'Building Accessible React Components' was one of our highest-rated sessions. Her presentation was clear, practical, and inspiring. She provided actionable insights that attendees could immediately apply to their work. The Q&A session showed her deep understanding of both technical implementation and real-world accessibility challenges.",
+      "imageUrl": null,
+      "externalUrl": null,
+      "createdAt": "2025-01-15T00:00:00Z"
+    }
+  ],
+
+  "concepts": [
+    {
+      "id": "concept-0001",
+      "label": "leadership",
+      "tabId": "leader",
+      "weight": 0.9,
+      "confidence": 0.85,
+      "sourceEvidenceIds": ["evidence-0001"],
+      "createdByLLM": false,
+      "createdAt": "2025-01-15T00:00:00Z"
+    },
+    {
+      "id": "concept-0002",
+      "label": "mentorship",
+      "tabId": "leader",
+      "weight": 0.8,
+      "confidence": 0.9,
+      "sourceEvidenceIds": ["evidence-0001", "evidence-0005"],
+      "createdByLLM": false,
+      "createdAt": "2025-01-15T00:00:00Z"
+    },
+    {
+      "id": "concept-0003",
+      "label": "technical-architecture",
+      "tabId": "engineer",
+      "weight": 0.95,
+      "confidence": 0.9,
+      "sourceEvidenceIds": ["evidence-0002", "evidence-0006"],
+      "createdByLLM": false,
+      "createdAt": "2025-01-15T00:00:00Z"
+    },
+    {
+      "id": "concept-0004",
+      "label": "react-expertise",
+      "tabId": "engineer",
+      "weight": 0.85,
+      "confidence": 0.95,
+      "sourceEvidenceIds": ["evidence-0002"],
+      "createdByLLM": false,
+      "createdAt": "2025-01-15T00:00:00Z"
+    },
+    {
+      "id": "concept-0005",
+      "label": "code-quality",
+      "tabId": "engineer",
+      "weight": 0.8,
+      "confidence": 0.85,
+      "sourceEvidenceIds": ["evidence-0002", "evidence-0006"],
+      "createdByLLM": false,
+      "createdAt": "2025-01-15T00:00:00Z"
+    },
+    {
+      "id": "concept-0006",
+      "label": "collaboration",
+      "tabId": "colleague",
+      "weight": 0.9,
+      "confidence": 0.9,
+      "sourceEvidenceIds": ["evidence-0003", "evidence-0007"],
+      "createdByLLM": false,
+      "createdAt": "2025-01-15T00:00:00Z"
+    },
+    {
+      "id": "concept-0007",
+      "label": "communication",
+      "tabId": "colleague",
+      "weight": 0.85,
+      "confidence": 0.8,
+      "sourceEvidenceIds": ["evidence-0003", "evidence-0007"],
+      "createdByLLM": false,
+      "createdAt": "2025-01-15T00:00:00Z"
+    },
+    {
+      "id": "concept-0008",
+      "label": "accessibility",
+      "tabId": "personal",
+      "weight": 0.9,
+      "confidence": 0.95,
+      "sourceEvidenceIds": ["evidence-0004", "evidence-0008"],
+      "createdByLLM": false,
+      "createdAt": "2025-01-15T00:00:00Z"
+    },
+    {
+      "id": "concept-0009",
+      "label": "open-source",
+      "tabId": "personal",
+      "weight": 0.75,
+      "confidence": 0.8,
+      "sourceEvidenceIds": ["evidence-0004"],
+      "createdByLLM": false,
+      "createdAt": "2025-01-15T00:00:00Z"
+    },
+    {
+      "id": "concept-0010",
+      "label": "community",
+      "tabId": "personal",
+      "weight": 0.7,
+      "confidence": 0.85,
+      "sourceEvidenceIds": ["evidence-0004", "evidence-0008"],
+      "createdByLLM": false,
+      "createdAt": "2025-01-15T00:00:00Z"
+    },
+    {
+      "id": "concept-0011",
+      "label": "problem-solving",
+      "tabId": "engineer",
+      "weight": 0.88,
+      "confidence": 0.87,
+      "sourceEvidenceIds": ["evidence-0006"],
+      "createdByLLM": false,
+      "createdAt": "2025-01-15T00:00:00Z"
+    },
+    {
+      "id": "concept-0012",
+      "label": "user-experience",
+      "tabId": "colleague",
+      "weight": 0.82,
+      "confidence": 0.9,
+      "sourceEvidenceIds": ["evidence-0007"],
+      "createdByLLM": false,
+      "createdAt": "2025-01-15T00:00:00Z"
+    },
+    {
+      "id": "concept-0013",
+      "label": "public-speaking",
+      "tabId": "personal",
+      "weight": 0.65,
+      "confidence": 0.8,
+      "sourceEvidenceIds": ["evidence-0008"],
+      "createdByLLM": false,
+      "createdAt": "2025-01-15T00:00:00Z"
+    },
+    {
+      "id": "concept-0014",
+      "label": "strategic-thinking",
+      "tabId": "leader",
+      "weight": 0.87,
+      "confidence": 0.83,
+      "sourceEvidenceIds": ["evidence-0001"],
+      "createdByLLM": false,
+      "createdAt": "2025-01-15T00:00:00Z"
+    },
+    {
+      "id": "concept-0015",
+      "label": "system-design",
+      "tabId": "engineer",
+      "weight": 0.92,
+      "confidence": 0.88,
+      "sourceEvidenceIds": ["evidence-0006"],
+      "createdByLLM": false,
+      "createdAt": "2025-01-15T00:00:00Z"
+    }
+  ],
+
+  "settings": {
+    "recencyDecayDays": 365,
+    "llm": {
+      "enabled": false,
+      "provider": "openai",
+      "model": "gpt-4o-mini"
+    },
+    "publish": {
+      "autoPublishOnCreate": false
+    }
+  }
+}
