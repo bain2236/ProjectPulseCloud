@@ -1,6 +1,7 @@
-import { render, screen } from '@testing-library/react'
-import ProfileCard from '../ProfileCard'
-import { Profile } from '@/lib/types'
+import { render, screen } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
+import ProfileCard from '../ProfileCard';
+import { Profile } from '@/lib/types';
 
 describe('ProfileCard', () => {
   const mockProfile: Profile = {

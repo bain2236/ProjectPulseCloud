@@ -92,14 +92,9 @@ export default function VoronoiCloud({
       const numPoints = Math.max(1, Math.floor(Math.sqrt(targetArea) / 50)); // Adjust density
       
       for (let i = 0; i < numPoints; i++) {
-        // Distribute points more evenly across the canvas
-        const angle = (i / numPoints) * 2 * Math.PI + Math.random() * 0.5;
-        const radius = Math.sqrt(targetArea) * 0.1 * Math.random();
-        const centerX = dimensions.width * (0.1 + Math.random() * 0.8);
-        const centerY = dimensions.height * (0.1 + Math.random() * 0.8);
-        
-        const x = centerX + Math.cos(angle) * radius * Math.random();
-        const y = centerY + Math.sin(angle) * radius * Math.random();
+        // Distribute points randomly across the entire canvas
+        const x = Math.random() * dimensions.width;
+        const y = Math.random() * dimensions.height;
         
         const pointIndex = points.length;
         points.push([

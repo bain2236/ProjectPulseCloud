@@ -1,13 +1,14 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
 import ConceptModal from '../ConceptModal';
 import { Concept, Evidence } from '@/lib/types';
 import '@testing-library/jest-dom';
 
 // Mock Framer Motion
-jest.mock('framer-motion', () => {
-    const original = jest.requireActual('framer-motion');
-    const mockMotionComponent = (tag) => {
-        const Component = ({ children, ...props }) => {
+vi.mock('framer-motion', () => {
+    const original = vi.importActual('framer-motion');
+    const mockMotionComponent = (tag: keyof JSX.IntrinsicElements) => {
+        const Component = ({ children, ...props }: { children: React.ReactNode; [key: string]: any }) => {
             const {
                 animate, initial, exit, variants, transition,
                 layoutId, whileHover, whileTap, layout,
@@ -85,7 +86,7 @@ describe('ConceptModal', () => {
     });
 
     it('should call onClose when the close button is clicked', () => {
-        const handleClose = jest.fn();
+        const handleClose = vi.fn();
         render(
             <ConceptModal concept={mockConcept} evidence={mockEvidence} onClose={handleClose} />
         );

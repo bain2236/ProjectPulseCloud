@@ -1,15 +1,16 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
 import TabStrip from '../TabStrip';
 import { Tab } from '@/lib/types';
 import '@testing-library/jest-dom';
 
 // Mock Framer Motion
-jest.mock('framer-motion', () => {
-    const original = jest.requireActual('framer-motion');
+vi.mock('framer-motion', () => {
+    const original = vi.importActual('framer-motion');
 
     // Create a mock component that forwards all props
-    const mockMotionComponent = (tag) => {
-        const Component = ({ children, ...props }) => {
+    const mockMotionComponent = (tag: keyof JSX.IntrinsicElements) => {
+        const Component = ({ children, ...props }: { children: React.ReactNode; [key: string]: any }) => {
             // Filter out framer-motion specific props
             const {
                 animate, initial, exit, variants, transition,
@@ -64,7 +65,7 @@ describe('TabStrip', () => {
     });
 
     it('should call onTabChange with the correct id when a tab is clicked', () => {
-        const handleTabChange = jest.fn();
+        const handleTabChange = vi.fn();
         render(<TabStrip tabs={mockTabs} activeTab="personal" onTabChange={handleTabChange} />);
         
         const leaderTab = screen.getByText('Leader');
