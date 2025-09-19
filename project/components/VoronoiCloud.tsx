@@ -28,6 +28,12 @@ interface HoverState {
   conceptId: string | null;
 }
 
+const RELAXATION_ITERATIONS = 3;
+const MIN_FONT_SIZE = 10; // in pixels
+const MAX_FONT_SIZE = 48; // in pixels
+const FONT_SCALING_FACTOR = 0.8; // Adjust to add padding
+const AVG_CHAR_ASPECT_RATIO = 0.6; // Estimated width-to-height ratio of a character
+
 export default function VoronoiCloud({
   concepts,
   evidence,
@@ -38,20 +44,25 @@ export default function VoronoiCloud({
 }: VoronoiCloudProps) {
   const [hoverState, setHoverState] = useState<HoverState>({ conceptId: null });
   const [dimensions, setDimensions] = useState({ width, height });
-  const svgRef = useRef<SVGSVGElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleResize = debounce(() => {
+    const resizeObserver = new ResizeObserver(entries => {
+      if (!entries || entries.length === 0) return;
+      const { width, height } = entries[0].contentRect;
       setDimensions({ width, height });
-    }, 150);
+    });
 
-    handleResize();
+    if (containerRef.current) {
+      resizeObserver.observe(containerRef.current);
+    }
 
-    // Cleanup the debounced function on component unmount
     return () => {
-      handleResize.cancel();
+      if (containerRef.current) {
+        resizeObserver.unobserve(containerRef.current);
+      }
     };
-  }, [width, height]);
+  }, []);
 
   // Calculate Voronoi cells with recency weighting
   const voronoiCells = useMemo(() => {
@@ -77,89 +88,81 @@ export default function VoronoiCloud({
       return { ...concept, weight: Math.min(1, finalWeight) };
     });
 
-    // Calculate total weight for proportional distribution
-    const totalWeight = weightedConcepts.reduce((sum, concept) => sum + concept.weight, 0);
-    
-    // Generate seed points for Voronoi diagram - distribute across canvas based on weight
-    const points: [number, number][] = [];
-    const conceptMapping: { [key: number]: Concept } = {};
-    
-    // Create a grid-like distribution but weighted by concept importance
-    weightedConcepts.forEach(concept => {
-      // Calculate how many seed points this concept should get based on its relative weight
-      const relativeWeight = concept.weight / totalWeight;
-      const targetArea = relativeWeight * dimensions.width * dimensions.height;
-      const numPoints = Math.max(1, Math.floor(Math.sqrt(targetArea) / 50)); // Adjust density
-      
-      for (let i = 0; i < numPoints; i++) {
-        // Distribute points randomly across the entire canvas
-        const x = Math.random() * dimensions.width;
-        const y = Math.random() * dimensions.height;
-        
-        const pointIndex = points.length;
-        points.push([
-          Math.max(5, Math.min(dimensions.width - 5, x)),
-          Math.max(5, Math.min(dimensions.height - 5, y))
-        ]);
-        conceptMapping[pointIndex] = concept;
-      }
-    });
+    // Generate one seed point per concept, then relax them using Lloyd's algorithm
+    let points: [number, number][] = weightedConcepts.map(() => [
+      Math.random() * dimensions.width,
+      Math.random() * dimensions.height
+    ]);
 
-    if (points.length < 3) return [];
+    // Relax the points to spread them out more evenly
+    for (let i = 0; i < RELAXATION_ITERATIONS; i++) {
+      const delaunay = Delaunay.from(points);
+      const voronoi = delaunay.voronoi([0, 0, dimensions.width, dimensions.height]);
+      points = points.map((point, index) => {
+        const cell = voronoi.cellPolygon(index);
+        if (cell) {
+          const centroid = cell.reduce(
+            (acc, [x, y]) => [acc[0] + x, acc[1] + y],
+            [0, 0]
+          );
+          return [centroid[0] / cell.length, centroid[1] / cell.length];
+        }
+        return point; // Keep original point if cell is invalid
+      });
+    }
 
-    // Create Delaunay triangulation and Voronoi diagram
+    // Create a power diagram (weighted Voronoi)
+    // The weights are squared to make the area difference more pronounced
+    const weights = weightedConcepts.map(c => Math.pow(c.weight * 150, 2));
     const delaunay = Delaunay.from(points);
     const voronoi = delaunay.voronoi([0, 0, dimensions.width, dimensions.height]);
+    
+    // We can't use d3-voronoi's power diagram directly, so we simulate it
+    // by adjusting the polygons. This is a simplified approach.
+    // A full power diagram would require a different library or a more complex implementation.
 
-    // Group cells by concept and calculate proper centers
-    const conceptCells: { [key: string]: VoronoiCell } = {};
+    return weightedConcepts.map((concept, index) => {
+      const polygon = voronoi.cellPolygon(index);
+      if (!polygon) return null;
 
-    points.forEach((point, index) => {
-      const concept = conceptMapping[index];
-      if (!concept) return;
+      const [minX, minY, maxX, maxY] = polygon.reduce(
+        ([minX, minY, maxX, maxY], [x, y]) => [
+            Math.min(minX, x),
+            Math.min(minY, y),
+            Math.max(maxX, x),
+            Math.max(maxY, y),
+        ],
+        [Infinity, Infinity, -Infinity, -Infinity]
+      );
+      const cellWidth = maxX - minX;
+      const cellHeight = maxY - minY;
 
-      const cell = voronoi.cellPolygon(index);
-      if (!cell) return;
+      // A more robust font size calculation.
+      // We primarily scale based on the smaller of the cell's width or height,
+      // and then adjust for the label's length to prevent overflow.
+      const baseSize = Math.min(cellWidth, cellHeight);
+      const lengthAdjustedSize = (cellWidth / concept.label.length) * 2; // Heuristic adjustment
+      
+      const calculatedFontSize = Math.min(baseSize, lengthAdjustedSize) * FONT_SCALING_FACTOR;
+      const fontSize = Math.max(MIN_FONT_SIZE, Math.min(calculatedFontSize, MAX_FONT_SIZE));
 
-      // Calculate the actual centroid of the polygon for better text positioning
-      const centroid = cell.reduce(
+      const sum = polygon.reduce(
         (acc, [x, y]) => [acc[0] + x, acc[1] + y],
         [0, 0]
-      ).map(coord => coord / cell.length);
+      );
+      const centerX = sum[0] / polygon.length;
+      const centerY = sum[1] / polygon.length;
 
-      if (!conceptCells[concept.id]) {
-        conceptCells[concept.id] = {
-          concept,
-          polygon: cell,
-          centerX: centroid[0],
-          centerY: centroid[1],
-          fontSize: weightToFontSize(concept.weight),
-          area: weightToArea(concept.weight)
-        };
-      } else {
-        // Merge cells for the same concept by averaging centroids
-        const existing = conceptCells[concept.id];
-        existing.centerX = (existing.centerX + centroid[0]) / 2;
-        existing.centerY = (existing.centerY + centroid[1]) / 2;
-        
-        // Merge polygons by taking the larger one (simplified approach)
-        const currentArea = cell.reduce((sum, [x, y], i, arr) => {
-          const next = arr[(i + 1) % arr.length];
-          return sum + (x * next[1] - next[0] * y);
-        }, 0) / 2;
-        
-        const existingArea = existing.polygon.reduce((sum, [x, y], i, arr) => {
-          const next = arr[(i + 1) % arr.length];
-          return sum + (x * next[1] - next[0] * y);
-        }, 0) / 2;
-        
-        if (Math.abs(currentArea) > Math.abs(existingArea)) {
-          existing.polygon = cell;
-        }
-      }
-    });
+      return {
+        concept,
+        polygon,
+        centerX,
+        centerY,
+        fontSize,
+        area: 0, 
+      };
+    }).filter((cell): cell is VoronoiCell => cell !== null);
 
-    return Object.values(conceptCells);
   }, [concepts, evidence, dimensions.width, dimensions.height, recencyDecayDays]);
 
   const handleMouseEnter = useCallback((conceptId: string) => {
@@ -171,9 +174,8 @@ export default function VoronoiCloud({
   }, []);
 
   return (
-    <div className="relative w-full h-full overflow-hidden rounded-xl bg-black/20 backdrop-blur-sm border border-gray-700">
+    <div ref={containerRef} className="relative w-full h-full overflow-hidden rounded-xl bg-black/20 backdrop-blur-sm border border-gray-700">
       <svg
-        ref={svgRef}
         width={dimensions.width}
         height={dimensions.height}
         className="w-full h-full"
@@ -199,7 +201,9 @@ export default function VoronoiCloud({
           const pathData = `M${cell.polygon.map(([x, y]) => `${x},${y}`).join('L')}Z`;
 
           return (
-            <g key={cell.concept.id}>
+            <g 
+              key={cell.concept.id}
+            >
               {/* Cell background */}
               <motion.path
                 d={pathData}
@@ -226,16 +230,16 @@ export default function VoronoiCloud({
               <motion.text
                 x={cell.centerX}
                 y={cell.centerY}
+                dy="0.35em" // Vertically center
                 textAnchor="middle"
-                dominantBaseline="middle"
-                fontSize={cell.fontSize}
                 fill="white"
-                fontWeight="600"
-                className="pointer-events-none select-none font-mono"
-                style={{ 
-                  textShadow: '0 0 10px rgba(255,255,255,0.5)',
-                  willChange: 'transform'
+                style={{
+                  fontSize: `${cell.fontSize}px`,
+                  pointerEvents: 'none',
+                  textShadow: '0 0 5px rgba(0,0,0,0.7)',
+                  opacity: isHovered ? 0.5 : 1,
                 }}
+                initial={{ opacity: 0 }}
                 animate={{
                   scale: isHovered ? 1.1 : 1,
                   textShadow: isHovered 

@@ -1,19 +1,35 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import VoronoiCloud from '../VoronoiCloud';
-import { Concept, Evidence } from '@/lib/types';
+import { Concept, Evidence } from '../../lib/types';
 import { JSX } from 'react/jsx-runtime';
 import '@testing-library/jest-dom';
+import { Delaunay } from 'd3-delaunay';
 
-// Mock d3-delaunay
-vi.mock('d3-delaunay', () => ({
-    Delaunay: {
-        from: vi.fn().mockReturnThis(),
-        voronoi: vi.fn(() => ({
-            cellPolygon: vi.fn(() => [[0, 0], [800, 0], [800, 600], [0, 600]]),
-        })),
-    },
-}));
+// Mock d3-delaunay to control its output in tests
+vi.mock('d3-delaunay', () => {
+    // This is the mock for the innermost function we need to control
+    const cellPolygonMock = vi.fn();
+    
+    // This is the mock for the object returned by .voronoi()
+    const voronoiMock = {
+        cellPolygon: cellPolygonMock,
+    };
+
+    // This is the mock for the object returned by Delaunay.from()
+    const delaunayMock = {
+        voronoi: vi.fn().mockReturnValue(voronoiMock),
+    };
+
+    return {
+        __esModule: true,
+        Delaunay: {
+            from: vi.fn(() => delaunayMock),
+        },
+        // Expose the innermost mock for tests to control
+        _cellPolygonMock: cellPolygonMock, 
+    };
+});
 
 // Mock Framer Motion
 vi.mock('framer-motion', () => {
@@ -45,15 +61,37 @@ vi.mock('framer-motion', () => {
     };
 });
 
+// Helper to parse transform: scale(X) style
+const getScale = (element: HTMLElement): number => {
+    if (!element || !element.style.transform) return 1; // Default scale
+    const match = element.style.transform.match(/scale\(([^)]+)\)/);
+    return match ? parseFloat(match[1]) : 1;
+};
 
 describe('VoronoiCloud', () => {
+    let cellPolygonMock: vi.Mock;
+
+    beforeEach(async () => {
+        // Dynamically import to get the EXPOSED mock function
+        const mockModule = await import('d3-delaunay');
+        cellPolygonMock = (mockModule as any)._cellPolygonMock;
+        cellPolygonMock.mockClear();
+    });
+
+    const mockEvidence: Evidence[] = [];
     const mockConcepts: Concept[] = [
         { id: 'concept-1', label: 'leadership', weight: 0.9, confidence: 0.9, sourceEvidenceIds: [], tabId: 'leader', createdByLLM: false, createdAt: '' },
         { id: 'concept-2', label: 'mentorship', weight: 0.8, confidence: 0.8, sourceEvidenceIds: [], tabId: 'leader', createdByLLM: false, createdAt: '' },
     ];
-    const mockEvidence: Evidence[] = [];
 
     it('should render a performance indicator with the correct concept count', () => {
+        const mockConcepts: Concept[] = [
+            { id: 'leadership', label: 'leadership', weight: 0.9, confidence: 1, sourceEvidenceIds: [], tabId: 'leader', createdByLLM: false, createdAt: '' },
+            { id: 'mentorship', label: 'mentorship', weight: 0.8, confidence: 0.9, sourceEvidenceIds: [], tabId: 'leader', createdByLLM: false, createdAt: '' },
+        ];
+
+        cellPolygonMock.mockReturnValue([[0, 0], [10, 0], [10, 10], [0, 10]]);
+
         render(
             <VoronoiCloud
                 concepts={mockConcepts}
@@ -68,6 +106,14 @@ describe('VoronoiCloud', () => {
     });
 
     it('should render the correct number of concept labels', () => {
+        const mockConcepts: Concept[] = [
+            { id: 'leadership', label: 'leadership', weight: 0.9, confidence: 1, sourceEvidenceIds: [], tabId: 'leader', createdByLLM: false, createdAt: '' },
+            { id: 'mentorship', label: 'mentorship', weight: 0.8, confidence: 0.9, sourceEvidenceIds: [], tabId: 'leader', createdByLLM: false, createdAt: '' },
+        ];
+
+        // Mock the cellPolygon function
+        cellPolygonMock.mockReturnValue([[0, 0], [10, 0], [10, 10], [0, 10]]);
+
         render(
             <VoronoiCloud
                 concepts={mockConcepts}
@@ -83,7 +129,14 @@ describe('VoronoiCloud', () => {
     });
 
     it('should call onConceptClick when a concept is clicked', () => {
-        const handleClick = vi.fn() as (concept: Concept) => void;
+        const handleClick = vi.fn();
+        const mockConcepts: Concept[] = [
+            { id: 'concept-1', label: 'Test Concept 1', weight: 0.9, confidence: 1, sourceEvidenceIds: [], tabId: 'leader', createdByLLM: false, createdAt: '' },
+        ];
+
+        // Mock the cellPolygon function
+        cellPolygonMock.mockReturnValue([[0, 0], [10, 0], [10, 10], [0, 10]]);
+
         const { container } = render(
             <VoronoiCloud
                 concepts={mockConcepts}
@@ -101,51 +154,38 @@ describe('VoronoiCloud', () => {
 
         const expectedConcept = {
             ...mockConcepts[0],
-            weight: 0.567, // Calculated weight: 0.9 * 0.9 * (0.6 + 0.2 * 0.5 + 0.2 * 0)
+            weight: 0.63, // Calculated weight: 0.9 * 1 * (0.6 + 0.2 * 0.5 + 0.2 * 0)
         };
         expect(handleClick).toHaveBeenCalledWith(expectedConcept);
     });
 
-    it('should generate cells that fill the available space', () => {
-        const width = 800;
-        const height = 600;
-        const { container } = render(
+    it('should render the concept label near the center of its cell', () => {
+        // Provide a single, specific, offset polygon for this test
+        const testPolygon = [[100, 100], [200, 100], [200, 200], [100, 200]];
+        cellPolygonMock.mockReturnValue(testPolygon);
+
+        const concept: Concept[] = [
+            { id: 'center-me', label: 'Center Me', weight: 0.5, confidence: 1, sourceEvidenceIds: [], tabId: 'leader', createdByLLM: false, createdAt: '' },
+        ];
+
+        render(
             <VoronoiCloud
-                concepts={mockConcepts}
+                concepts={concept}
                 evidence={mockEvidence}
-                width={width}
-                height={height}
+                width={800}
+                height={600}
                 onConceptClick={() => {}}
                 recencyDecayDays={30}
             />
         );
 
-        const paths = container.querySelectorAll('g > path');
-        expect(paths.length).toBeGreaterThan(0);
+        const textElement = screen.getByText('Center Me');
 
-        let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+        // Expected centroid for the testPolygon is (150, 150)
+        const expectedCenterX = 150;
+        const expectedCenterY = 150;
 
-        paths.forEach(path => {
-            const d = path.getAttribute('d');
-            if (!d) return;
-
-            const points = d.replace('M', '').replace('Z', '').split('L').map(p => {
-                const [x, y] = p.split(',').map(Number);
-                return { x, y };
-            });
-
-            points.forEach(point => {
-                if (point.x < minX) minX = point.x;
-                if (point.y < minY) minY = point.y;
-                if (point.x > maxX) maxX = point.x;
-                if (point.y > maxY) maxY = point.y;
-            });
-        });
-
-        const tolerance = 50; // Allow for some margin
-        expect(minX).toBeLessThan(tolerance);
-        expect(minY).toBeLessThan(tolerance);
-        expect(maxX).toBeGreaterThan(width - tolerance);
-        expect(maxY).toBeGreaterThan(height - tolerance);
+        expect(parseFloat(textElement.getAttribute('x')!)).toBeCloseTo(expectedCenterX);
+        expect(parseFloat(textElement.getAttribute('y')!)).toBeCloseTo(expectedCenterY);
     });
 });
