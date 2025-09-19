@@ -1,10 +1,11 @@
 'use client';
 
 import { useMemo, useState, useCallback, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import { Delaunay } from 'd3-delaunay';
 import { Concept, Evidence } from '@/lib/types';
 import { weightToFontSize, weightToArea, calculateRecencyMultiplier, calculatePulseOrigin, debounce } from '@/lib/utils';
+import PulsingBorder from './PulsingBorder';
 
 interface VoronoiCloudProps {
   concepts: Concept[];
@@ -33,6 +34,7 @@ const MIN_FONT_SIZE = 10; // in pixels
 const MAX_FONT_SIZE = 48; // in pixels
 const FONT_SCALING_FACTOR = 0.8; // Adjust to add padding
 const AVG_CHAR_ASPECT_RATIO = 0.6; // Estimated width-to-height ratio of a character
+const MAX_PROXIMITY_DISTANCE = 300; // in pixels, for the proximity effect
 
 export default function VoronoiCloud({
   concepts,
@@ -43,8 +45,14 @@ export default function VoronoiCloud({
   recencyDecayDays
 }: VoronoiCloudProps) {
   const [hoverState, setHoverState] = useState<HoverState>({ conceptId: null });
+  const [selectedConceptId, setSelectedConceptId] = useState<string | null>(null);
   const [dimensions, setDimensions] = useState({ width, height });
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Reset selection when the concepts list changes (i.e., tab switch)
+  useEffect(() => {
+    setSelectedConceptId(null);
+  }, [concepts]);
 
   useEffect(() => {
     const resizeObserver = new ResizeObserver(entries => {
@@ -63,6 +71,11 @@ export default function VoronoiCloud({
       }
     };
   }, []);
+
+  const handleClick = (concept: Concept) => {
+    setSelectedConceptId(prevId => prevId === concept.id ? null : concept.id); // Toggle selection
+    onConceptClick(concept);
+  };
 
   // Calculate Voronoi cells with recency weighting
   const voronoiCells = useMemo(() => {
@@ -198,6 +211,7 @@ export default function VoronoiCloud({
         {/* Render Voronoi cells */}
         {voronoiCells.map((cell) => {
           const isHovered = hoverState.conceptId === cell.concept.id;
+          const isSelected = selectedConceptId === cell.concept.id;
           const pathData = `M${cell.polygon.map(([x, y]) => `${x},${y}`).join('L')}Z`;
 
           return (
@@ -209,22 +223,24 @@ export default function VoronoiCloud({
                 d={pathData}
                 fill="transparent"
                 stroke="url(#neonGradient)"
-                strokeWidth={isHovered ? 2 : 1}
-                strokeOpacity={isHovered ? 0.8 : 0.4}
-                className="cursor-pointer transition-all duration-200"
-                style={{ willChange: 'transform, opacity' }}
+                strokeOpacity={0.4}
                 onMouseEnter={() => handleMouseEnter(cell.concept.id)}
                 onMouseLeave={handleMouseLeave}
-                onClick={() => onConceptClick(cell.concept)}
-                whileHover={{ 
-                  scale: 1.05,
-                  transition: { duration: 0.2, type: "spring" }
+                onClick={() => handleClick(cell.concept)}
+                className="cursor-pointer"
+                animate={{
+                  strokeWidth: isSelected ? 3 : 1,
+                  strokeOpacity: isSelected ? 0.9 : 0.4,
                 }}
                 whileTap={{ 
                   scale: 0.95,
                   transition: { duration: 0.1 }
                 }}
               />
+
+              {(isHovered || isSelected) && (
+                <PulsingBorder pathData={pathData} />
+              )}
 
               {/* Concept label */}
               <motion.text
@@ -237,19 +253,17 @@ export default function VoronoiCloud({
                   fontSize: `${cell.fontSize}px`,
                   pointerEvents: 'none',
                   textShadow: '0 0 5px rgba(0,0,0,0.7)',
-                  opacity: isHovered ? 0.5 : 1,
                 }}
-                initial={{ opacity: 0 }}
                 animate={{
-                  scale: isHovered ? 1.1 : 1,
-                  textShadow: isHovered 
-                    ? ['0 0 10px #00FFFF', '0 0 20px #FF1493', '0 0 10px #00FFFF']
-                    : '0 0 10px rgba(255,255,255,0.5)'
+                  scale: isHovered || isSelected ? 1.1 : 1,
+                  textShadow: isHovered || isSelected
+                    ? '0 0 15px #FFFFFF'
+                    : '0 0 5px rgba(0,0,0,0.7)'
                 }}
+                whileTap={{ scale: 0.9 }}
                 transition={{ 
-                  duration: isHovered ? 0.6 : 0.3,
-                  repeat: isHovered ? Infinity : 0,
-                  repeatType: "reverse"
+                  duration: 0.3,
+                  type: 'spring', stiffness: 300, damping: 20
                 }}
               >
                 {cell.concept.label.replace(/-/g, ' ')}
