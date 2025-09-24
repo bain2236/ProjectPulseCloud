@@ -16,18 +16,21 @@ describe('Keyword Extractor', () => {
       id: expect.any(String),
       label: 'React',
       tabId: 'engineer',
+      weight: expect.any(Number), // ENFORCE WEIGHT
       sourceEvidenceIds: [], // This will be populated by the assembler
     });
     expect(concepts).toContainEqual({
       id: expect.any(String),
       label: 'Leadership',
       tabId: 'leader',
+      weight: expect.any(Number), // ENFORCE WEIGHT
       sourceEvidenceIds: [],
     });
     expect(concepts).toContainEqual({
       id: expect.any(String),
       label: 'Python',
       tabId: 'engineer',
+      weight: expect.any(Number), // ENFORCE WEIGHT
       sourceEvidenceIds: [],
     });
   });

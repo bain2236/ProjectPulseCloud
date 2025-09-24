@@ -30,6 +30,7 @@ export function extractKeywords(text: string, keywords: Keywords): Concept[] {
         id: `concept-${toSlug(keyword.label)}-${uuidv4()}`,
         label: keyword.label,
         tabId: keyword.tabId,
+        weight: 0.85, // Add a default high weight for keywords
         sourceEvidenceIds: [],
       });
     }
