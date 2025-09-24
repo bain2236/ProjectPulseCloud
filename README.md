@@ -109,8 +109,22 @@ public/
 
 - **StackBlitz**: Best for demos and quick iterations
 - **Vercel**: Recommended for production deployments
-- **Static Export**: Configured for static hosting (no server required)
+- **Static Export**: Configured for static export compatibility
 - **Asset Optimization**: Images are unoptimized for static export compatibility
+
+## Data Architecture
+
+The project uses a data pipeline to process raw, unstructured text into the structured `profile.json` that powers the visualization. This process is managed in the `/data` directory at the root of the repository.
+
+1.  **/data/1_raw**: Contains the source material, such as CVs, recommendations, and personal notes as plain text or markdown files.
+2.  **/data/3_pipeline**: A script (`process_raw_data.ts`) reads the raw files, uses an LLM to extract structured evidence and concepts.
+3.  **/data/2_processed**: The structured JSON output from the pipeline is stored here for inspection and debugging.
+4.  **/project/public/profile.json**: The final, aggregated JSON file is written to this location, where the Next.js application consumes it at build time.
+
+To add new information to your profile, simply add a new file to the appropriate subdirectory in `/data/1_raw` and re-run the processing script.
+
+## Future Features
+- **Multimedia Evidence**: Allow images and videos to be included as evidence sources, linking them to concepts.
 
 ## Browser Support
 

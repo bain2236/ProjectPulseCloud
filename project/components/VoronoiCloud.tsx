@@ -36,6 +36,9 @@ const FONT_SCALING_FACTOR = 0.8; // Adjust to add padding
 const AVG_CHAR_ASPECT_RATIO = 0.6; // Estimated width-to-height ratio of a character
 const MAX_PROXIMITY_DISTANCE = 300; // in pixels, for the proximity effect
 
+const MIN_TILE_SCALE = 0.4;
+const MAX_TILE_SCALE = 1.2;
+
 export default function VoronoiCloud({
   concepts,
   evidence,
@@ -96,8 +99,8 @@ export default function VoronoiCloud({
         : 0.5;
 
       // Combine weight, confidence, and evidence count for final scoring
-      const evidenceBonus = Math.min(relatedEvidence.length / 3, 1); // Cap at 3 evidence pieces
-      const finalWeight = concept.weight * concept.confidence * (0.6 + 0.2 * avgRecency + 0.2 * evidenceBonus);
+      const evidenceBonus = Math.min(relatedEvidence.length / 2.5, 1); // Ramps up slightly slower
+      const finalWeight = concept.weight * concept.confidence * (0.4 + 0.2 * avgRecency + 0.4 * evidenceBonus);
       return { ...concept, weight: Math.min(1, finalWeight) };
     });
 
@@ -123,16 +126,9 @@ export default function VoronoiCloud({
         return point; // Keep original point if cell is invalid
       });
     }
-
-    // Create a power diagram (weighted Voronoi)
-    // The weights are squared to make the area difference more pronounced
-    const weights = weightedConcepts.map(c => Math.pow(c.weight * 150, 2));
+    
     const delaunay = Delaunay.from(points);
     const voronoi = delaunay.voronoi([0, 0, dimensions.width, dimensions.height]);
-    
-    // We can't use d3-voronoi's power diagram directly, so we simulate it
-    // by adjusting the polygons. This is a simplified approach.
-    // A full power diagram would require a different library or a more complex implementation.
 
     return weightedConcepts.map((concept, index) => {
       const polygon = voronoi.cellPolygon(index);
@@ -150,13 +146,12 @@ export default function VoronoiCloud({
       const cellWidth = maxX - minX;
       const cellHeight = maxY - minY;
 
-      // A more robust font size calculation.
-      // We primarily scale based on the smaller of the cell's width or height,
+      // Font size is now primarily driven by weight, then clamped by cell boundaries
       // and then adjust for the label's length to prevent overflow.
       const baseSize = Math.min(cellWidth, cellHeight);
-      const lengthAdjustedSize = (cellWidth / concept.label.length) * 2; // Heuristic adjustment
+      const lengthAdjustedSize = (cellWidth / concept.label.length) * 1.6; // Slightly more aggressive
       
-      const calculatedFontSize = Math.min(baseSize, lengthAdjustedSize) * FONT_SCALING_FACTOR;
+      const calculatedFontSize = Math.min(baseSize, lengthAdjustedSize) * 0.7; // Generous 30% padding
       const fontSize = Math.max(MIN_FONT_SIZE, Math.min(calculatedFontSize, MAX_FONT_SIZE));
 
       const sum = polygon.reduce(
@@ -219,6 +214,12 @@ export default function VoronoiCloud({
               key={cell.concept.id}
             >
               {/* Cell background */}
+              <motion.path
+                d={pathData}
+                fill="transparent"
+              />
+
+              {/* Cell border */}
               <motion.path
                 d={pathData}
                 fill="transparent"

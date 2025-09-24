@@ -1,0 +1,16 @@
+# Environment variables
+.env
+
+# Project secrets
+/project/.env
+
+# Node modules
+/node_modules
+/project/node_modules
+
+# Build output
+/project/.next
+/project/out
+
+# Log files
+/project/*.log

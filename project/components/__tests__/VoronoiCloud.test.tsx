@@ -154,7 +154,7 @@ describe('VoronoiCloud', () => {
 
         const expectedConcept = {
             ...mockConcepts[0],
-            weight: 0.63, // Calculated weight: 0.9 * 1 * (0.6 + 0.2 * 0.5 + 0.2 * 0)
+            weight: 0.45, // Updated for new ambitious scaling
         };
         expect(handleClick).toHaveBeenCalledWith(expectedConcept);
     });
