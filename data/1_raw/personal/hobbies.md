@@ -2,6 +2,7 @@
 
 I cycle through these hobbies over the years:
 
+- Hiking
 - Powerlifting
 - Mountain biking
 - Wargaming

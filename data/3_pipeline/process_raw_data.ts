@@ -17,26 +17,12 @@ export async function main() {
   console.log("Data processing pipeline starting...");
 
   const rawDataPath = path.join(__dirname, '..', '1_raw');
+  const baseProfilePath = path.join(__dirname, '..', 'base-profile.json');
   const outputPath = path.join(__dirname, '..', '..', 'project', 'public', 'profile.json');
 
-  // TODO: Load base profile and tabs from a file instead of hardcoding
-  const baseProfile = {
-    "slug": "alex-bainbridge",
-    "displayName": "Alex Bainbridge",
-    "public": true,
-    "theme": "neon-dark",
-    "createdAt": new Date().toISOString(),
-    "bio": "Full-stack engineer passionate about building beautiful, accessible experiences.",
-    "avatar": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=200&h=200",
-    "location": "United Kingdom",
-    "website": "https://alex.dev"
-  };
-  const tabs = [
-    { "id": "personal", "title": "Personal", "order": 0 },
-    { "id": "leader", "title": "Leader", "order": 1 },
-    { "id": "engineer", "title": "Engineer", "order": 2 },
-    { "id": "colleague", "title": "Colleague", "order": 3 }
-  ];
+  const baseProfileContent = await fs.readFile(baseProfilePath, 'utf-8');
+  const baseProfileData = JSON.parse(baseProfileContent);
+  const { profile, tabs } = baseProfileData;
 
   const rawFiles = await readAllFiles(rawDataPath);
   
@@ -48,7 +34,7 @@ export async function main() {
     }
   }
 
-  const finalJson = assembleFinalJson(baseProfile, tabs, processedData);
+  const finalJson = assembleFinalJson(profile, tabs, processedData);
 
   await fs.writeFile(outputPath, JSON.stringify(finalJson, null, 2));
 

@@ -1,0 +1,19 @@
+{
+  "profile": {
+    "slug": "alex-bainbridge",
+    "displayName": "Alex Bainbridge",
+    "public": true,
+    "theme": "neon-dark",
+    "createdAt": "2025-09-18T00:00:00Z",
+    "bio": "Full-stack engineer passionate about building beautiful, accessible experiences.",
+    "avatar": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=200&h=200",
+    "location": "United Kingdom",
+    "website": "https://alex.dev"
+  },
+  "tabs": [
+    { "id": "personal", "title": "Personal", "order": 0 },
+    { "id": "leader", "title": "Leader", "order": 1 },
+    { "id": "engineer", "title": "Engineer", "order": 2 },
+    { "id": "colleague", "title": "Colleague", "order": 3 }
+  ]
+}

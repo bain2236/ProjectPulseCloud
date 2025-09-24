@@ -10,6 +10,11 @@ vi.mock('../../data/3_pipeline/llmClient');
 describe('Pipeline Integration Test', () => {
   it('should read raw files, process them, and write the final json', async () => {
     // --- MOCK SETUP ---
+    const mockBaseProfile = {
+      profile: { displayName: 'Test User' },
+      tabs: [{ id: 'test', title: 'Test' }],
+    };
+
     const mockRawFiles = [
       { path: 'data/1_raw/recommendations/rec1.txt', content: 'good collaborator' },
       { path: 'data/1_raw/cv/cv.md', content: 'expert in react' },
@@ -29,6 +34,7 @@ describe('Pipeline Integration Test', () => {
     // Mock file system reads
     vi.mocked(fs.readdir).mockResolvedValue(['rec1.txt', 'cv.md'] as any);
     vi.mocked(fs.readFile)
+      .mockResolvedValueOnce(JSON.stringify(mockBaseProfile)) // For base-profile.json
       .mockResolvedValueOnce('good collaborator')
       .mockResolvedValueOnce('expert in react');
     vi.mocked(fs.stat).mockResolvedValue({ isFile: () => true } as any);
