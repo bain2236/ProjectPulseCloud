@@ -8,11 +8,12 @@ vi.mock('fs/promises');
 vi.mock('../../data/3_pipeline/llmClient');
 
 describe('Pipeline Integration Test', () => {
-  it('should read raw files, process them, and write the final json', async () => {
+  it('should read raw files, process them, and write the final json with settings', async () => {
     // --- MOCK SETUP ---
     const mockBaseProfile = {
       profile: { displayName: 'Test User' },
       tabs: [{ id: 'test', title: 'Test' }],
+      settings: { recencyDecayDays: 365 },
     };
 
     const mockRawFiles = [
@@ -63,5 +64,8 @@ describe('Pipeline Integration Test', () => {
     expect(outputJson.concepts).toHaveLength(2);
     expect(outputJson.profile).toBeDefined();
     expect(outputJson.concepts.find((c:any) => c.label === 'react')).toBeDefined();
+    expect(outputJson.settings).toBeDefined();
+    expect(outputJson.settings.recencyDecayDays).toBe(365);
+    expect(outputJson.profile).toEqual(mockBaseProfile.profile); // Also check profile content
   });
 });

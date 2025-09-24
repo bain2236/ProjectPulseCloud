@@ -31,7 +31,9 @@ describe('JSON Assembly Utility', () => {
       }
     ];
 
-    const finalJson = assembleFinalJson(baseProfile, tabs, processedData);
+    const settings = { recencyDecayDays: 365 };
+
+    const finalJson = assembleFinalJson(baseProfile, tabs, settings, processedData);
 
     // Check that all parts are present
     expect(finalJson.profile).toEqual(baseProfile);
@@ -50,5 +52,6 @@ describe('JSON Assembly Utility', () => {
       label: 'collaboration',
       sourceEvidenceIds: ['evidence-2'],
     });
+    expect(finalJson.settings).toEqual(settings);
   });
 });

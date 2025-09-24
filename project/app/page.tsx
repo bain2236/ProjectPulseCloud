@@ -46,6 +46,8 @@ export default function Home() {
     return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 
+  console.log(profileData);
+
   // Filter concepts by active tab
   const filteredConcepts = useMemo(() => {
     if (!profileData) return [];

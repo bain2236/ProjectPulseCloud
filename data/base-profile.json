@@ -15,5 +15,8 @@
     { "id": "leader", "title": "Leader", "order": 1 },
     { "id": "engineer", "title": "Engineer", "order": 2 },
     { "id": "colleague", "title": "Colleague", "order": 3 }
-  ]
+  ],
+  "settings": {
+    "recencyDecayDays": 365
+  }
 }
