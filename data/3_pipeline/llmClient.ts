@@ -26,28 +26,30 @@ export const llmClient = {
       Your output MUST be a single, valid JSON object with the following structure:
       {
         "evidence": {
-          "id": "string",
+          "id": "string", // MUST be a unique identifier for THIS specific piece of evidence
           "source": "string",
           "text": "string",
           "author": "string"
         },
         "concepts": [
           {
-            "id": "string",
+            "id": "string", // MUST be a unique identifier for THIS concept
             "label": "string",
+            "tabId": "string", // The ID of the most relevant tab: "personal", "leader", "engineer", or "colleague"
             "sourceEvidenceIds": ["string"]
           }
         ]
       }
 
       **Instructions:**
-      1.  Generate a unique \`id\` for both the evidence and each concept...
-      2.  Infer the \`source\` from the context of the text (e.g., "CV", "LinkedIn Recommendation", "Personal Reflection").
-      3.  The \`author\` should be extracted if it is a recommendation. If no author is found, or for sources like a CV or personal notes, the author MUST be "Alex Bainbridge".
-      4.  The \`text\` in the evidence object MUST be the original, unmodified text.
-      5.  Extract between 1 and 5 key concepts from the text.
-      6.  The \`sourceEvidenceIds\` array for each concept must contain the \`id\` of the single evidence object you created.
-      7.  You MUST output only the JSON object...
+      1.  Generate a **NEW and UNIQUE** \`id\` for the evidence object and for each concept object for every request. Use a prefix and a random number.
+      2.  Infer the \`source\` from the context of the text (e.g., "CV", "LinkedIn Recommendation").
+      3.  The \`author\` must be "Alex Bainbridge" for sources like a CV or personal notes. For recommendations, extract the author's name if possible.
+      4.  For each concept, determine the most appropriate \`tabId\` from the available options: "personal", "leader", "engineer", "colleague".
+      5.  The \`text\` in the evidence object MUST be the original, unmodified text.
+      6.  Extract between 1 and 5 key concepts from the text.
+      7.  The \`sourceEvidenceIds\` array for each concept must contain the \`id\` of the single evidence object you created.
+      8.  You MUST output only the JSON object...
     `;
 
     try {

@@ -9,6 +9,7 @@
     "pipeline:run": "node -r ts-node/register data/3_pipeline/process_raw_data.ts"
   },
   "devDependencies": {
+    "@types/uuid": "^10.0.0",
     "@vitejs/plugin-react": "^5.0.3",
     "jsdom": "^27.0.0",
     "react": "^19.1.1",
@@ -19,6 +20,7 @@
   },
   "dependencies": {
     "dotenv": "^17.2.2",
-    "openai": "^5.23.0"
+    "openai": "^5.23.0",
+    "uuid": "^13.0.0"
   }
 }

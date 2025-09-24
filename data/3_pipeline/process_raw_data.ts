@@ -1,6 +1,7 @@
 import { readAllFiles } from './fileReader.ts';
 import { processRawText } from './processor.ts';
 import { assembleFinalJson } from './assembler.ts';
+import { extractKeywords } from './keywordExtractor.ts';
 import * as fs from 'fs/promises';
 import * as path from 'path';
 
@@ -20,6 +21,9 @@ export async function main() {
   const baseProfilePath = path.join(__dirname, '..', 'base-profile.json');
   const outputPath = path.join(__dirname, '..', '..', 'project', 'public', 'profile.json');
 
+  const keywordsContent = await fs.readFile(path.join(__dirname, '..', 'keywords.json'), 'utf-8');
+  const keywords = JSON.parse(keywordsContent);
+  
   const baseProfileContent = await fs.readFile(baseProfilePath, 'utf-8');
   const baseProfileData = JSON.parse(baseProfileContent);
   const { profile, tabs, settings } = baseProfileData;
@@ -45,9 +49,22 @@ export async function main() {
   const processedData = [];
   for (const chunk of chunksToProcess) {
     console.log(`Processing chunk from ${chunk.path}...`);
-    const result = await processRawText(chunk.content, chunk.path);
-    if (result) {
-      processedData.push(result);
+    
+    // Get concepts from both sources
+    const keywordConcepts = extractKeywords(chunk.content, keywords);
+    const llmResult = await processRawText(chunk.content, chunk.path);
+
+    // Combine and add evidence ID to keyword concepts
+    if (llmResult && llmResult.evidence.id) {
+      keywordConcepts.forEach(c => c.sourceEvidenceIds.push(llmResult.evidence.id));
+      const combinedConcepts = [...keywordConcepts, ...llmResult.concepts];
+      
+      processedData.push({
+        evidence: llmResult.evidence,
+        concepts: combinedConcepts,
+      });
+    } else if (llmResult) {
+      processedData.push(llmResult);
     }
   }
 

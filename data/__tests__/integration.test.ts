@@ -15,6 +15,7 @@ describe('Pipeline Integration Test', () => {
       tabs: [{ id: 'test', title: 'Test' }],
       settings: { recencyDecayDays: 365 },
     };
+    const mockKeywords = { technical: ['react'], soft: ['collaborator'] };
 
     const mockRawFiles = [
       { path: 'data/1_raw/recommendations/rec1.txt', content: 'good collaborator' },
@@ -36,9 +37,10 @@ describe('Pipeline Integration Test', () => {
     const mockDirent = (name: string) => ({ name, isFile: () => true, isDirectory: () => false });
     vi.mocked(fs.readdir).mockResolvedValue([mockDirent('rec1.txt'), mockDirent('cv.md')] as any);
     vi.mocked(fs.readFile)
+      .mockResolvedValueOnce(JSON.stringify(mockKeywords)) // For keywords.json
       .mockResolvedValueOnce(JSON.stringify(mockBaseProfile)) // For base-profile.json
-      .mockResolvedValueOnce('good collaborator')
-      .mockResolvedValueOnce('expert in react');
+      .mockResolvedValueOnce('good collaborator') // For rec1.txt
+      .mockResolvedValueOnce('expert in react'); // For cv.md
     vi.mocked(fs.stat).mockResolvedValue({ isFile: () => true } as any);
 
     // Mock file system write
@@ -61,7 +63,7 @@ describe('Pipeline Integration Test', () => {
     
     expect(outputPath).toContain('project/public/profile.json');
     expect(outputJson.evidence).toHaveLength(2);
-    expect(outputJson.concepts).toHaveLength(2);
+    expect(outputJson.concepts).toHaveLength(4); // Increased to 4 to account for keyword extraction
     expect(outputJson.profile).toBeDefined();
     expect(outputJson.concepts.find((c:any) => c.label === 'react')).toBeDefined();
     expect(outputJson.settings).toBeDefined();
