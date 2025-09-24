@@ -2,6 +2,7 @@ import { readAllFiles } from './fileReader.ts';
 import { processRawText } from './processor.ts';
 import { assembleFinalJson } from './assembler.ts';
 import { extractKeywords } from './keywordExtractor.ts';
+import { chunkFile } from './chunker.ts';
 import * as fs from 'fs/promises';
 import * as path from 'path';
 
@@ -30,21 +31,7 @@ export async function main() {
 
   const rawFiles = await readAllFiles(rawDataPath);
   
-  const chunksToProcess: { content: string, path: string }[] = [];
-
-  for (const file of rawFiles) {
-    if (path.basename(file.path) === 'linkdin.txt') {
-      // Split by 3+ newlines to separate recommendations automatically
-      const recommendations = file.content.split(/\n\s*\n\s*\n/).map(r => r.trim()).filter(r => r);
-      recommendations.forEach(rec => chunksToProcess.push({ content: rec, path: file.path }));
-    } else if (path.basename(file.path) === 'software_engineer_cv.md') {
-      // Split by markdown headings
-      const sections = file.content.split('## ').map(s => s.trim()).filter(s => s);
-      sections.forEach(sec => chunksToProcess.push({ content: `## ${sec}`, path: file.path }));
-    } else {
-      chunksToProcess.push(file);
-    }
-  }
+  const chunksToProcess = rawFiles.flatMap(file => chunkFile(file));
 
   const processedData = [];
   for (const chunk of chunksToProcess) {
