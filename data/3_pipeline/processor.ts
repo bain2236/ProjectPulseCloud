@@ -16,6 +16,11 @@ export async function processRawText(rawText: string, sourcePath: string): Promi
       ...llmResult.evidence,
       id: evidenceId,
     },
+    // Ensure all concepts have a sourceEvidenceIds array
+    concepts: (llmResult.concepts || []).map((concept: any) => ({
+      ...concept,
+      sourceEvidenceIds: concept.sourceEvidenceIds || [],
+    })),
   };
   
   return finalResult;

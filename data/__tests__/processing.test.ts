@@ -66,4 +66,21 @@ describe('Data Processing Utility', () => {
     expect(result2.evidence.id).not.toEqual('llm-generated-id');
     expect(result1.evidence.id).not.toEqual(result2.evidence.id);
   });
+
+  it('should add an empty sourceEvidenceIds array to concepts if the LLM omits it', async () => {
+    const rawText = "Text that generates a concept.";
+    const sourcePath = "data/1_raw/test.txt";
+    const mockLlmResponse = {
+      evidence: { id: 'llm-ev-id', text: rawText },
+      concepts: [
+        { id: 'c-1', label: 'Test Concept' } // Deliberately missing sourceEvidenceIds
+      ]
+    };
+
+    (llmClient.generateJson as vi.Mock).mockResolvedValue(mockLlmResponse);
+    const result = await processRawText(rawText, sourcePath);
+
+    expect(result.concepts[0]).toHaveProperty('sourceEvidenceIds');
+    expect(result.concepts[0].sourceEvidenceIds).toEqual(expect.any(Array));
+  });
 });

@@ -18,6 +18,14 @@ const openai = new OpenAI({
 
 export const llmClient = {
   async generateJson(text: string, evidenceId: string): Promise<any> {
+    if (process.env.LLM_DRY_RUN === 'true') {
+      console.log('[DRY RUN] LLM call skipped.');
+      return {
+        evidence: { id: evidenceId, source: 'dry-run', text: text, author: 'Dry Run' },
+        concepts: [],
+      };
+    }
+    
     const cached = await getFromCache(text);
     if (cached) {
       return cached;

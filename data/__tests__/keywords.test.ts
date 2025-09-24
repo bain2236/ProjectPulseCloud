@@ -41,4 +41,19 @@ describe('Keyword Extractor', () => {
     const concepts = extractKeywords(text, keywords);
     expect(concepts).toHaveLength(0);
   });
+
+  it('should extract keywords from a different text and check sourceEvidenceIds', () => {
+    const keywords = {
+      technical: ["JavaScript", "Communication"],
+      soft: []
+    };
+    const concepts = extractKeywords('I use JavaScript and have good communication.', keywords);
+    expect(concepts).toHaveLength(2);
+    expect(concepts[0].label).toBe('JavaScript');
+    expect(concepts[0].weight).toBe(0.85);
+    expect(concepts[0].sourceEvidenceIds).toEqual([]); // Add this check
+    expect(concepts[1].label).toBe('Communication');
+    expect(concepts[1].weight).toBe(0.85);
+    expect(concepts[1].sourceEvidenceIds).toEqual([]); // And this one
+  });
 });
