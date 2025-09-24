@@ -13,12 +13,13 @@ describe('File Reading Utility', () => {
     // Ensure the directories exist and are in a clean state
     await fs.rm(testDataDir, { recursive: true, force: true });
     await fs.mkdir(filesDir, { recursive: true });
+    await fs.mkdir(path.join(filesDir, 'subdir'), { recursive: true }); // Add a subdirectory
     await fs.mkdir(emptyDir, { recursive: true });
     await fs.writeFile(path.join(filesDir, 'file1.txt'), 'This is file 1.');
-    await fs.writeFile(path.join(filesDir, 'file2.md'), '# This is file 2');
+    await fs.writeFile(path.join(filesDir, 'subdir', 'file2.md'), '# This is file 2'); // Move file to subdir
   });
 
-  it('should read all files from a directory and return their content', async () => {
+  it('should read all files from a directory and its subdirectories', async () => {
     const result = await readAllFiles(filesDir);
 
     expect(result).toHaveLength(2);

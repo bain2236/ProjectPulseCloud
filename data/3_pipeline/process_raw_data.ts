@@ -1,6 +1,6 @@
-import { readAllFiles } from './fileReader';
-import { processRawText } from './processor';
-import { assembleFinalJson } from './assembler';
+import { readAllFiles } from './fileReader.ts';
+import { processRawText } from './processor.ts';
+import { assembleFinalJson } from './assembler.ts';
 import * as fs from 'fs/promises';
 import * as path from 'path';
 

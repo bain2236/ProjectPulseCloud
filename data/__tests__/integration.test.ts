@@ -32,7 +32,8 @@ describe('Pipeline Integration Test', () => {
     };
 
     // Mock file system reads
-    vi.mocked(fs.readdir).mockResolvedValue(['rec1.txt', 'cv.md'] as any);
+    const mockDirent = (name: string) => ({ name, isFile: () => true, isDirectory: () => false });
+    vi.mocked(fs.readdir).mockResolvedValue([mockDirent('rec1.txt'), mockDirent('cv.md')] as any);
     vi.mocked(fs.readFile)
       .mockResolvedValueOnce(JSON.stringify(mockBaseProfile)) // For base-profile.json
       .mockResolvedValueOnce('good collaborator')
