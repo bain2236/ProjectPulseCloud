@@ -41,12 +41,13 @@ export const llmClient = {
       }
 
       **Instructions:**
-      1.  Generate a unique \`id\` for both the evidence and each concept. Use a prefix like "evidence-" or "concept-" followed by a slug of the content and a random number.
-      2.  Infer the \`source\` from the context of the text.
-      3.  The \`text\` in the evidence object MUST be the original, unmodified text.
-      4.  Extract between 1 and 5 key concepts from the text.
-      5.  The \`sourceEvidenceIds\` array for each concept must contain the \`id\` of the single evidence object you created.
-      6.  You MUST output only the JSON object. Do not include any other text, markdown, or explanations.
+      1.  Generate a unique \`id\` for both the evidence and each concept...
+      2.  Infer the \`source\` from the context of the text (e.g., "CV", "LinkedIn Recommendation", "Personal Reflection").
+      3.  The \`author\` should be extracted if it is a recommendation. If no author is found, or for sources like a CV or personal notes, the author MUST be "Alex Bainbridge".
+      4.  The \`text\` in the evidence object MUST be the original, unmodified text.
+      5.  Extract between 1 and 5 key concepts from the text.
+      6.  The \`sourceEvidenceIds\` array for each concept must contain the \`id\` of the single evidence object you created.
+      7.  You MUST output only the JSON object...
     `;
 
     try {

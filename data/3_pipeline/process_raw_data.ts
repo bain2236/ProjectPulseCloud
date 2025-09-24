@@ -26,9 +26,24 @@ export async function main() {
 
   const rawFiles = await readAllFiles(rawDataPath);
   
-  const processedData = [];
+  const chunksToProcess: { content: string, path: string }[] = [];
+
   for (const file of rawFiles) {
-    const result = await processRawText(file.content, file.path);
+    if (path.basename(file.path) === 'linkdin.txt') {
+      const recommendations = file.content.split('---').map(r => r.trim()).filter(r => r);
+      recommendations.forEach(rec => chunksToProcess.push({ content: rec, path: file.path }));
+    } else if (path.basename(file.path) === 'software_engineer_cv.md') {
+      const sections = file.content.split('## ').map(s => s.trim()).filter(s => s);
+      sections.forEach(sec => chunksToProcess.push({ content: `## ${sec}`, path: file.path }));
+    } else {
+      chunksToProcess.push(file);
+    }
+  }
+
+  const processedData = [];
+  for (const chunk of chunksToProcess) {
+    console.log(`Processing chunk from ${chunk.path}...`);
+    const result = await processRawText(chunk.content, chunk.path);
     if (result) {
       processedData.push(result);
     }
