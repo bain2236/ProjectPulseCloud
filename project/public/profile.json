@@ -6,12 +6,9 @@
     "theme": "neon-dark",
     "createdAt": "2025-09-18T00:00:00Z",
     "bio": "Full-stack engineer passionate about building beautiful, accessible experiences.",
-    "avatar": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=200&h=200",
+    "avatar": "/face.jpeg",
     "location": "United Kingdom",
     "website": "https://alex.dev"
-  },
-  "settings": {
-    "recencyDecayDays": 365
   },
   "tabs": [
     {
@@ -35,150 +32,207 @@
       "order": 3
     }
   ],
+  "settings": {
+    "recencyDecayDays": 365
+  },
   "evidence": [
     {
       "id": "evidence-001",
       "source": "CV",
-      "text": "## # CV - Technical Abilities\n\n# Alexander Bainbridge\n\n📍 Pontypool, South Wales  \n📧 [abainbridge89@gmail.com](mailto:abainbridge89@gmail.com) • 📱 07984 682330  \n🔗 [LinkedIn](https://www.linkedin.com/in/alex-bainbridge-84a670116) • [GitHub](https://github.com/bain2236) • [Dev Blog](https://dev.to/bain_forge_games)\n\n---",
+      "text": "Alexander Bainbridge\n\n📍 Pontypool, South Wales\n📧 abainbridge89@gmail.com • 📱 07984 682330\n🔗 LinkedIn • GitHub • Dev Blog",
       "author": "Alex Bainbridge"
     },
     {
       "id": "evidence-001",
       "source": "CV",
-      "text": "I’m a technical lead and polyglot engineer with **10 years’ experience** building **cloud-native platforms**, leading **high-performing teams**, and delivering **AI-driven innovation**. Passionate about solving hard problems, mentoring engineers, and architecting scalable, future-ready systems.",
+      "text": "I’m a technical lead and polyglot engineer with 10 years’ experience building cloud-native platforms, leading high-performing teams, and delivering AI-driven innovation.",
       "author": "Alex Bainbridge"
     },
     {
       "id": "evidence-001",
       "source": "CV",
-      "text": "## 🛠️ Tech Stack\n\n![Python](https://img.shields.io/badge/-Python-3776AB?style=for-the-badge&logo=python&logoColor=white)\n![.NET](https://img.shields.io/badge/-.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)\n![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)\n![React](https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react&logoColor=black)\n![Azure](https://img.shields.io/badge/-Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)\n![AWS](https://img.shields.io/badge/-AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white)\n![Terraform](https://img.shields.io/badge/-Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)\n![Docker](https://img.shields.io/badge/-Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)",
-      "author": "Alex Bainbridge"
-    },
-    {
-      "id": "evidence-1",
-      "source": "CV",
-      "text": "## 💼 Professional Experience",
+      "text": "Tech Stack: Python, .NET, TypeScript, React, Azure, AWS, Terraform, Docker",
       "author": "Alex Bainbridge"
     },
     {
       "id": "evidence-001",
       "source": "CV",
-      "text": "## **Clinithink** — *Technical Lead*  \n*Jun 2023 – Present | Bridgend, Hybrid*\n\n- Led a small team to architected and deliver **CustomerHub** in a quarter (ahead of schedule), re-platforming a legacy .NET/Azure app into **HubSpot CMS + React + Azure Functions**, **cutting deployment cycles by 75%**. .Net was new to me\n- Built **BuildTools** — a PowerShell cmdlet suite and reusable **Azure DevOps pipeline templates** to standardise pipelines across the business. Provided necessary tooling for across the business, such as tracking our AI coding metrics, generating change logs, versioning, auto promotion of artifacts in **Azure Devops**\n- Led **ProjectCipher**, an AI-driven experiment using **ML.NET + TypeScript + React** to evaluate one-shot full-stack generation.\n- Mentored engineers and drove **psychological safety**, boosting delivery velocity and collaboration.\n- Was a member of the Wellbeing team to promote openness and inclusivity\n- Performed multiple demo's within our technical forum across a number of different projects and experiments\n- A brief stay within the **CLiX Unlock** unlock teams, two crossfunctional teams who reported to a colleague as tech lead. I naturally re-positioned myself into a senior engineer role to support the lead.",
+      "text": "💼 Professional Experience",
       "author": "Alex Bainbridge"
     },
     {
       "id": "evidence-001",
       "source": "CV",
-      "text": "## **Clinithink** — *Software Engineer*  \n*Jun 2021 – Jun 2023 | Bridgend, Hybrid*\n\n- **CLiX Revenue**, an already established product **Python/Django/React** app surfacing NLP-powered insights. Django was new to me. Eventually led this team to became the **engineering benchmark** at Clinithink.\n- Created Clinithink’s **first CI/CD pipeline** using **Terraform + Azure DevOps**, **cutting QA cycle times from days to hours**.\n- Partnered with product owners and scrum masters to define features, improve agile processes, and coach peers on modern engineering practices.",
+      "text": "Led a small team to architected and deliver CustomerHub in a quarter (ahead of schedule), re-platforming a legacy .NET/Azure app into HubSpot CMS + React + Azure Functions, cutting deployment cycles by 75%.",
       "author": "Alex Bainbridge"
     },
     {
       "id": "evidence-001",
       "source": "CV",
-      "text": "## **Raytheon** — *Senior Software Engineer*  \n*Nov 2020 – Apr 2021 | Cheltenham*\n\n- Built an **employee portal** using **React, Node.js, MySQL, Liquibase**, and **Docker**, deployed via **Jenkins + Kubernetes + Helm**.\n- Improved test coverage and quality using **Jest, Cypress, and Cucumber**.\n- Mentored junior engineers and influenced DevOps adoption across teams.",
+      "text": "Created Clinithink’s first CI/CD pipeline using Terraform + Azure DevOps, cutting QA cycle times from days to hours.",
       "author": "Alex Bainbridge"
     },
     {
       "id": "evidence-001",
       "source": "CV",
-      "text": "## **BAE Systems Applied Intelligence** — *Software Engineer*  \n*Aug 2016 – Nov 2020 | London & Cheltenham*\n\n- Built a **distributed ETL framework** in **Python**, integrating **Kafka, Redis, Elasticsearch, and NiFi** to automate data processing.\n- Designed CI/CD pipelines via **Ansible** and delivered robust testing suites using **Pytest**.\n- Provided 24/7 support for critical client systems, resolving high-severity incidents under strict SLAs.",
+      "text": "Built an employee portal using React, Node.js, MySQL, Liquibase, and Docker, deployed via Jenkins + Kubernetes + Helm.",
       "author": "Alex Bainbridge"
     },
     {
       "id": "evidence-001",
       "source": "CV",
-      "text": "## 🌟 Highlight Projects\n\n| Project | Tech | Summary |\n|--------|------|---------|\n| **ProjectVelour** | FastAPI • ComfyUI • Stable Diffusion • React | AI-driven platform for personal expression through tattoos and nail art. |\n| **Spelltail** | Unity • C# • LLMs | A **Snake x Scrabble** mashup with AI-driven story generation. [Devlog](https://dev.to/bain_forge_games) |\n| **ProjectCipher** | ML.NET • TypeScript • React | Experimental AI-assisted **full-stack code generation**. [ProjectCipher](https://github.com/bain2236/ProjectCipher) |\n| **BuildTools** | PowerShell • Azure DevOps • Python | A cmdlet + pipeline toolkit that standardised devops practices. |",
+      "text": "Built a distributed ETL framework in Python, integrating Kafka, Redis, Elasticsearch, and NiFi to automate data processing.",
       "author": "Alex Bainbridge"
     },
     {
       "id": "evidence-001",
       "source": "CV",
-      "text": "## 📜 Certifications\n\n- AWS Certified Cloud Practitioner  \n- Oracle Certified Java SE 7 Programmer (OCA)  \n- Mental Health First Aider\n\n---",
+      "text": "AI-driven platform for personal expression through tattoos and nail art.",
       "author": "Alex Bainbridge"
     },
     {
       "id": "evidence-001",
       "source": "CV",
-      "text": "## 🎓 Education\n\n**University of South Wales** — BSc (Hons) Computer Games Development, 2:1 *(2012–2016)*  \n**Pontypool College** — HND Graphic Design *(2005–2008)*",
+      "text": "AWS Certified Cloud Practitioner, Oracle Certified Java SE 7 Programmer (OCA), Mental Health First Aider",
       "author": "Alex Bainbridge"
     },
     {
       "id": "evidence-001",
       "source": "CV",
-      "text": "## 🔗 Let’s Connect\n\n💼 [LinkedIn](https://www.linkedin.com/in/alex-bainbridge-84a670116) • 🖥️ [GitHub](https://github.com/bain2236) • ✍️ [Dev Blog](https://dev.to/bain_forge_games)",
+      "text": "University of South Wales — BSc (Hons) Computer Games Development, 2:1 (2012–2016)",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-001",
+      "source": "CV",
+      "text": "Let’s Connect: LinkedIn, GitHub, Dev Blog",
       "author": "Alex Bainbridge"
     },
     {
       "id": "evidence-001",
       "source": "Personal Biography",
-      "text": "- Parent of two.\n- Partner for eleven years.\n- Live near my parents after moving around a lot in my 20's.",
+      "text": "Parent of two. Partner for eleven years. Live near my parents after moving around a lot in my 20's.",
       "author": "Alex Bainbridge"
     },
     {
       "id": "evidence-001",
-      "source": "Personal Reflection",
-      "text": "I cycle through these hobbies over the years:\n\n- Hiking\n- Powerlifting\n- Mountain biking\n- Wargaming\n- Dungeons & Dragons (D&D)\n- Miniature painting\n- Nail painting\n- Various side projects with technology",
+      "source": "CV",
+      "text": "I cycle through these hobbies over the years: Hiking, Powerlifting, Mountain biking, Wargaming, Dungeons & Dragons (D&D), Miniature painting, Nail painting, Various side projects with technology",
       "author": "Alex Bainbridge"
     },
     {
       "id": "evidence-001",
       "source": "LinkedIn Recommendation",
-      "text": "I have worked with Alex on multiple projects at Clinithink (Client). He is a positive and a hard working person making it a delight to work with him. At any given time he was available to help and also took feedback in a positive manner, solving the problem for success. He has a great pick up speed for technologies making it easier for us to start on new problems quickly and wrap them up. Communication is another great quality which helps understand and solve the problem easily for the product. Great job Alex!",
-      "author": "Amogh Madan"
-    },
-    {
-      "id": "evidence-001",
-      "source": "Personal Reflection",
-      "text": "Collaborating with Alex for over four years has been an incredibly rewarding experience. He's one of those rare professionals who can seamlessly adapt to any technology stack, often mastering new tools and frameworks faster than expected. His proactive nature means he's always a step ahead—whether it's anticipating project needs, resolving blockers before they escalate, or volunteering to take on complex tasks others might shy away from. He's not just a tech expert—he's an all-rounder who brings energy, insight, and collaboration to every team interaction. If you're looking for someone who combines technical depth with a can-do attitude and a growth mindset, Alex is your person.",
+      "text": "I have worked with Alex on multiple projects at Clinithink (Client). He is a positive and a hard working person making it a delight to work with him. At any given time he was available to help and also took feedback in a positive manner, solving the problem for success. He has a great pick up speed for technologies making it easier for us to start on new problems quickly and wrap them up. Communication is another great quality which helps understand and solve the problem easily for the product.",
       "author": "Alex Bainbridge"
     },
     {
       "id": "evidence-001",
-      "source": "Personal Reflection",
-      "text": "Alex is the man! Python .Net you name it he captures the essence of being a good developer agile and pluggable in almost any language, spent many of hours on troubleshooting sessions with him and trust me he is a resource you need to have in your tool chest!!",
+      "source": "LinkedIn Recommendation",
+      "text": "I worked with Alex for over 4 years and during that time he has grown from a software engineer through to a tech lead. Alex is extremely positive and is a real asset to any team. He has used his excellent interpersonal skills both with UK engineers as well as offshore engineers (India). Alex will try out any new technology and make a success of it. He changed from python to .Net during our time together and most recently has made huge strides with utilising AI as part of engineering practice through using Cursor. Alex's positivity, creativity and personality also provided significant input and support of the Wellness Team at Clinithink as well as the company wide internal comms team. His interpersonal skills also mean that he is interested, and I'd expect would flourish, in line management. We didn't manage to create the opportunity for Alex at Clinithink but I know he'll achieve this somewhere along his journey.",
+      "author": "Phil Davies"
+    },
+    {
+      "id": "evidence-001",
+      "source": "LinkedIn Recommendation",
+      "text": "I had the pleasure of working with Alex when he was the Tech Lead and I was the Product Manager. He has that rare combination of technical depth and pragmatic execution, always focused on delivering impact, unblocking the team, and just getting things done. Partnering with him made complex projects move faster and smoother, and I’d happily work with him again on any team.",
       "author": "Alex Bainbridge"
     },
     {
       "id": "evidence-001",
-      "source": "Personal Reflection",
+      "source": "LinkedIn Recommendation",
+      "text": "Wow, it has been great working with Alex and watching him develop and grow in expertise. He is an expert coder who can turn his hand to any part of the software stack - backend, frontend, CI, design, test. He has become expert in handing some jobs over to an LLM. He doesn't just do the job as specified: he can see when there's an easier solution. He is quick to help others. He is collaborative, good humoured and hard working.",
+      "author": "Thomas Guest"
+    },
+    {
+      "id": "evidence-001",
+      "source": "LinkedIn Recommendation",
+      "text": "Alex is an excellent software engineer with outstanding technical skills who consistently delivers high-quality, production-ready code. His expertise in software development and problem-solving abilities make him an asset to any engineering team. He fearlessly voices his honest opinions and actively contributes innovative ideas that drive product advancement and elevate software quality across the team.",
+      "author": "Peter Hatton"
+    },
+    {
+      "id": "evidence-001",
+      "source": "LinkedIn Recommendation",
       "text": "I've been very lucky to work with Alex on 3 different products. Massively impressive ability to grasp new tech, concepts and tooling to achieve our product goals. Alex is innovative - always finding ways to evolve and improve on how product features get built. He is efficient, quickly grasps what product - or anyone else - needs - and turns out quality code to boot. I wouldn't hesitate at the opportunity to work with Alex again and would highly recommend him to any future employer.",
       "author": "Alex Bainbridge"
     },
     {
       "id": "evidence-001",
       "source": "LinkedIn Recommendation",
-      "text": "I've worked with Alex for the past four years and can honestly say he's one of the best, most proactive, well-rounded engineers I've ever worked with. Whatever thing was thrown Alex's way, he tackled it with passion - from UX, UI/front-end design, backend design, CI/CD pipelines, nothing fazed him. Alex is comfortable using his initiative to learn the things and tools he doesn't know, but needs to know to get the job done. He is curious, inquisitive and gets stuff done to a high standard. None of this is evidenced more by his ability and experience throwing himself deep into using the latest AI engineering technology and tooling to make himself far more productive. Alex would be an asset for any engineering or modern product team.",
-      "author": "Alex Bainbridge"
+      "text": "I worked with Alex for just over 3 years. I found him to be very flexible and versatile in his approach to work, and he has a broad-range of knowledge across the software landscape. Alex was always happy to help me with my technical problems; nothing was too much trouble for him.",
+      "author": "Jean Rollinson"
     },
     {
       "id": "evidence-001",
-      "source": "Personal Reflection",
-      "text": "Great experience working along with Alex. Always on to problem solving, fun refinements and code reviews, always available for discussion on technical tasks.",
-      "author": "Alex Bainbridge"
-    },
-    {
-      "id": "evidence-001",
-      "source": "LinkedIn Recommendation",
-      "text": "I've had the privilege of working closely with Alex, and I can confidently say he is one of the most dependable and knowledgeable professional I've worked with. As a Tech Lead and Full Stack Developer, he brings deep expertise in .NET Core, React, and Azure, combined with strong leadership qualities. What makes him special is his constant support and willingness to guide. He has got the ability to simplify complex problems, mentor team members, and drive projects to success with both technical excellence and collaboration. His calm approach under pressure and focus on delivering quality solutions have been a great source of learning and motivation for me. Any team would be fortunate to have him as a leader, mentor, and teammate.",
-      "author": "Alex Bainbridge"
-    },
-    {
-      "id": "evidence-001",
-      "source": "Recommendation",
-      "text": "I worked with Alex for just over 3 years. I found him to be very flexible and versatile in his approach to work, and he has a broad-range of knowledge across the software landscape. Alex was always happy to help me with my technical problems; nothing was too much trouble for him. I would be very happy to work with Alex again.",
-      "author": "Alex Bainbridge"
-    },
-    {
-      "id": "evidence-001",
-      "source": "Personal Reflection",
-      "text": "# Example Wins\n\nJoined a small python/react team in a new domain. Python was rusty and I had never worked with django. I quickly got up to speed.\nChampioned build tools, a collection of powershell modules and azure devops templates to facilitate re-use build pipeline tooling.\nLed a team of offshore engineers to become the bar height of quality within engineering.\nDemonstrated the value in adding static analysis to build pipelines which was quickly funded and integrated.\nBuilt out the first CD pipeline using terraform. cutting QA time from minimum a day to minimum an hour.\nHeavily contritubed to the tech forum, showcasing learnings, different prototypes and side projects.\nLed a team using .Net with no useful (10 years of out date).Net experience. We delivered ahead of schedule on Release 1 and did 5 more releases within the following quarter\nManaged the cultural differences with working with offshore engineers (India). (which was also a first)\nMade good use of personal development on Friday afternoons to explore technologies even adding back into the product and company with new tools and capabilities.\nChampioned wellbeing and psycological safety by being a founding member of the internal wellbeing team.\nWorked closely with the agile delivery lead to create high performing teams.\nWorked closely with product owners to shape a more valuable product.\nAdapted excellently to an AI-enabled engineer. Implemented internal AI usage tracking and reporting to gain insights. I Steered the use of AI in engineering to be more targeted, an approach that I am continuing to revel in.",
+      "source": "CV",
+      "text": "Joined a small python/react team in a new domain. Python was rusty and I had never worked with django. I quickly got up to speed.",
       "author": "Alex Bainbridge"
     }
   ],
   "concepts": [
     {
       "id": "concept-001",
-      "label": "Location",
+      "label": "Technical Abilities",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-001",
+      "label": "Technical Lead",
+      "tabId": "leader",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-002",
+      "label": "Cloud-Native Architect",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-003",
+      "label": "AI-Driven Engineer",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-004",
+      "label": "Mentoring Engineers",
+      "tabId": "leader",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-005",
+      "label": "Architecting Scalable Systems",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-typescript-6bfbbc88-3e6c-460d-a927-d348c5e4f199",
+      "label": "TypeScript",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001",
+        "evidence-001",
+        "evidence-001",
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-react-f29236bd-f8f5-460e-8374-7131f1084a23",
+      "label": "React",
+      "tabId": "engineer",
       "sourceEvidenceIds": [
         "evidence-001",
         "evidence-001",
@@ -188,6 +242,14 @@
         "evidence-001",
         "evidence-001",
         "evidence-001",
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-python-6e8ab230-c9fc-49c3-8325-084d42cda195",
+      "label": "Python",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
         "evidence-001",
         "evidence-001",
         "evidence-001",
@@ -195,9 +257,28 @@
         "evidence-001",
         "evidence-001",
         "evidence-001",
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-azure-df11ca46-6490-4659-8157-f6794e780bb8",
+      "label": "Azure",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
         "evidence-001",
         "evidence-001",
         "evidence-001",
+        "evidence-001",
+        "evidence-001",
+        "evidence-001",
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-docker-dac8a88e-53f8-4f4a-8660-3c209d64c36e",
+      "label": "Docker",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
         "evidence-001",
         "evidence-001",
         "evidence-001",
@@ -206,114 +287,674 @@
     },
     {
       "id": "concept-002",
-      "label": "Contact Information",
+      "label": ".NET",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001",
+        "evidence-001",
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-006",
+      "label": "AWS",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-007",
+      "label": "Terraform",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-collaboration-bc513504-dad9-4d68-9de1-678b2f3b201c",
+      "label": "Collaboration",
+      "tabId": "leader",
       "sourceEvidenceIds": [
         "evidence-001",
         "evidence-001",
         "evidence-001",
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-001",
+      "label": "Leadership in project delivery",
+      "tabId": "leader",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-002",
+      "label": "Technical re-platforming",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-003",
+      "label": "Deployment cycle reduction",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-ci/cd-2225c1eb-2f4d-4c70-b798-8ed64a2ad1cc",
+      "label": "CI/CD",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
         "evidence-001",
         "evidence-001",
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-agile-60ba59a1-82fe-457e-ad56-63c9e05bd065",
+      "label": "Agile",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
         "evidence-001",
         "evidence-001",
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-scrum-556578dc-6466-458f-bd32-085a097f61ef",
+      "label": "Scrum",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
         "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-001",
+      "label": "CI/CD Pipeline Creation",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-002",
+      "label": "Efficiency Improvement",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-node.js-50c0be68-7c16-46cd-a2b9-95fce3515b40",
+      "label": "Node.js",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
         "evidence-001",
         "evidence-001"
       ]
     },
     {
       "id": "concept-003",
-      "label": "LinkedIn Profile",
+      "label": "MySQL",
+      "tabId": "engineer",
       "sourceEvidenceIds": [
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
         "evidence-001"
       ]
     },
     {
       "id": "concept-004",
-      "label": "GitHub Profile",
+      "label": "Liquibase",
+      "tabId": "engineer",
       "sourceEvidenceIds": [
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-006",
+      "label": "Jenkins",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-007",
+      "label": "Kubernetes",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-008",
+      "label": "Helm",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-009",
+      "label": "Mentoring",
+      "tabId": "leader",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-010",
+      "label": "DevOps adoption",
+      "tabId": "leader",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-001",
+      "label": "Distributed ETL Framework",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-002",
+      "label": "Python Programming",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-003",
+      "label": "Integration of Kafka, Redis, Elasticsearch, and NiFi",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-001",
+      "label": "AI-driven platform development",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-001",
+      "label": "AWS Certified Cloud Practitioner",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-002",
+      "label": "Oracle Certified Java SE 7 Programmer (OCA)",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-003",
+      "label": "Mental Health First Aider",
+      "tabId": "personal",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-001",
+      "label": "Computer Games Development",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-001",
+      "label": "LinkedIn Profile",
+      "tabId": "personal",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-002",
+      "label": "GitHub Profile",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-003",
+      "label": "Dev Blog",
+      "tabId": "personal",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-001",
+      "label": "Parent of two",
+      "tabId": "personal",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-002",
+      "label": "Long-term partnership",
+      "tabId": "personal",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-003",
+      "label": "Family-oriented",
+      "tabId": "personal",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-001",
+      "label": "Hiking",
+      "tabId": "personal",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-002",
+      "label": "Powerlifting",
+      "tabId": "personal",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-003",
+      "label": "Mountain biking",
+      "tabId": "personal",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-004",
+      "label": "Wargaming",
+      "tabId": "personal",
+      "sourceEvidenceIds": [
         "evidence-001"
       ]
     },
     {
       "id": "concept-005",
-      "label": "Dev Blog",
+      "label": "Dungeons & Dragons (D&D)",
+      "tabId": "personal",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-006",
+      "label": "Miniature painting",
+      "tabId": "personal",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-007",
+      "label": "Nail painting",
+      "tabId": "personal",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-008",
+      "label": "Side projects with technology",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-communication-c3e10c14-999d-4c75-962d-022bf1077c31",
+      "label": "Communication",
+      "tabId": "leader",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-001",
+      "label": "Positive and hardworking",
+      "tabId": "colleague",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-002",
+      "label": "Quick technology adoption",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-003",
+      "label": "Effective communication",
+      "tabId": "colleague",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-creativity-171db843-72cd-442e-acb0-4f24495d2367",
+      "label": "Creativity",
+      "tabId": "leader",
       "sourceEvidenceIds": [
         "evidence-001",
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-positivity-1e85b890-4147-42b9-90cd-f93d9462eebd",
+      "label": "Positivity",
+      "tabId": "leader",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-initiative-bdb8fea1-5808-4f60-80d1-f6f6b8c618c0",
+      "label": "Initiative",
+      "tabId": "leader",
+      "sourceEvidenceIds": [
         "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-001",
+      "label": "Interpersonal Skills",
+      "tabId": "colleague",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-002",
+      "label": "Technical Adaptability",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-003",
+      "label": "AI Utilization",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-004",
+      "label": "Supportive Team Member",
+      "tabId": "colleague",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-005",
+      "label": "Potential for Line Management",
+      "tabId": "leader",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-001",
+      "label": "Technical Depth",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-002",
+      "label": "Pragmatic Execution",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-003",
+      "label": "Delivering Impact",
+      "tabId": "leader",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-004",
+      "label": "Unblocking the Team",
+      "tabId": "leader",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-005",
+      "label": "Getting Things Done",
+      "tabId": "personal",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-001",
+      "label": "Expert Coder",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-002",
+      "label": "Full Stack Development",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-003",
+      "label": "Collaborative",
+      "tabId": "colleague",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-004",
+      "label": "Good Humoured",
+      "tabId": "colleague",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-005",
+      "label": "Hard Working",
+      "tabId": "colleague",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-006",
+      "label": "Problem Solver",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-007",
+      "label": "Quick to Help Others",
+      "tabId": "colleague",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-problem-solving-43fed751-6b21-4f96-b8db-34a8add7561f",
+      "label": "Problem-Solving",
+      "tabId": "leader",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-adaptability-71fb2304-1080-4aed-af60-525f8ad1a622",
+      "label": "Adaptability",
+      "tabId": "leader",
+      "sourceEvidenceIds": [
         "evidence-001",
         "evidence-001",
         "evidence-001"
       ]
     },
     {
-      "id": "concept-1",
-      "label": "Professional Experience",
+      "id": "concept-growth-mindset-49911905-b164-448c-9748-7b63c3b40e95",
+      "label": "Growth Mindset",
+      "tabId": "leader",
       "sourceEvidenceIds": [
-        "evidence-1"
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-001",
+      "label": "Outstanding Technical Skills",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-002",
+      "label": "Mentorship",
+      "tabId": "leader",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-003",
+      "label": "Innovative Ideas",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-005",
+      "label": "Problem-Solving Abilities",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-sql-22379916-548e-4613-a592-270830315f90",
+      "label": "SQL",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-leadership-1807d828-9269-4398-8fb9-b30a4b7f78c8",
+      "label": "Leadership",
+      "tabId": "leader",
+      "sourceEvidenceIds": [
+        "evidence-001",
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-001",
+      "label": "Innovative",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-002",
+      "label": "Efficient",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-003",
+      "label": "Quality Code",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-001",
+      "label": "flexible and versatile approach",
+      "tabId": "personal",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-002",
+      "label": "broad-range of knowledge across the software landscape",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-003",
+      "label": "helpful with technical problems",
+      "tabId": "colleague",
+      "sourceEvidenceIds": [
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-003",
+      "label": "Technical Expertise",
+      "tabId": "engineer",
+      "sourceEvidenceIds": [
+        "evidence-001"
       ]
     }
   ]

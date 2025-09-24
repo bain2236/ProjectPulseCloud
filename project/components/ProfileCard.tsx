@@ -30,7 +30,8 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
             alt={profile.displayName}
             width={96}
             height={96}
-            className="w-24 h-24 rounded-full mx-auto border-2 border-gradient-to-r from-cyan-400 to-pink-500 p-0.5"
+            quality={100}
+            className="w-24 h-24 rounded-full mx-auto border-2 border-gradient-to-r from-cyan-400 to-pink-500 p-0.5 object-cover"
           />
         ) : (
           <div className="w-24 h-24 rounded-full mx-auto bg-gradient-to-br from-cyan-400 to-pink-500 flex items-center justify-center">
