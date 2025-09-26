@@ -25,11 +25,15 @@ export function assembleFinalJson(baseProfile: any, tabs: any[], settings: any, 
     }
   }
 
+  const finalConcepts = Array.from(conceptMap.values()).filter(
+    (concept) => concept.sourceEvidenceIds && concept.sourceEvidenceIds.length > 0
+  );
+
   return {
     profile: baseProfile,
     tabs: tabs,
     settings: settings,
     evidence: allEvidence,
-    concepts: Array.from(conceptMap.values()),
+    concepts: finalConcepts,
   };
 }

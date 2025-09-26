@@ -31,43 +31,80 @@ export const llmClient = {
       return cached;
     }
 
-    const systemPrompt = `
-      You are a data extraction specialist. Your task is to analyze the following text and extract two types of information: a single "evidence" object and an array of "concept" objects.
+    const systemPrompt = `You are a meticulous data analyst. Your task is to extract structured data from a given text fragment.
+The text could be from a CV, a recommendation, a personal note, or a hobby log.
+Your output MUST be a single, valid JSON object and nothing else. Adhere strictly to the schema and instructions.
 
-      The text provided is a fragment from a CV, a recommendation, or a personal reflection.
+**JSON Output Schema:**
+{
+  "evidence": {
+    "id": "${evidenceId}", // MUST be this exact value. Do not change it.
+    "source": "string", // e.g., "CV", "LinkedIn Recommendation", "Personal Hobby Log"
+    "text": "string", // The original text fragment.
+    "author": "string" // The author of the text. For personal notes or a CV, this is "Alex Bainbridge".
+  },
+  "concepts": [
+    {
+      "id": "string", // A unique, URL-friendly slug for the concept. e.g., "concept-react-testing-library".
+      "label": "string", // A concise, display-friendly label for the concept. e.g., "React Testing Library".
+      "tabId": "string", // Classify into ONE of: "engineer" (tech skills), "leader" (soft skills), "personal" (hobbies), "colleague" (teamwork).
+      "weight": "number", // A score from 0.1 to 1.0 based on the text's emphasis.
+      "sourceEvidenceIds": ["${evidenceId}"] // MUST be an array containing the exact evidence ID from above.
+    }
+  ]
+}
 
-      **JSON Schema:**
-      Your output MUST be a single, valid JSON object with the following structure:
-      {
-        "evidence": {
-          "id": "${evidenceId}", // You MUST use this exact ID for the evidence object.
-          "source": "string",
-          "text": "string",
-          "author": "string"
-        },
-        "concepts": [
-          {
-            "id": "string", // MUST be a unique identifier for THIS concept
-            "label": "string",
-            "tabId": "string", // The ID of the most relevant tab: "personal", "leader", "engineer", or "colleague"
-            "weight": "number", // A score from 0.1 to 1.0, representing the importance or relevance
-            "sourceEvidenceIds": ["${evidenceId}"] // You MUST use this exact ID here.
-          }
-        ]
-      }
+**Detailed Instructions:**
 
-      **Instructions:**
-      1.  For the \`evidence\` object, you MUST use the id: "${evidenceId}".
-      2.  Analyze the provided text **ONLY**. Do not invent concepts or skills that are not explicitly mentioned.
-      3.  Generate a **NEW AND UNIQUE** \`id\` for the evidence object and for each concept object.
-      4.  Infer the \`source\` from the context of the text (e.g., "CV", "LinkedIn Recommendation").
-      5.  The \`author\` must be "Alex Bainbridge" for sources like a CV or personal notes.
-      6.  For each concept, determine the most appropriate \`tabId\` from the available options: "personal", "leader", "engineer", "colleague".
-      7.  From the text, infer a \`weight\` for each concept between 0.1 and 1.0. Consider factors like recency of an activity, stated interest level, or professional relevance. For example, a hobby done "3 days ago" with "high interest" should have a higher weight than one done "3 months ago" with "medium interest".
-      8.  Extract concepts that are **strongly and directly supported** by the text. A vague connection is not sufficient.
-      9.  Before finalizing your response, double-check your work. Ensure every concept you extracted has a clear, direct quote or phrase in the source text that justifies its existence.
-      10.  You MUST output only the JSON object. Do not include any other text, markdown, or explanations.
-    `;
+1.  **Evidence ID**: You MUST use the provided ID for \`evidence.id\`: \`"${evidenceId}"\`.
+2.  **Concept ID**: Generate a NEW, UNIQUE, and URL-friendly slug for each concept's \`id\`.
+3.  **Tab Classification (\`tabId\`):**
+    -   \`engineer\`: For specific technologies, programming languages, or technical skills.
+    -   \`leader\`: For management, mentorship, and soft skills.
+    -   \`colleague\`: For collaboration and teamwork-focused skills.
+    -   \`personal\`: For hobbies and personal interests.
+4.  **Weighting (\`weight\`):**
+    -   **0.8 - 1.0**: Explicit claims of expertise, deep involvement, or high passion.
+    -   **0.5 - 0.7**: Significant mentions, project roles, or regular practice.
+    -   **0.1 - 0.4**: Passing mentions, familiarity, or low-frequency activities.
+5.  **Guiding Principles:**
+    -   **No Fabrication**: Extract ONLY concepts explicitly mentioned in the text. Do not infer or add related skills.
+    -   **Direct Evidence**: Every concept must be directly supported by the provided text.
+    -   **Specificity**: Avoid generic concepts like "Team Player" unless the text uses those exact words. Extract specific skills like "Agile Methodologies" or "Pair Programming".
+
+**Example:**
+
+INPUT TEXT:
+"Alex is a great engineer to work with. He introduced the team to Test-Driven Development (TDD) and greatly improved our CI/CD pipeline using GitHub Actions."
+
+EXPECTED JSON OUTPUT:
+{
+  "evidence": {
+    "id": "${evidenceId}",
+    "source": "LinkedIn Recommendation",
+    "text": "Alex is a great engineer to work with. He introduced the team to Test-Driven Development (TDD) and greatly improved our CI/CD pipeline using GitHub Actions.",
+    "author": "Anonymous"
+  },
+  "concepts": [
+    {
+      "id": "concept-test-driven-development",
+      "label": "Test-Driven Development",
+      "tabId": "engineer",
+      "weight": 0.9,
+      "sourceEvidenceIds": ["${evidenceId}"]
+    },
+    {
+      "id": "concept-github-actions",
+      "label": "GitHub Actions",
+      "tabId": "engineer",
+      "weight": 0.8,
+      "sourceEvidenceIds": ["${evidenceId}"]
+    }
+  ]
+}
+
+**Final Review:**
+Before you output the JSON, review your work. Does it match the schema? Have you followed all instructions? Is every concept directly supported by the text? Now, process the following user-provided text.`;
 
     try {
       const response = await openai.chat.completions.create({

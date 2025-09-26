@@ -54,4 +54,26 @@ describe('JSON Assembly Utility', () => {
     });
     expect(finalJson.settings).toEqual(settings);
   });
+
+  it('should filter out concepts that have no source evidence', () => {
+    const baseProfile = { displayName: "Test User" };
+    const tabs: any[] = [];
+    const settings = {};
+    const processedData = [
+      {
+        evidence: { id: 'evidence-1', text: 'Valid evidence' },
+        concepts: [
+          { id: 'concept-1', label: 'Valid Concept', sourceEvidenceIds: ['evidence-1'] },
+          { id: 'concept-2', label: 'Invalid Concept', sourceEvidenceIds: [] }
+        ]
+      }
+    ];
+
+    const finalJson = assembleFinalJson(baseProfile, tabs, settings, processedData);
+
+    expect(finalJson.concepts).toHaveLength(1);
+    expect(finalJson.concepts).not.toContainEqual(
+      expect.objectContaining({ label: 'Invalid Concept' })
+    );
+  });
 });

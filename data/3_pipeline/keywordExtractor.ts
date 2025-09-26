@@ -9,6 +9,7 @@ interface Concept {
   id: string;
   label: string;
   tabId: 'engineer' | 'leader' | 'personal' | 'colleague';
+  weight: number;
   sourceEvidenceIds: string[];
 }
 

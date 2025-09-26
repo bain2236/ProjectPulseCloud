@@ -119,10 +119,7 @@ export default function ConceptModal({ concept, evidence, onClose }: ConceptModa
               </h2>
               <div className="flex items-center space-x-4 text-sm">
                 <span className="text-cyan-400">
-                  Weight: {(concept.weight * 100).toFixed(0)}%
-                </span>
-                <span className="text-pink-400">
-                  Confidence: {(concept.confidence * 100).toFixed(0)}%
+                  Weight: {((concept.weight || 0) * 100).toFixed(0)}%
                 </span>
                 <span className="text-gray-400">
                   {relatedEvidence.length} evidence

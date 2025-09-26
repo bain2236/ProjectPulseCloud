@@ -37,158 +37,1115 @@
   },
   "evidence": [
     {
-      "id": "evidence-001",
+      "id": "evidence-4cf8abd8-997b-41dd-a2b8-616325fa770d",
       "source": "CV",
-      "text": "Alexander Bainbridge's contact information and online profiles.",
+      "text": "# Alexander Bainbridge\n\n📍 Pontypool, South Wales  \n📧 [abainbridge89@gmail.com](mailto:abainbridge89@gmail.com) • 📱 07984 682330  \n🔗 [LinkedIn](https://www.linkedin.com/in/alex-bainbridge-84a670116) • [GitHub](https://github.com/bain2236) • [Dev Blog](https://dev.to/bain_forge_games)\n\n---",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-001",
+      "id": "evidence-24c0d03c-9799-4500-9361-263f6d05924d",
       "source": "CV",
-      "text": "I’m a technical lead and polyglot engineer with 10 years’ experience building cloud-native platforms, leading high-performing teams, and delivering AI-driven innovation.",
+      "text": "Technical Lead | Cloud-Native Architect | AI-Driven Engineer\n\nI’m a technical lead and polyglot engineer with 10 years’ experience building cloud-native platforms, leading high-performing teams, and delivering AI-driven innovation. Passionate about solving hard problems, mentoring engineers, and architecting scalable, future-ready systems.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-001",
+      "id": "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
       "source": "CV",
-      "text": "Tech Stack includes Python, .NET, TypeScript, React, Azure, AWS, Terraform, Docker.",
+      "text": "![Python](https://img.shields.io/badge/-Python-3776AB?style=for-the-badge&logo=python&logoColor=white)\n![.NET](https://img.shields.io/badge/-.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)\n![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)\n![React](https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react&logoColor=black)\n![Azure](https://img.shields.io/badge/-Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)\n![AWS](https://img.shields.io/badge/-AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white)\n![Terraform](https://img.shields.io/badge/-Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)\n![Docker](https://img.shields.io/badge/-Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-001",
+      "id": "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8",
       "source": "CV",
-      "text": "## 💼 Professional Experience",
+      "text": "*Jun 2023 – Present | Bridgend, Hybrid*\n\n- Led a small team to architected and deliver **CustomerHub** in a quarter (ahead of schedule), re-platforming a legacy .NET/Azure app into **HubSpot CMS + React + Azure Functions**, **cutting deployment cycles by 75%**. .Net was new to me\n- Built **BuildTools** — a PowerShell cmdlet suite and reusable **Azure DevOps pipeline templates** to standardise pipelines across the business. Provided necessary tooling for across the business, such as tracking our AI coding metrics, generating change logs, versioning, auto promotion of artifacts in **Azure Devops**\n- Led **ProjectCipher**, an AI-driven experiment using **ML.NET + TypeScript + React** to evaluate one-shot full-stack generation.\n- Mentored engineers and drove **psychological safety**, boosting delivery velocity and collaboration.\n- Was a member of the Wellbeing team to promote openness and inclusivity\n- Performed multiple demo's within our technical forum across a number of different projects and experiments\n- A brief stay within the **CLiX Unlock** unlock teams, two crossfunctional teams who reported to a colleague as tech lead. I naturally re-positioned myself into a senior engineer role to support the lead.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-001",
+      "id": "evidence-c50de544-dfc4-4fc9-98c4-559573226061",
       "source": "CV",
-      "text": "Led a small team to architected and deliver CustomerHub in a quarter (ahead of schedule), re-platforming a legacy .NET/Azure app into HubSpot CMS + React + Azure Functions, cutting deployment cycles by 75%. .Net was new to me",
+      "text": "*Jun 2021 – Jun 2023 | Bridgend, Hybrid*\n\n- **CLiX Revenue**, an already established product **Python/Django/React** app surfacing NLP-powered insights. Django was new to me. Eventually led this team to became the **engineering benchmark** at Clinithink.\n- Created Clinithink’s **first CI/CD pipeline** using **Terraform + Azure DevOps**, **cutting QA cycle times from days to hours**.\n- Partnered with product owners and scrum masters to define features, improve agile processes, and coach peers on modern engineering practices.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-001",
+      "id": "evidence-4d4ea251-2c60-4aa5-b715-764600733785",
       "source": "CV",
-      "text": "Created Clinithink’s first CI/CD pipeline using Terraform + Azure DevOps, cutting QA cycle times from days to hours.",
+      "text": "*Nov 2020 – Apr 2021 | Cheltenham*\n\n- Built an **employee portal** using **React, Node.js, MySQL, Liquibase**, and **Docker**, deployed via **Jenkins + Kubernetes + Helm**.\n- Improved test coverage and quality using **Jest, Cypress, and Cucumber**.\n- Mentored junior engineers and influenced DevOps adoption across teams.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-001",
+      "id": "evidence-7de84a60-f5e2-42f1-9a1d-c2cd31b63426",
       "source": "CV",
-      "text": "Built an employee portal using React, Node.js, MySQL, Liquibase, and Docker, deployed via Jenkins + Kubernetes + Helm.",
+      "text": "*Aug 2016 – Nov 2020 | London & Cheltenham*\n\n- Built a **distributed ETL framework** in **Python**, integrating **Kafka, Redis, Elasticsearch, and NiFi** to automate data processing.\n- Designed CI/CD pipelines via **Ansible** and delivered robust testing suites using **Pytest**.\n- Provided 24/7 support for critical client systems, resolving high-severity incidents under strict SLAs.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-001",
+      "id": "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3",
       "source": "CV",
-      "text": "Built a distributed ETL framework in Python, integrating Kafka, Redis, Elasticsearch, and NiFi to automate data processing.",
+      "text": "| Project | Tech | Summary |\n|--------|------|---------|\n| **ProjectVelour** | FastAPI • ComfyUI • Stable Diffusion • React | AI-driven platform for personal expression through tattoos and nail art. |\n| **Spelltail** | Unity • C# • LLMs | A **Snake x Scrabble** mashup with AI-driven story generation. [Devlog](https://dev.to/bain_forge_games) |\n| **ProjectCipher** | ML.NET • TypeScript • React | Experimental AI-assisted **full-stack code generation**. [ProjectCipher](https://github.com/bain2236/ProjectCipher) |\n| **BuildTools** | PowerShell • Azure DevOps • Python | A cmdlet + pipeline toolkit that standardised devops practices. |",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-001",
+      "id": "evidence-aab20f91-02e4-4faf-b42f-7f105a253412",
       "source": "CV",
-      "text": "AI-driven platform for personal expression through tattoos and nail art.",
+      "text": "- AWS Certified Cloud Practitioner  \n- Oracle Certified Java SE 7 Programmer (OCA)  \n- Mental Health First Aider\n\n---",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-001",
+      "id": "evidence-913912a0-98f7-46da-9dca-584964c26dfd",
       "source": "CV",
-      "text": "AWS Certified Cloud Practitioner, Oracle Certified Java SE 7 Programmer (OCA), Mental Health First Aider",
+      "text": "**University of South Wales** — BSc (Hons) Computer Games Development, 2:1 *(2012–2016)*  \n**Pontypool College** — HND Graphic Design *(2005–2008)*",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-001",
+      "id": "evidence-e7ac43a6-8f5b-4755-a526-5c3d66bde683",
       "source": "CV",
-      "text": "University of South Wales — BSc (Hons) Computer Games Development, 2:1 (2012–2016)",
+      "text": "💼 [LinkedIn](https://www.linkedin.com/in/alex-bainbridge-84a670116) • 🖥️ [GitHub](https://github.com/bain2236) • ✍️ [Dev Blog](https://dev.to/bain_forge_games)",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-001",
-      "source": "CV",
-      "text": "Let’s Connect: LinkedIn, GitHub, Dev Blog",
-      "author": "Alex Bainbridge"
-    },
-    {
-      "id": "evidence-001",
+      "id": "evidence-c305edad-311f-4d18-a807-676beea162d7",
       "source": "Personal Biography",
-      "text": "Live near my parents after moving around a lot in my 20's.",
+      "text": "# Personal Biography",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-001",
-      "source": "Personal Reflection",
-      "text": "Technology Side Projects: Ongoing, high interest, llm's are such a fantastic tool to bring to life creations. Any creations, I've used it for tech projects on languages or toolsets I'm interested in. I have a backlog of project code names which I flesh out using AI to be my sounding board. I mold llm's very well to build out entire projects. The product, design, requirements, architecture, UX, Tech stack, delivery, monetization, security, audit, observabililty, it's own llm usage to constrict the llm to behave. Agents.md, rulesets, personas, context, TDD practices to keep it on the rails. Go try TDD AI dev. I wrote a blog about it https://dev.to/bain_forge/tdd-and-ai-enabled-engineering-chl and have an active PR up at the time of writing https://github.com/pontusab/directories/pull/281. I'm going to be using AI a lot in the near future for everything. If you aren't ready for it. I think you're out.",
+      "id": "evidence-b24709fc-df31-4a59-a0a8-c39fd00c2ca4",
+      "source": "Personal Note",
+      "text": "- Partner for eleven years.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-001",
+      "id": "evidence-686c2d9a-fb55-48d5-a708-245ad704038d",
+      "source": "Personal Hobby Log",
+      "text": "- Live near my parents after moving around a lot in my 20's.",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-8b84fff5-72bb-4b50-b459-257f216df656",
+      "source": "Personal Hobby Log",
+      "text": "I cycle through these hobbies over the years:",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-23e6c936-23a5-4bc1-8a3f-5da411f84e1c",
+      "source": "Personal Hobby Log",
+      "text": "- **Wargaming & D&D**: Last played 3 years ago, high interest at the time. Would love to have more time to return. I played orks and I had just started a new army of slaanesh. I played in 3 different campaigns. only finished 1. I was a Dungeon master for one of them. Did multiple one shots down in Newport.",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-c1e6c05d-c828-44d1-acdd-5e5c4e11dbb7",
+      "source": "Personal Hobby Log",
+      "text": "- **Hiking**: Last activity can't remember, high interest, it's great for mental health and health overall. Would love to have more time to do it. Was my first form of movement I enjoyed.",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-cb698ea7-82b7-41d0-98f2-8997c0b4b738",
+      "source": "Personal Hobby Log",
+      "text": "- **Powerlifting & Bodybuilding**: Last activity 4 months ago, high interest. Been doing it 15 years on and off. It's how I learnt about the Japanese saying Kaizen. Started this just after hiking as my sister said I might enjoy it.",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-1a8f0aae-35a7-4b07-9047-02d18812bb07",
+      "source": "Personal Hobby Log",
+      "text": "- **Mountain Biking**: Last activity 3 years ago, It migrated to more casual biking when my son was born and asleep. I did have a nice mountain bike though and I still own a gravel bike that I love getting out on.",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-ee10bcfa-a79c-45c4-9fd1-be69478bc2ec",
+      "source": "Personal Hobby Log",
+      "text": "- **Miniature Painting**: Last activity 2 years ago. I used to paint with my son in a sling. I love painting, so relaxing",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-7e423e57-2a26-45a0-bfed-65717a1ff2d8",
+      "source": "Personal Hobby Log",
+      "text": "- **Nail Painting**: Last activity yesterday. The current vibe. it's temporary, quick, creative, relaxing, self caring. I never thought I'd go outside with painted nails.",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-e8132c15-a686-4fda-a1c1-9ef9be29d756",
+      "source": "Personal Hobby Log",
+      "text": "- **Dev Blog**: Last updated 1 month ago, high interest, the overhead of a dev log right now is a bit much with all the things going on in life.",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-1f51c70e-b8f3-402f-ad28-62ca0dc45c1a",
+      "source": "Personal Hobby Log",
+      "text": "- **Technology Side Projects**: Ongoing, high interest, llm's are such a fantastic tool to bring to life creations. Any creations, I've used it for tech projects on languages or toolsets I'm interested in. I have a backlog of project code names which I flesh out using AI to be my sounding board. I mold llm's very well to build out entire projects. The product, design, requirements, architecture, UX, Tech stack, delivery, monetization, security, audit, observabililty, it's own llm usage to constrict the llm to behave. Agents.md, rulesets, personas, context, TDD practices to keep it on the rails. Go try TDD AI dev. I wrote a blog about it https://dev.to/bain_forge/tdd-and-ai-enabled-engineering-chl and have an active PR up at the time of writing https://github.com/pontusab/directories/pull/281. I'm going to be using AI a lot in the near future for everything. If you aren't ready for it. I think you're out.",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-0580015b-48d6-41eb-8888-c259a3734ada",
       "source": "LinkedIn Recommendation",
       "text": "I have worked with Alex on multiple projects at Clinithink (Client). He is a positive and a hard working person making it a delight to work with him. At any given time he was available to help and also took feedback in a positive manner, solving the problem for success. He has a great pick up speed for technologies making it easier for us to start on new problems quickly and wrap them up. Communication is another great quality which helps understand and solve the problem easily for the product.",
       "author": "Amogh Madan"
     },
     {
-      "id": "evidence-001",
+      "id": "evidence-62af115a-e55a-4e08-86c9-2515ff3be8d6",
       "source": "LinkedIn Recommendation",
       "text": "Alex will try out any new technology and make a success of it. He changed from python to .Net during our time together and most recently has made huge strides with utilising AI as part of engineering practice through using Cursor.",
       "author": "Phil Davies"
     },
     {
-      "id": "evidence-001",
+      "id": "evidence-db32e7e2-9bba-46b5-ba06-d64340d7c23b",
       "source": "LinkedIn Recommendation",
       "text": "I had the pleasure of working with Alex when he was the Tech Lead and I was the Product Manager. He has that rare combination of technical depth and pragmatic execution, always focused on delivering impact, unblocking the team, and just getting things done. Partnering with him made complex projects move faster and smoother, and I’d happily work with him again on any team.",
       "author": "Martin O'Donnell"
     },
     {
-      "id": "evidence-001",
+      "id": "evidence-7d69a8a4-ced5-4322-9699-5b78cb955de9",
       "source": "LinkedIn Recommendation",
       "text": "Wow, it has been great working with Alex and watching him develop and grow in expertise. He is an expert coder who can turn his hand to any part of the software stack - backend, frontend, CI, design, test. He has become expert in handing some jobs over to an LLM. He doesn't just do the job as specified: he can see when there's an easier solution. He is quick to help others. He is collaborative, good humoured and hard working.",
       "author": "Thomas Guest"
     },
     {
-      "id": "evidence-001",
+      "id": "evidence-5b0da2b2-1b32-41c1-ae3f-01338318b7c3",
       "source": "LinkedIn Recommendation",
       "text": "Alex is an excellent software engineer with outstanding technical skills who consistently delivers high-quality, production-ready code. His expertise in software development and problem-solving abilities make him an asset to any engineering team.",
       "author": "Peter Hatton"
     },
     {
-      "id": "evidence-001",
+      "id": "evidence-5dfb75e5-76fa-457e-b5e9-abb21fe5ce3c",
       "source": "LinkedIn Recommendation",
       "text": "I've worked with Alex for the past four years and can honestly say he's one of the best, most proactive, well-rounded engineers I've ever worked with. Whatever thing was thrown Alex's way, he tackled it with passion - from UX, UI/front-end design, backend design, CI/CD pipelines, nothing fazed him. Alex is comfortable using his initiative to learn the things and tools he doesn't know, but needs to know to get the job done. He is curious, inquisitive and gets stuff done to a high standard. None of this is evidenced more by his ability and experience throwing himself deep into using the latest AI engineering technology and tooling to make himself far more productive. Alex would be an asset for any engineering or modern product team.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-001",
+      "id": "evidence-0a25a886-52d5-426b-ade1-884e782a1aaf",
       "source": "LinkedIn Recommendation",
       "text": "I found him to be very flexible and versatile in his approach to work, and he has a broad-range of knowledge across the software landscape.",
       "author": "Jean Rollinson"
     },
     {
-      "id": "evidence-001",
+      "id": "evidence-5a6d0228-7a5e-41e0-b4b6-eb7639ea4093",
+      "source": "Personal Hobby Log",
+      "text": "Joined a small python/react team in a new domain. Python was rusty and I had never worked with django. I quickly got up to speed.",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-e25afae8-9a8c-491c-a19c-c2edac25042d",
       "source": "CV",
+      "text": "Championed build tools, a collection of powershell modules and azure devops templates to facilitate re-use build pipeline tooling.",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-3fad3b00-dfc2-4d7e-9539-569bdd927d33",
+      "source": "CV",
+      "text": "Led a team of offshore engineers to become the bar height of quality within engineering.",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-4d7dbbb0-2f1b-4f3f-bc9a-9b48e8d04fa1",
+      "source": "CV",
+      "text": "Demonstrated the value in adding static analysis to build pipelines which was quickly funded and integrated.",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-f5e5402b-b556-4afb-8e3d-87a61e910544",
+      "source": "Personal Hobby Log",
+      "text": "Built out the first CD pipeline using terraform. cutting QA time from minimum a day to minimum an hour.",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-876a9925-c0d9-4f2a-b92b-d5245d4b4a82",
+      "source": "Personal Hobby Log",
+      "text": "Heavily contritubed to the tech forum, showcasing learnings, different prototypes and side projects.",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-42ae0fe6-b625-477a-a6a8-f7d8359fea15",
+      "source": "Personal Note",
+      "text": "Led a team using .Net with no useful (10 years of out date).Net experience. We delivered ahead of schedule on Release 1 and did 5 more releases within the following quarter",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-bfe27110-7d8f-497f-ad35-01a53cd2ad00",
+      "source": "CV",
+      "text": "Managed the cultural differences with working with offshore engineers (India). (which was also a first)",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-7e9a007f-381a-46e1-b898-abfd80495659",
+      "source": "Personal Hobby Log",
+      "text": "Made good use of personal development on Friday afternoons to explore technologies even adding back into the product and company with new tools and capabilities.",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-80cd5bf7-5092-4b01-b01b-b7ed25324c09",
+      "source": "CV",
+      "text": "Championed wellbeing and psycological safety by being a founding member of the internal wellbeing team.",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-4a6e3f06-9d0a-4cb6-924b-e518560f115e",
+      "source": "CV",
+      "text": "Worked closely with the agile delivery lead to create high performing teams.",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-5ff3afc2-6061-4b7e-9b42-539cbe71a651",
+      "source": "CV",
+      "text": "Worked closely with product owners to shape a more valuable product.",
+      "author": "Alex Bainbridge"
+    },
+    {
+      "id": "evidence-7143bfc6-76d1-4609-9c79-c01b52dc20ee",
+      "source": "Personal Note",
       "text": "Adapted excellently to an AI-enabled engineer. Implemented internal AI usage tracking and reporting to gain insights. I Steered the use of AI in engineering to be more targeted, an approach that I am continuing to revel in.",
       "author": "Alex Bainbridge"
     }
   ],
   "concepts": [
     {
-      "id": "concept-001",
-      "label": "Technical Abilities",
+      "id": "concept-cloud-native-platforms",
+      "label": "Cloud-Native Platforms",
+      "tabId": "engineer",
+      "weight": 0.9,
+      "sourceEvidenceIds": [
+        "evidence-24c0d03c-9799-4500-9361-263f6d05924d"
+      ]
+    },
+    {
+      "id": "concept-ai-driven-innovation",
+      "label": "AI-Driven Innovation",
+      "tabId": "engineer",
+      "weight": 0.9,
+      "sourceEvidenceIds": [
+        "evidence-24c0d03c-9799-4500-9361-263f6d05924d"
+      ]
+    },
+    {
+      "id": "concept-technical-lead",
+      "label": "Technical Lead",
+      "tabId": "leader",
+      "weight": 1,
+      "sourceEvidenceIds": [
+        "evidence-24c0d03c-9799-4500-9361-263f6d05924d"
+      ]
+    },
+    {
+      "id": "concept-mentoring-engineers",
+      "label": "Mentoring Engineers",
+      "tabId": "leader",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-24c0d03c-9799-4500-9361-263f6d05924d"
+      ]
+    },
+    {
+      "id": "concept-high-performing-teams",
+      "label": "High-Performing Teams",
+      "tabId": "colleague",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-24c0d03c-9799-4500-9361-263f6d05924d",
+        "evidence-4a6e3f06-9d0a-4cb6-924b-e518560f115e"
+      ]
+    },
+    {
+      "id": "concept-architecting-scalable-systems",
+      "label": "Architecting Scalable Systems",
       "tabId": "engineer",
       "weight": 0.8,
       "sourceEvidenceIds": [
+        "evidence-24c0d03c-9799-4500-9361-263f6d05924d"
+      ]
+    },
+    {
+      "id": "concept-typescript-4da331c6-0139-4a44-a813-579f503e1fe3",
+      "label": "TypeScript",
+      "tabId": "engineer",
+      "weight": 0.85,
+      "sourceEvidenceIds": [
+        "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
+        "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
+        "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8",
+        "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8",
+        "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3",
+        "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3"
+      ]
+    },
+    {
+      "id": "concept-react-94275b97-168e-4e7f-8b44-8b4c022118ed",
+      "label": "React",
+      "tabId": "engineer",
+      "weight": 0.85,
+      "sourceEvidenceIds": [
+        "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
+        "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
+        "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8",
+        "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8",
+        "evidence-c50de544-dfc4-4fc9-98c4-559573226061",
+        "evidence-c50de544-dfc4-4fc9-98c4-559573226061",
+        "evidence-4d4ea251-2c60-4aa5-b715-764600733785",
+        "evidence-4d4ea251-2c60-4aa5-b715-764600733785",
+        "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3",
+        "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3",
+        "evidence-5dfb75e5-76fa-457e-b5e9-abb21fe5ce3c",
+        "evidence-5a6d0228-7a5e-41e0-b4b6-eb7639ea4093",
+        "evidence-5a6d0228-7a5e-41e0-b4b6-eb7639ea4093"
+      ]
+    },
+    {
+      "id": "concept-python-aedba3dc-a4b1-4ebf-866e-afd948028037",
+      "label": "Python",
+      "tabId": "engineer",
+      "weight": 0.85,
+      "sourceEvidenceIds": [
+        "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
+        "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
+        "evidence-c50de544-dfc4-4fc9-98c4-559573226061",
+        "evidence-c50de544-dfc4-4fc9-98c4-559573226061",
+        "evidence-7de84a60-f5e2-42f1-9a1d-c2cd31b63426",
+        "evidence-7de84a60-f5e2-42f1-9a1d-c2cd31b63426",
+        "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3",
+        "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3",
+        "evidence-62af115a-e55a-4e08-86c9-2515ff3be8d6",
+        "evidence-5dfb75e5-76fa-457e-b5e9-abb21fe5ce3c",
+        "evidence-5a6d0228-7a5e-41e0-b4b6-eb7639ea4093",
+        "evidence-5a6d0228-7a5e-41e0-b4b6-eb7639ea4093"
+      ]
+    },
+    {
+      "id": "concept-azure-62672735-e412-4dde-8a84-3bcec109f2ad",
+      "label": "Azure",
+      "tabId": "engineer",
+      "weight": 0.85,
+      "sourceEvidenceIds": [
+        "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
+        "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
+        "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8",
+        "evidence-c50de544-dfc4-4fc9-98c4-559573226061",
+        "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3",
+        "evidence-5dfb75e5-76fa-457e-b5e9-abb21fe5ce3c",
+        "evidence-e25afae8-9a8c-491c-a19c-c2edac25042d"
+      ]
+    },
+    {
+      "id": "concept-docker-15c0caeb-69ff-47a8-86a4-4f7184a83423",
+      "label": "Docker",
+      "tabId": "engineer",
+      "weight": 0.85,
+      "sourceEvidenceIds": [
+        "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
+        "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
+        "evidence-4d4ea251-2c60-4aa5-b715-764600733785",
+        "evidence-4d4ea251-2c60-4aa5-b715-764600733785"
+      ]
+    },
+    {
+      "id": "concept-dotnet",
+      "label": ".NET",
+      "tabId": "engineer",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
+        "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8",
+        "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3",
+        "evidence-42ae0fe6-b625-477a-a6a8-f7d8359fea15"
+      ]
+    },
+    {
+      "id": "concept-aws",
+      "label": "AWS",
+      "tabId": "engineer",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8"
+      ]
+    },
+    {
+      "id": "concept-terraform",
+      "label": "Terraform",
+      "tabId": "engineer",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
+        "evidence-c50de544-dfc4-4fc9-98c4-559573226061",
+        "evidence-f5e5402b-b556-4afb-8e3d-87a61e910544"
+      ]
+    },
+    {
+      "id": "concept-collaboration-ea71fbdf-355a-4d4f-b0e7-df062cf63e82",
+      "label": "Collaboration",
+      "tabId": "leader",
+      "weight": 0.85,
+      "sourceEvidenceIds": [
+        "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8",
+        "evidence-5b0da2b2-1b32-41c1-ae3f-01338318b7c3",
+        "evidence-5dfb75e5-76fa-457e-b5e9-abb21fe5ce3c"
+      ]
+    },
+    {
+      "id": "concept-customerhub",
+      "label": "CustomerHub",
+      "tabId": "engineer",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8"
+      ]
+    },
+    {
+      "id": "concept-hubspot-cms",
+      "label": "HubSpot CMS",
+      "tabId": "engineer",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8"
+      ]
+    },
+    {
+      "id": "concept-azure-functions",
+      "label": "Azure Functions",
+      "tabId": "engineer",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8"
+      ]
+    },
+    {
+      "id": "concept-azure-devops",
+      "label": "Azure DevOps",
+      "tabId": "engineer",
+      "weight": 0.9,
+      "sourceEvidenceIds": [
+        "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8",
+        "evidence-c50de544-dfc4-4fc9-98c4-559573226061",
+        "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3"
+      ]
+    },
+    {
+      "id": "concept-powershell",
+      "label": "PowerShell",
+      "tabId": "engineer",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8",
+        "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3"
+      ]
+    },
+    {
+      "id": "concept-projectcipher",
+      "label": "ProjectCipher",
+      "tabId": "engineer",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8"
+      ]
+    },
+    {
+      "id": "concept-ml-net",
+      "label": "ML.NET",
+      "tabId": "engineer",
+      "weight": 0.6,
+      "sourceEvidenceIds": [
+        "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8",
+        "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3"
+      ]
+    },
+    {
+      "id": "concept-psychological-safety",
+      "label": "Psychological Safety",
+      "tabId": "leader",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8",
+        "evidence-80cd5bf7-5092-4b01-b01b-b7ed25324c09"
+      ]
+    },
+    {
+      "id": "concept-wellbeing-team",
+      "label": "Wellbeing Team",
+      "tabId": "colleague",
+      "weight": 0.5,
+      "sourceEvidenceIds": [
+        "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8"
+      ]
+    },
+    {
+      "id": "concept-ci/cd-d259aa35-cc67-450e-bfce-c6c4a954ea0c",
+      "label": "CI/CD",
+      "tabId": "engineer",
+      "weight": 0.85,
+      "sourceEvidenceIds": [
+        "evidence-c50de544-dfc4-4fc9-98c4-559573226061",
+        "evidence-7de84a60-f5e2-42f1-9a1d-c2cd31b63426",
+        "evidence-5dfb75e5-76fa-457e-b5e9-abb21fe5ce3c"
+      ]
+    },
+    {
+      "id": "concept-agile-01d0793a-a3f4-45a7-9fd4-269e150491ce",
+      "label": "Agile",
+      "tabId": "engineer",
+      "weight": 0.85,
+      "sourceEvidenceIds": [
+        "evidence-c50de544-dfc4-4fc9-98c4-559573226061",
+        "evidence-5dfb75e5-76fa-457e-b5e9-abb21fe5ce3c",
+        "evidence-4a6e3f06-9d0a-4cb6-924b-e518560f115e"
+      ]
+    },
+    {
+      "id": "concept-scrum-e9319184-cb93-4a15-adaf-a8ce761b8264",
+      "label": "Scrum",
+      "tabId": "engineer",
+      "weight": 0.85,
+      "sourceEvidenceIds": [
+        "evidence-c50de544-dfc4-4fc9-98c4-559573226061",
+        "evidence-5dfb75e5-76fa-457e-b5e9-abb21fe5ce3c"
+      ]
+    },
+    {
+      "id": "concept-django",
+      "label": "Django",
+      "tabId": "engineer",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-c50de544-dfc4-4fc9-98c4-559573226061",
+        "evidence-5a6d0228-7a5e-41e0-b4b6-eb7639ea4093"
+      ]
+    },
+    {
+      "id": "concept-ci-cd-pipeline",
+      "label": "CI/CD Pipeline",
+      "tabId": "engineer",
+      "weight": 0.9,
+      "sourceEvidenceIds": [
+        "evidence-c50de544-dfc4-4fc9-98c4-559573226061"
+      ]
+    },
+    {
+      "id": "concept-agile-processes",
+      "label": "Agile Processes",
+      "tabId": "leader",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-c50de544-dfc4-4fc9-98c4-559573226061"
+      ]
+    },
+    {
+      "id": "concept-coaching-peers",
+      "label": "Coaching Peers",
+      "tabId": "leader",
+      "weight": 0.6,
+      "sourceEvidenceIds": [
+        "evidence-c50de544-dfc4-4fc9-98c4-559573226061"
+      ]
+    },
+    {
+      "id": "concept-node.js-c9e73312-749b-41a3-8519-c1d828ed07af",
+      "label": "Node.js",
+      "tabId": "engineer",
+      "weight": 0.85,
+      "sourceEvidenceIds": [
+        "evidence-4d4ea251-2c60-4aa5-b715-764600733785",
+        "evidence-4d4ea251-2c60-4aa5-b715-764600733785"
+      ]
+    },
+    {
+      "id": "concept-mysql",
+      "label": "MySQL",
+      "tabId": "engineer",
+      "weight": 0.6,
+      "sourceEvidenceIds": [
+        "evidence-4d4ea251-2c60-4aa5-b715-764600733785"
+      ]
+    },
+    {
+      "id": "concept-liquibase",
+      "label": "Liquibase",
+      "tabId": "engineer",
+      "weight": 0.6,
+      "sourceEvidenceIds": [
+        "evidence-4d4ea251-2c60-4aa5-b715-764600733785"
+      ]
+    },
+    {
+      "id": "concept-jenkins",
+      "label": "Jenkins",
+      "tabId": "engineer",
+      "weight": 0.6,
+      "sourceEvidenceIds": [
+        "evidence-4d4ea251-2c60-4aa5-b715-764600733785"
+      ]
+    },
+    {
+      "id": "concept-kubernetes",
+      "label": "Kubernetes",
+      "tabId": "engineer",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-4d4ea251-2c60-4aa5-b715-764600733785"
+      ]
+    },
+    {
+      "id": "concept-helm",
+      "label": "Helm",
+      "tabId": "engineer",
+      "weight": 0.6,
+      "sourceEvidenceIds": [
+        "evidence-4d4ea251-2c60-4aa5-b715-764600733785"
+      ]
+    },
+    {
+      "id": "concept-jest",
+      "label": "Jest",
+      "tabId": "engineer",
+      "weight": 0.6,
+      "sourceEvidenceIds": [
+        "evidence-4d4ea251-2c60-4aa5-b715-764600733785"
+      ]
+    },
+    {
+      "id": "concept-cypress",
+      "label": "Cypress",
+      "tabId": "engineer",
+      "weight": 0.6,
+      "sourceEvidenceIds": [
+        "evidence-4d4ea251-2c60-4aa5-b715-764600733785"
+      ]
+    },
+    {
+      "id": "concept-cucumber",
+      "label": "Cucumber",
+      "tabId": "engineer",
+      "weight": 0.6,
+      "sourceEvidenceIds": [
+        "evidence-4d4ea251-2c60-4aa5-b715-764600733785"
+      ]
+    },
+    {
+      "id": "concept-mentorship",
+      "label": "Mentorship",
+      "tabId": "leader",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-4d4ea251-2c60-4aa5-b715-764600733785",
         "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-devops-adoption",
+      "label": "DevOps Adoption",
+      "tabId": "leader",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-4d4ea251-2c60-4aa5-b715-764600733785"
+      ]
+    },
+    {
+      "id": "concept-distributed-etl-framework",
+      "label": "Distributed ETL Framework",
+      "tabId": "engineer",
+      "weight": 0.9,
+      "sourceEvidenceIds": [
+        "evidence-7de84a60-f5e2-42f1-9a1d-c2cd31b63426"
+      ]
+    },
+    {
+      "id": "concept-kafka",
+      "label": "Kafka",
+      "tabId": "engineer",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-7de84a60-f5e2-42f1-9a1d-c2cd31b63426"
+      ]
+    },
+    {
+      "id": "concept-redis",
+      "label": "Redis",
+      "tabId": "engineer",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-7de84a60-f5e2-42f1-9a1d-c2cd31b63426"
+      ]
+    },
+    {
+      "id": "concept-elasticsearch",
+      "label": "Elasticsearch",
+      "tabId": "engineer",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-7de84a60-f5e2-42f1-9a1d-c2cd31b63426"
+      ]
+    },
+    {
+      "id": "concept-nifi",
+      "label": "NiFi",
+      "tabId": "engineer",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-7de84a60-f5e2-42f1-9a1d-c2cd31b63426"
+      ]
+    },
+    {
+      "id": "concept-ci-cd-pipelines",
+      "label": "CI/CD Pipelines",
+      "tabId": "engineer",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-7de84a60-f5e2-42f1-9a1d-c2cd31b63426"
+      ]
+    },
+    {
+      "id": "concept-ansible",
+      "label": "Ansible",
+      "tabId": "engineer",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-7de84a60-f5e2-42f1-9a1d-c2cd31b63426"
+      ]
+    },
+    {
+      "id": "concept-pytest",
+      "label": "Pytest",
+      "tabId": "engineer",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-7de84a60-f5e2-42f1-9a1d-c2cd31b63426"
+      ]
+    },
+    {
+      "id": "concept-24-7-support",
+      "label": "24/7 Support",
+      "tabId": "colleague",
+      "weight": 0.6,
+      "sourceEvidenceIds": [
+        "evidence-7de84a60-f5e2-42f1-9a1d-c2cd31b63426"
+      ]
+    },
+    {
+      "id": "concept-high-severity-incident-resolution",
+      "label": "High-Severity Incident Resolution",
+      "tabId": "colleague",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-7de84a60-f5e2-42f1-9a1d-c2cd31b63426"
+      ]
+    },
+    {
+      "id": "concept-fastapi",
+      "label": "FastAPI",
+      "tabId": "engineer",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3"
+      ]
+    },
+    {
+      "id": "concept-comfyui",
+      "label": "ComfyUI",
+      "tabId": "engineer",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3"
+      ]
+    },
+    {
+      "id": "concept-stable-diffusion",
+      "label": "Stable Diffusion",
+      "tabId": "engineer",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3"
+      ]
+    },
+    {
+      "id": "concept-unity",
+      "label": "Unity",
+      "tabId": "engineer",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3"
+      ]
+    },
+    {
+      "id": "concept-csharp",
+      "label": "C#",
+      "tabId": "engineer",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3"
+      ]
+    },
+    {
+      "id": "concept-llms",
+      "label": "LLMs",
+      "tabId": "engineer",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3"
+      ]
+    },
+    {
+      "id": "concept-aws-certified-cloud-practitioner",
+      "label": "AWS Certified Cloud Practitioner",
+      "tabId": "engineer",
+      "weight": 0.9,
+      "sourceEvidenceIds": [
+        "evidence-aab20f91-02e4-4faf-b42f-7f105a253412"
+      ]
+    },
+    {
+      "id": "concept-oracle-certified-java-se-7-programmer",
+      "label": "Oracle Certified Java SE 7 Programmer (OCA)",
+      "tabId": "engineer",
+      "weight": 0.9,
+      "sourceEvidenceIds": [
+        "evidence-aab20f91-02e4-4faf-b42f-7f105a253412"
+      ]
+    },
+    {
+      "id": "concept-mental-health-first-aider",
+      "label": "Mental Health First Aider",
+      "tabId": "personal",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-aab20f91-02e4-4faf-b42f-7f105a253412"
+      ]
+    },
+    {
+      "id": "concept-computer-games-development",
+      "label": "Computer Games Development",
+      "tabId": "engineer",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-913912a0-98f7-46da-9dca-584964c26dfd"
+      ]
+    },
+    {
+      "id": "concept-graphic-design",
+      "label": "Graphic Design",
+      "tabId": "engineer",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-913912a0-98f7-46da-9dca-584964c26dfd"
+      ]
+    },
+    {
+      "id": "concept-linkedin-profile",
+      "label": "LinkedIn Profile",
+      "tabId": "personal",
+      "weight": 0.3,
+      "sourceEvidenceIds": [
+        "evidence-e7ac43a6-8f5b-4755-a526-5c3d66bde683"
+      ]
+    },
+    {
+      "id": "concept-github-profile",
+      "label": "GitHub Profile",
+      "tabId": "engineer",
+      "weight": 0.5,
+      "sourceEvidenceIds": [
+        "evidence-e7ac43a6-8f5b-4755-a526-5c3d66bde683"
+      ]
+    },
+    {
+      "id": "concept-dev-blog",
+      "label": "Dev Blog",
+      "tabId": "personal",
+      "weight": 0.4,
+      "sourceEvidenceIds": [
+        "evidence-e7ac43a6-8f5b-4755-a526-5c3d66bde683",
+        "evidence-e8132c15-a686-4fda-a1c1-9ef9be29d756"
+      ]
+    },
+    {
+      "id": "concept-long-term-partnership",
+      "label": "Long-term Partnership",
+      "tabId": "personal",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-b24709fc-df31-4a59-a0a8-c39fd00c2ca4"
+      ]
+    },
+    {
+      "id": "concept-family-proximity",
+      "label": "Family Proximity",
+      "tabId": "personal",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-686c2d9a-fb55-48d5-a708-245ad704038d"
+      ]
+    },
+    {
+      "id": "concept-frequent-relocation",
+      "label": "Frequent Relocation",
+      "tabId": "personal",
+      "weight": 0.6,
+      "sourceEvidenceIds": [
+        "evidence-686c2d9a-fb55-48d5-a708-245ad704038d"
+      ]
+    },
+    {
+      "id": "concept-wargaming",
+      "label": "Wargaming",
+      "tabId": "personal",
+      "weight": 0.5,
+      "sourceEvidenceIds": [
+        "evidence-23e6c936-23a5-4bc1-8a3f-5da411f84e1c"
+      ]
+    },
+    {
+      "id": "concept-dungeons-and-dragons",
+      "label": "Dungeons & Dragons",
+      "tabId": "personal",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-23e6c936-23a5-4bc1-8a3f-5da411f84e1c"
+      ]
+    },
+    {
+      "id": "concept-dungeon-master",
+      "label": "Dungeon Master",
+      "tabId": "personal",
+      "weight": 0.6,
+      "sourceEvidenceIds": [
+        "evidence-23e6c936-23a5-4bc1-8a3f-5da411f84e1c"
+      ]
+    },
+    {
+      "id": "concept-one-shots-newport",
+      "label": "One Shots in Newport",
+      "tabId": "personal",
+      "weight": 0.4,
+      "sourceEvidenceIds": [
+        "evidence-23e6c936-23a5-4bc1-8a3f-5da411f84e1c"
+      ]
+    },
+    {
+      "id": "concept-hiking",
+      "label": "Hiking",
+      "tabId": "personal",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-c1e6c05d-c828-44d1-acdd-5e5c4e11dbb7",
+        "evidence-cb698ea7-82b7-41d0-98f2-8997c0b4b738"
+      ]
+    },
+    {
+      "id": "concept-powerlifting-bodybuilding",
+      "label": "Powerlifting & Bodybuilding",
+      "tabId": "personal",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-cb698ea7-82b7-41d0-98f2-8997c0b4b738"
+      ]
+    },
+    {
+      "id": "concept-kaizen",
+      "label": "Kaizen",
+      "tabId": "personal",
+      "weight": 0.5,
+      "sourceEvidenceIds": [
+        "evidence-cb698ea7-82b7-41d0-98f2-8997c0b4b738"
+      ]
+    },
+    {
+      "id": "concept-mountain-biking",
+      "label": "Mountain Biking",
+      "tabId": "personal",
+      "weight": 0.3,
+      "sourceEvidenceIds": [
+        "evidence-1a8f0aae-35a7-4b07-9047-02d18812bb07"
+      ]
+    },
+    {
+      "id": "concept-casual-biking",
+      "label": "Casual Biking",
+      "tabId": "personal",
+      "weight": 0.5,
+      "sourceEvidenceIds": [
+        "evidence-1a8f0aae-35a7-4b07-9047-02d18812bb07"
+      ]
+    },
+    {
+      "id": "concept-gravel-biking",
+      "label": "Gravel Biking",
+      "tabId": "personal",
+      "weight": 0.6,
+      "sourceEvidenceIds": [
+        "evidence-1a8f0aae-35a7-4b07-9047-02d18812bb07"
+      ]
+    },
+    {
+      "id": "concept-miniature-painting",
+      "label": "Miniature Painting",
+      "tabId": "personal",
+      "weight": 0.6,
+      "sourceEvidenceIds": [
+        "evidence-ee10bcfa-a79c-45c4-9fd1-be69478bc2ec"
+      ]
+    },
+    {
+      "id": "concept-nail-painting",
+      "label": "Nail Painting",
+      "tabId": "personal",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-7e423e57-2a26-45a0-bfed-65717a1ff2d8"
+      ]
+    },
+    {
+      "id": "concept-self-care",
+      "label": "Self Care",
+      "tabId": "personal",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-7e423e57-2a26-45a0-bfed-65717a1ff2d8"
+      ]
+    },
+    {
+      "id": "concept-tdd-8a5c6586-f4ff-498c-9a52-7af7f694f151",
+      "label": "TDD",
+      "tabId": "engineer",
+      "weight": 0.85,
+      "sourceEvidenceIds": [
+        "evidence-1f51c70e-b8f3-402f-ad28-62ca0dc45c1a"
+      ]
+    },
+    {
+      "id": "concept-llm-projects",
+      "label": "LLM Projects",
+      "tabId": "engineer",
+      "weight": 0.9,
+      "sourceEvidenceIds": [
+        "evidence-1f51c70e-b8f3-402f-ad28-62ca0dc45c1a"
+      ]
+    },
+    {
+      "id": "concept-tdd-ai-dev",
+      "label": "TDD AI Development",
+      "tabId": "engineer",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-1f51c70e-b8f3-402f-ad28-62ca0dc45c1a"
+      ]
+    },
+    {
+      "id": "concept-ai-integration",
+      "label": "AI Integration",
+      "tabId": "engineer",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-1f51c70e-b8f3-402f-ad28-62ca0dc45c1a"
+      ]
+    },
+    {
+      "id": "concept-communication-78934910-e3ac-4f03-93be-2912aa86c136",
+      "label": "Communication",
+      "tabId": "leader",
+      "weight": 0.85,
+      "sourceEvidenceIds": [
+        "evidence-0580015b-48d6-41eb-8888-c259a3734ada"
+      ]
+    },
+    {
+      "id": "concept-001",
+      "label": "Positive Attitude",
+      "tabId": "colleague",
+      "weight": 0.9,
+      "sourceEvidenceIds": [
         "evidence-001",
         "evidence-001",
         "evidence-001",
@@ -200,23 +1157,10 @@
     },
     {
       "id": "concept-002",
-      "label": "Cloud-Native Architecture",
-      "tabId": "engineer",
-      "weight": 0.9,
+      "label": "Hard Working",
+      "tabId": "colleague",
+      "weight": 0.8,
       "sourceEvidenceIds": [
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
         "evidence-001",
         "evidence-001",
         "evidence-001",
@@ -228,19 +1172,10 @@
     },
     {
       "id": "concept-003",
-      "label": "AI-Driven Engineering",
+      "label": "Technological Adaptability",
       "tabId": "engineer",
-      "weight": 0.8,
+      "weight": 0.85,
       "sourceEvidenceIds": [
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
         "evidence-001",
         "evidence-001",
         "evidence-001",
@@ -251,138 +1186,52 @@
     },
     {
       "id": "concept-004",
-      "label": "Mentoring Engineers",
-      "tabId": "leader",
-      "weight": 0.7,
-      "sourceEvidenceIds": [
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001"
-      ]
-    },
-    {
-      "id": "concept-typescript-e7f92e9e-3ad7-4cd2-9838-93b1d2866813",
-      "label": "TypeScript",
-      "tabId": "engineer",
-      "sourceEvidenceIds": [
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001"
-      ]
-    },
-    {
-      "id": "concept-react-e0c6c852-01ef-404e-960d-71c3b2dfffa1",
-      "label": "React",
-      "tabId": "engineer",
-      "sourceEvidenceIds": [
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001"
-      ]
-    },
-    {
-      "id": "concept-python-f82c3111-f629-4b93-8578-aafd1da190e5",
-      "label": "Python",
-      "tabId": "engineer",
-      "sourceEvidenceIds": [
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001"
-      ]
-    },
-    {
-      "id": "concept-azure-71edb774-46e8-47f4-920e-23101a649d56",
-      "label": "Azure",
-      "tabId": "engineer",
-      "sourceEvidenceIds": [
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001"
-      ]
-    },
-    {
-      "id": "concept-docker-10e587dc-0386-4867-af85-ea33308298b6",
-      "label": "Docker",
-      "tabId": "engineer",
-      "sourceEvidenceIds": [
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
-        "evidence-001"
-      ]
-    },
-    {
-      "id": "concept-006",
-      "label": "AWS",
-      "tabId": "engineer",
+      "label": "Effective Communication",
+      "tabId": "colleague",
       "weight": 0.9,
       "sourceEvidenceIds": [
         "evidence-001",
         "evidence-001",
         "evidence-001",
-        "evidence-001"
-      ]
-    },
-    {
-      "id": "concept-007",
-      "label": "Terraform",
-      "tabId": "engineer",
-      "weight": 0.9,
-      "sourceEvidenceIds": [
-        "evidence-001"
-      ]
-    },
-    {
-      "id": "concept-.net-7e21a805-4c9f-4ae7-9394-df74a7ee2181",
-      "label": ".NET",
-      "tabId": "engineer",
-      "sourceEvidenceIds": [
         "evidence-001",
         "evidence-001"
       ]
     },
     {
-      "id": "concept-collaboration-1a2c119a-c8ca-44af-a811-50ccfd0d6118",
-      "label": "Collaboration",
+      "id": "concept-creativity-273810fa-6b0c-4f52-9507-35470b36b64b",
+      "label": "Creativity",
       "tabId": "leader",
+      "weight": 0.85,
       "sourceEvidenceIds": [
-        "evidence-001",
-        "evidence-001",
-        "evidence-001"
+        "evidence-62af115a-e55a-4e08-86c9-2515ff3be8d6",
+        "evidence-5b0da2b2-1b32-41c1-ae3f-01338318b7c3"
+      ]
+    },
+    {
+      "id": "concept-positivity-299081b9-497a-495b-b95d-2349d7ed6f2d",
+      "label": "Positivity",
+      "tabId": "leader",
+      "weight": 0.85,
+      "sourceEvidenceIds": [
+        "evidence-62af115a-e55a-4e08-86c9-2515ff3be8d6"
+      ]
+    },
+    {
+      "id": "concept-initiative-93238c4b-80b0-4c12-befa-0091c17522ea",
+      "label": "Initiative",
+      "tabId": "leader",
+      "weight": 0.85,
+      "sourceEvidenceIds": [
+        "evidence-62af115a-e55a-4e08-86c9-2515ff3be8d6",
+        "evidence-5dfb75e5-76fa-457e-b5e9-abb21fe5ce3c"
       ]
     },
     {
       "id": "concept-005",
-      "label": "AI-driven Experimentation",
-      "tabId": "engineer",
-      "weight": 0.75,
+      "label": "Collaborative Spirit",
+      "tabId": "colleague",
+      "weight": 0.85,
       "sourceEvidenceIds": [
-        "evidence-001",
-        "evidence-001",
-        "evidence-001",
         "evidence-001",
         "evidence-001",
         "evidence-001",
@@ -391,124 +1240,276 @@
       ]
     },
     {
-      "id": "concept-ci/cd-5c309433-69ec-4aa5-b8c6-c0916816265a",
-      "label": "CI/CD",
-      "tabId": "engineer",
-      "sourceEvidenceIds": [
-        "evidence-001",
-        "evidence-001",
-        "evidence-001"
-      ]
-    },
-    {
-      "id": "concept-agile-c519039b-cc9c-44cf-ba3e-39d4ccb59beb",
-      "label": "Agile",
-      "tabId": "engineer",
-      "sourceEvidenceIds": [
-        "evidence-001",
-        "evidence-001",
-        "evidence-001"
-      ]
-    },
-    {
-      "id": "concept-scrum-8053ec45-7a53-40e2-9dbc-e824bee2694a",
-      "label": "Scrum",
-      "tabId": "engineer",
-      "sourceEvidenceIds": [
-        "evidence-001",
-        "evidence-001"
-      ]
-    },
-    {
-      "id": "concept-node.js-159e282e-927c-4abe-a53f-e81ded831054",
-      "label": "Node.js",
-      "tabId": "engineer",
-      "sourceEvidenceIds": [
-        "evidence-001"
-      ]
-    },
-    {
-      "id": "concept-tdd-7da50736-67a7-42aa-bf83-a52170119e54",
-      "label": "TDD",
-      "tabId": "engineer",
-      "sourceEvidenceIds": [
-        "evidence-001"
-      ]
-    },
-    {
-      "id": "concept-communication-962b4099-de11-4823-b29b-d3915b635520",
-      "label": "Communication",
-      "tabId": "leader",
-      "sourceEvidenceIds": [
-        "evidence-001"
-      ]
-    },
-    {
-      "id": "concept-creativity-794f66e0-3138-450e-88cc-1378851003ed",
-      "label": "Creativity",
-      "tabId": "leader",
-      "sourceEvidenceIds": [
-        "evidence-001",
-        "evidence-001"
-      ]
-    },
-    {
-      "id": "concept-positivity-3b691f70-4c5d-4182-a0db-053b300bfe2e",
-      "label": "Positivity",
-      "tabId": "leader",
-      "sourceEvidenceIds": [
-        "evidence-001"
-      ]
-    },
-    {
-      "id": "concept-initiative-c68503f2-8034-415d-a576-d0dcf190bcbe",
-      "label": "Initiative",
-      "tabId": "leader",
-      "sourceEvidenceIds": [
-        "evidence-001",
-        "evidence-001"
-      ]
-    },
-    {
-      "id": "concept-problem-solving-64c63bb3-e046-469c-a133-da1e41fca6a1",
+      "id": "concept-problem-solving-eabc6916-b394-4492-830e-69da16136959",
       "label": "Problem-Solving",
       "tabId": "leader",
+      "weight": 0.85,
       "sourceEvidenceIds": [
-        "evidence-001",
+        "evidence-5b0da2b2-1b32-41c1-ae3f-01338318b7c3",
         "evidence-001"
       ]
     },
     {
-      "id": "concept-adaptability-bcb9258f-e5c5-4cf6-a62a-87ebfa63b9c7",
+      "id": "concept-adaptability-e72fcd47-ee24-4ccd-9ebe-ca40cddfc12f",
       "label": "Adaptability",
       "tabId": "leader",
+      "weight": 0.85,
       "sourceEvidenceIds": [
-        "evidence-001",
+        "evidence-5b0da2b2-1b32-41c1-ae3f-01338318b7c3",
         "evidence-001"
       ]
     },
     {
-      "id": "concept-growth-mindset-191f4228-3daf-4161-a20c-32a999e45767",
+      "id": "concept-growth-mindset-15a4cb8e-84db-4e01-a671-dba80007cd5e",
       "label": "Growth Mindset",
       "tabId": "leader",
+      "weight": 0.85,
       "sourceEvidenceIds": [
-        "evidence-001"
+        "evidence-5b0da2b2-1b32-41c1-ae3f-01338318b7c3"
       ]
     },
     {
-      "id": "concept-sql-caded455-92cd-4a60-883b-a27bb783b988",
+      "id": "concept-sql-402ef7d2-258e-4a80-a0d6-9925d32bae34",
       "label": "SQL",
       "tabId": "engineer",
+      "weight": 0.85,
       "sourceEvidenceIds": [
-        "evidence-001"
+        "evidence-5dfb75e5-76fa-457e-b5e9-abb21fe5ce3c"
       ]
     },
     {
-      "id": "concept-leadership-13815ef7-3329-416e-b9d1-7ce31dbe5bfe",
+      "id": "concept-leadership-ff6cc92d-23ee-4030-91b7-a922720a7eb3",
       "label": "Leadership",
       "tabId": "leader",
+      "weight": 0.85,
       "sourceEvidenceIds": [
-        "evidence-001"
+        "evidence-5dfb75e5-76fa-457e-b5e9-abb21fe5ce3c"
+      ]
+    },
+    {
+      "id": "concept-build-tools",
+      "label": "Build Tools",
+      "tabId": "engineer",
+      "weight": 0.9,
+      "sourceEvidenceIds": [
+        "evidence-e25afae8-9a8c-491c-a19c-c2edac25042d"
+      ]
+    },
+    {
+      "id": "concept-powershell-modules",
+      "label": "PowerShell Modules",
+      "tabId": "engineer",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-e25afae8-9a8c-491c-a19c-c2edac25042d"
+      ]
+    },
+    {
+      "id": "concept-azure-devops-templates",
+      "label": "Azure DevOps Templates",
+      "tabId": "engineer",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-e25afae8-9a8c-491c-a19c-c2edac25042d"
+      ]
+    },
+    {
+      "id": "concept-team-leadership",
+      "label": "Team Leadership",
+      "tabId": "leader",
+      "weight": 0.9,
+      "sourceEvidenceIds": [
+        "evidence-3fad3b00-dfc2-4d7e-9539-569bdd927d33",
+        "evidence-42ae0fe6-b625-477a-a6a8-f7d8359fea15"
+      ]
+    },
+    {
+      "id": "concept-quality-standards",
+      "label": "Quality Standards",
+      "tabId": "engineer",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-3fad3b00-dfc2-4d7e-9539-569bdd927d33"
+      ]
+    },
+    {
+      "id": "concept-static-analysis",
+      "label": "Static Analysis",
+      "tabId": "engineer",
+      "weight": 0.9,
+      "sourceEvidenceIds": [
+        "evidence-4d7dbbb0-2f1b-4f3f-bc9a-9b48e8d04fa1"
+      ]
+    },
+    {
+      "id": "concept-build-pipelines",
+      "label": "Build Pipelines",
+      "tabId": "engineer",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-4d7dbbb0-2f1b-4f3f-bc9a-9b48e8d04fa1"
+      ]
+    },
+    {
+      "id": "concept-cd-pipeline",
+      "label": "CD Pipeline",
+      "tabId": "engineer",
+      "weight": 0.9,
+      "sourceEvidenceIds": [
+        "evidence-f5e5402b-b556-4afb-8e3d-87a61e910544"
+      ]
+    },
+    {
+      "id": "concept-tech-forum-contribution",
+      "label": "Tech Forum Contribution",
+      "tabId": "personal",
+      "weight": 0.9,
+      "sourceEvidenceIds": [
+        "evidence-876a9925-c0d9-4f2a-b92b-d5245d4b4a82"
+      ]
+    },
+    {
+      "id": "concept-prototyping",
+      "label": "Prototyping",
+      "tabId": "engineer",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-876a9925-c0d9-4f2a-b92b-d5245d4b4a82"
+      ]
+    },
+    {
+      "id": "concept-side-projects",
+      "label": "Side Projects",
+      "tabId": "personal",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-876a9925-c0d9-4f2a-b92b-d5245d4b4a82"
+      ]
+    },
+    {
+      "id": "concept-project-delivery",
+      "label": "Project Delivery",
+      "tabId": "leader",
+      "weight": 0.9,
+      "sourceEvidenceIds": [
+        "evidence-42ae0fe6-b625-477a-a6a8-f7d8359fea15"
+      ]
+    },
+    {
+      "id": "concept-cultural-differences-management",
+      "label": "Cultural Differences Management",
+      "tabId": "leader",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-bfe27110-7d8f-497f-ad35-01a53cd2ad00"
+      ]
+    },
+    {
+      "id": "concept-offshore-engineering-collaboration",
+      "label": "Offshore Engineering Collaboration",
+      "tabId": "colleague",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-bfe27110-7d8f-497f-ad35-01a53cd2ad00"
+      ]
+    },
+    {
+      "id": "concept-personal-development",
+      "label": "Personal Development",
+      "tabId": "personal",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-7e9a007f-381a-46e1-b898-abfd80495659"
+      ]
+    },
+    {
+      "id": "concept-exploring-technologies",
+      "label": "Exploring Technologies",
+      "tabId": "engineer",
+      "weight": 0.6,
+      "sourceEvidenceIds": [
+        "evidence-7e9a007f-381a-46e1-b898-abfd80495659"
+      ]
+    },
+    {
+      "id": "concept-new-tools-and-capabilities",
+      "label": "New Tools and Capabilities",
+      "tabId": "engineer",
+      "weight": 0.5,
+      "sourceEvidenceIds": [
+        "evidence-7e9a007f-381a-46e1-b898-abfd80495659"
+      ]
+    },
+    {
+      "id": "concept-wellbeing",
+      "label": "Wellbeing",
+      "tabId": "leader",
+      "weight": 0.9,
+      "sourceEvidenceIds": [
+        "evidence-80cd5bf7-5092-4b01-b01b-b7ed25324c09"
+      ]
+    },
+    {
+      "id": "concept-internal-wellbeing-team",
+      "label": "Internal Wellbeing Team",
+      "tabId": "colleague",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-80cd5bf7-5092-4b01-b01b-b7ed25324c09"
+      ]
+    },
+    {
+      "id": "concept-agile-delivery",
+      "label": "Agile Delivery",
+      "tabId": "leader",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-4a6e3f06-9d0a-4cb6-924b-e518560f115e"
+      ]
+    },
+    {
+      "id": "concept-collaboration-with-product-owners",
+      "label": "Collaboration with Product Owners",
+      "tabId": "colleague",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-5ff3afc2-6061-4b7e-9b42-539cbe71a651"
+      ]
+    },
+    {
+      "id": "concept-product-value-enhancement",
+      "label": "Product Value Enhancement",
+      "tabId": "leader",
+      "weight": 0.6,
+      "sourceEvidenceIds": [
+        "evidence-5ff3afc2-6061-4b7e-9b42-539cbe71a651"
+      ]
+    },
+    {
+      "id": "concept-ai-enabled-engineer",
+      "label": "AI-Enabled Engineer",
+      "tabId": "engineer",
+      "weight": 0.9,
+      "sourceEvidenceIds": [
+        "evidence-7143bfc6-76d1-4609-9c79-c01b52dc20ee"
+      ]
+    },
+    {
+      "id": "concept-ai-usage-tracking",
+      "label": "AI Usage Tracking",
+      "tabId": "engineer",
+      "weight": 0.8,
+      "sourceEvidenceIds": [
+        "evidence-7143bfc6-76d1-4609-9c79-c01b52dc20ee"
+      ]
+    },
+    {
+      "id": "concept-targeted-ai-use",
+      "label": "Targeted AI Use",
+      "tabId": "engineer",
+      "weight": 0.7,
+      "sourceEvidenceIds": [
+        "evidence-7143bfc6-76d1-4609-9c79-c01b52dc20ee"
       ]
     }
   ]
