@@ -10,7 +10,7 @@ interface AboutMeTabProps {
 
 export default function AboutMeTab({ content }: AboutMeTabProps) {
   return (
-    <div className="p-8 text-white max-w-4xl mx-auto">
+    <div className="p-8 text-white max-w-4xl mx-auto h-full overflow-y-auto custom-scrollbar">
       <ReactMarkdown
         components={{
           h1: ({ node, ...props }) => <NeonHeading level={1} {...props} />,
