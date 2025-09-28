@@ -2,8 +2,9 @@
 
 import { motion } from 'framer-motion';
 import { Profile } from '@/lib/types';
-import { MapPin, Globe, User } from 'lucide-react';
+import { MapPin, Globe, User, FileText, Linkedin } from 'lucide-react';
 import Image from 'next/image';
+import IconButton from './IconButton';
 
 interface ProfileCardProps {
   profile: Profile;
@@ -98,6 +99,13 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
             <span className="text-sm group-hover:underline">{profile.website}</span>
           </a>
         )}
+
+        <div className="flex justify-center space-x-4 pt-4">
+          {profile.links?.map((link) => {
+            const Icon = link.label === 'CV' ? FileText : Linkedin;
+            return <IconButton key={link.label} href={link.url} label={link.label} icon={Icon} />;
+          })}
+        </div>
 
         <div className="pt-4 border-t border-gray-700">
           <div className="flex items-center justify-between text-xs text-gray-500">

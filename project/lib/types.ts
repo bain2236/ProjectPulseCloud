@@ -8,6 +8,10 @@ export interface Profile {
   avatar?: string;
   location?: string;
   website?: string;
+  links?: {
+    label: string;
+    url: string;
+  }[];
 }
 
 export interface Tab {

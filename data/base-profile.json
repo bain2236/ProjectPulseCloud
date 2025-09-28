@@ -8,7 +8,17 @@
     "bio": "Full-stack engineer passionate about building beautiful, accessible experiences.",
     "avatar": "/face.jpeg",
     "location": "United Kingdom",
-    "website": "https://alex.dev"
+    "website": "https://alex.dev",
+    "links": [
+      {
+        "label": "CV",
+        "url": "https://github.com/your-username/your-cv-repo"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/your-profile/"
+      }
+    ]
   },
   "tabs": [
     { "id": "about", "title": "About Me", "order": -1 },
