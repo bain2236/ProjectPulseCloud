@@ -12,6 +12,11 @@
   },
   "tabs": [
     {
+      "id": "about",
+      "title": "About Me",
+      "order": -1
+    },
+    {
       "id": "personal",
       "title": "Personal",
       "order": 0
@@ -37,259 +42,295 @@
   },
   "evidence": [
     {
-      "id": "evidence-4cf8abd8-997b-41dd-a2b8-616325fa770d",
+      "id": "evidence-c2cc5e40-71ad-432c-a610-2c7357363983",
       "source": "CV",
       "text": "# Alexander Bainbridge\n\n📍 Pontypool, South Wales  \n📧 [abainbridge89@gmail.com](mailto:abainbridge89@gmail.com) • 📱 07984 682330  \n🔗 [LinkedIn](https://www.linkedin.com/in/alex-bainbridge-84a670116) • [GitHub](https://github.com/bain2236) • [Dev Blog](https://dev.to/bain_forge_games)\n\n---",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-24c0d03c-9799-4500-9361-263f6d05924d",
+      "id": "evidence-44e080e2-e79b-4ba0-a1e0-49b888069cf1",
       "source": "CV",
       "text": "Technical Lead | Cloud-Native Architect | AI-Driven Engineer\n\nI’m a technical lead and polyglot engineer with 10 years’ experience building cloud-native platforms, leading high-performing teams, and delivering AI-driven innovation. Passionate about solving hard problems, mentoring engineers, and architecting scalable, future-ready systems.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
+      "id": "evidence-49184a12-fbb3-4308-80e0-3760c73805e8",
       "source": "CV",
       "text": "![Python](https://img.shields.io/badge/-Python-3776AB?style=for-the-badge&logo=python&logoColor=white)\n![.NET](https://img.shields.io/badge/-.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)\n![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)\n![React](https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react&logoColor=black)\n![Azure](https://img.shields.io/badge/-Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)\n![AWS](https://img.shields.io/badge/-AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white)\n![Terraform](https://img.shields.io/badge/-Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)\n![Docker](https://img.shields.io/badge/-Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8",
+      "id": "evidence-d2a052fa-6752-4914-b6c1-ec0060b3c5cf",
       "source": "CV",
       "text": "*Jun 2023 – Present | Bridgend, Hybrid*\n\n- Led a small team to architected and deliver **CustomerHub** in a quarter (ahead of schedule), re-platforming a legacy .NET/Azure app into **HubSpot CMS + React + Azure Functions**, **cutting deployment cycles by 75%**. .Net was new to me\n- Built **BuildTools** — a PowerShell cmdlet suite and reusable **Azure DevOps pipeline templates** to standardise pipelines across the business. Provided necessary tooling for across the business, such as tracking our AI coding metrics, generating change logs, versioning, auto promotion of artifacts in **Azure Devops**\n- Led **ProjectCipher**, an AI-driven experiment using **ML.NET + TypeScript + React** to evaluate one-shot full-stack generation.\n- Mentored engineers and drove **psychological safety**, boosting delivery velocity and collaboration.\n- Was a member of the Wellbeing team to promote openness and inclusivity\n- Performed multiple demo's within our technical forum across a number of different projects and experiments\n- A brief stay within the **CLiX Unlock** unlock teams, two crossfunctional teams who reported to a colleague as tech lead. I naturally re-positioned myself into a senior engineer role to support the lead.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-c50de544-dfc4-4fc9-98c4-559573226061",
+      "id": "evidence-4453dc71-dff6-4225-abb8-17506d57cb21",
       "source": "CV",
       "text": "*Jun 2021 – Jun 2023 | Bridgend, Hybrid*\n\n- **CLiX Revenue**, an already established product **Python/Django/React** app surfacing NLP-powered insights. Django was new to me. Eventually led this team to became the **engineering benchmark** at Clinithink.\n- Created Clinithink’s **first CI/CD pipeline** using **Terraform + Azure DevOps**, **cutting QA cycle times from days to hours**.\n- Partnered with product owners and scrum masters to define features, improve agile processes, and coach peers on modern engineering practices.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-4d4ea251-2c60-4aa5-b715-764600733785",
+      "id": "evidence-a157869c-3cab-40be-bb7b-36f2e47f21e1",
       "source": "CV",
       "text": "*Nov 2020 – Apr 2021 | Cheltenham*\n\n- Built an **employee portal** using **React, Node.js, MySQL, Liquibase**, and **Docker**, deployed via **Jenkins + Kubernetes + Helm**.\n- Improved test coverage and quality using **Jest, Cypress, and Cucumber**.\n- Mentored junior engineers and influenced DevOps adoption across teams.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-7de84a60-f5e2-42f1-9a1d-c2cd31b63426",
+      "id": "evidence-1eba817c-9bda-46c8-9c94-a7416274150f",
       "source": "CV",
       "text": "*Aug 2016 – Nov 2020 | London & Cheltenham*\n\n- Built a **distributed ETL framework** in **Python**, integrating **Kafka, Redis, Elasticsearch, and NiFi** to automate data processing.\n- Designed CI/CD pipelines via **Ansible** and delivered robust testing suites using **Pytest**.\n- Provided 24/7 support for critical client systems, resolving high-severity incidents under strict SLAs.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3",
+      "id": "evidence-bd9a90e7-08ca-4700-9957-5b25a256ae6c",
       "source": "CV",
       "text": "| Project | Tech | Summary |\n|--------|------|---------|\n| **ProjectVelour** | FastAPI • ComfyUI • Stable Diffusion • React | AI-driven platform for personal expression through tattoos and nail art. |\n| **Spelltail** | Unity • C# • LLMs | A **Snake x Scrabble** mashup with AI-driven story generation. [Devlog](https://dev.to/bain_forge_games) |\n| **ProjectCipher** | ML.NET • TypeScript • React | Experimental AI-assisted **full-stack code generation**. [ProjectCipher](https://github.com/bain2236/ProjectCipher) |\n| **BuildTools** | PowerShell • Azure DevOps • Python | A cmdlet + pipeline toolkit that standardised devops practices. |",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-aab20f91-02e4-4faf-b42f-7f105a253412",
+      "id": "evidence-30e0f3c9-ec4a-44cf-9ff4-57a0e8880324",
       "source": "CV",
       "text": "- AWS Certified Cloud Practitioner  \n- Oracle Certified Java SE 7 Programmer (OCA)  \n- Mental Health First Aider\n\n---",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-913912a0-98f7-46da-9dca-584964c26dfd",
+      "id": "evidence-28268904-12f9-497c-a3cd-672d0b0ec49d",
       "source": "CV",
       "text": "**University of South Wales** — BSc (Hons) Computer Games Development, 2:1 *(2012–2016)*  \n**Pontypool College** — HND Graphic Design *(2005–2008)*",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-e7ac43a6-8f5b-4755-a526-5c3d66bde683",
+      "id": "evidence-8f570d4a-d43d-4444-a9de-69579309e50c",
       "source": "CV",
       "text": "💼 [LinkedIn](https://www.linkedin.com/in/alex-bainbridge-84a670116) • 🖥️ [GitHub](https://github.com/bain2236) • ✍️ [Dev Blog](https://dev.to/bain_forge_games)",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-c305edad-311f-4d18-a807-676beea162d7",
+      "id": "evidence-78f02915-6b05-45b3-9e73-e4b4d8fb356b",
+      "source": "Personal Note",
+      "text": "Hi, I’m Alex. I’m a software engineer with 10 of experience building reliable, user-focused solutions. For the past four years, I worked at Clinithink, where I collaborated with an incredible team until the company unfortunately closed. While it was tough to see colleagues and friends go through that experience, it also gave me time to reflect on what I value most in my work: teamwork, creativity, and building technology that makes people’s lives easier.",
+      "author": "Alex Bainbridge",
+      "date": "2023-01-01"
+    },
+    {
+      "id": "evidence-f58f5e06-e7f1-4051-b9f3-be6a99bc9045",
+      "source": "Personal Hobby Log",
+      "text": "## A Journey of Growth",
+      "author": "Alex Bainbridge",
+      "date": "2023-01-01"
+    },
+    {
+      "id": "evidence-a9c92b9d-f956-4a72-a9d8-4821565aee43",
+      "source": "Personal Hobby Log",
+      "text": "Recently, I’ve been pushing myself through side projects including this portfolio. After a final-stage rejection from a role I was excited about, I received some fantastic feedback that highlighted both my strengths and growth areas. I’m grateful to the people who shared that feedback with me; it’s helped me sharpen my skills and inspired me to explore new ideas like using TDD and AI-assisted development for animations on this site.",
+      "author": "Alex Bainbridge",
+      "date": "2023-01-01"
+    },
+    {
+      "id": "evidence-1d4cd676-63a6-4c82-b474-7ae7839233e0",
+      "source": "Personal Hobby Log",
+      "text": "## Life Beyond the Code",
+      "author": "Alex Bainbridge",
+      "date": "2023-01-01"
+    },
+    {
+      "id": "evidence-2a7039c9-acc3-4d46-9ed6-d70825e9502c",
+      "source": "Personal Note",
+      "text": "Outside of work, I’m a parent of two, which has taught me more about patience, problem-solving, and resilience than I could have ever learned in a classroom. Balancing family and career gives me a strong sense of purpose and a drive to build a “new normal” that’s both stable and meaningful.",
+      "author": "Alex Bainbridge",
+      "date": "2023-01-01"
+    },
+    {
+      "id": "evidence-0c442726-5a2c-4f48-96fd-f455ec907042",
+      "source": "Personal Note",
+      "text": "I’m excited about the opportunity to bring my skills and the lessons I’ve learned along the way to a new role where I can grow, contribute, and create impact alongside a great team.",
+      "author": "Alex Bainbridge",
+      "date": "2023-01-01"
+    },
+    {
+      "id": "evidence-703a8934-a3a4-4d0e-b580-8626e79df6f4",
       "source": "Personal Biography",
       "text": "# Personal Biography",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-b24709fc-df31-4a59-a0a8-c39fd00c2ca4",
+      "id": "evidence-b0d710de-efe0-475f-83d0-e922889afe35",
       "source": "Personal Note",
       "text": "- Partner for eleven years.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-686c2d9a-fb55-48d5-a708-245ad704038d",
-      "source": "Personal Hobby Log",
-      "text": "- Live near my parents after moving around a lot in my 20's.",
-      "author": "Alex Bainbridge"
-    },
-    {
-      "id": "evidence-8b84fff5-72bb-4b50-b459-257f216df656",
+      "id": "evidence-a74e97e4-66cb-4aff-8935-0cc540a22947",
       "source": "Personal Hobby Log",
       "text": "I cycle through these hobbies over the years:",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-23e6c936-23a5-4bc1-8a3f-5da411f84e1c",
+      "id": "evidence-cfdd19db-0b67-489b-9fae-0b8ac289b1ab",
       "source": "Personal Hobby Log",
       "text": "- **Wargaming & D&D**: Last played 3 years ago, high interest at the time. Would love to have more time to return. I played orks and I had just started a new army of slaanesh. I played in 3 different campaigns. only finished 1. I was a Dungeon master for one of them. Did multiple one shots down in Newport.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-c1e6c05d-c828-44d1-acdd-5e5c4e11dbb7",
+      "id": "evidence-bd902f6c-576e-4580-bfbd-59d2b8cb4ab1",
       "source": "Personal Hobby Log",
       "text": "- **Hiking**: Last activity can't remember, high interest, it's great for mental health and health overall. Would love to have more time to do it. Was my first form of movement I enjoyed.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-cb698ea7-82b7-41d0-98f2-8997c0b4b738",
+      "id": "evidence-4ef95042-7d5a-46c4-98f7-20053207212f",
       "source": "Personal Hobby Log",
       "text": "- **Powerlifting & Bodybuilding**: Last activity 4 months ago, high interest. Been doing it 15 years on and off. It's how I learnt about the Japanese saying Kaizen. Started this just after hiking as my sister said I might enjoy it.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-1a8f0aae-35a7-4b07-9047-02d18812bb07",
+      "id": "evidence-af7aa195-15b4-490c-ada8-f867fd314b47",
       "source": "Personal Hobby Log",
       "text": "- **Mountain Biking**: Last activity 3 years ago, It migrated to more casual biking when my son was born and asleep. I did have a nice mountain bike though and I still own a gravel bike that I love getting out on.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-ee10bcfa-a79c-45c4-9fd1-be69478bc2ec",
+      "id": "evidence-f28ef050-29f9-4bd5-9348-0e86b0c8b734",
       "source": "Personal Hobby Log",
       "text": "- **Miniature Painting**: Last activity 2 years ago. I used to paint with my son in a sling. I love painting, so relaxing",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-7e423e57-2a26-45a0-bfed-65717a1ff2d8",
+      "id": "evidence-a2c0809f-322b-4e23-9525-001386cdc377",
       "source": "Personal Hobby Log",
       "text": "- **Nail Painting**: Last activity yesterday. The current vibe. it's temporary, quick, creative, relaxing, self caring. I never thought I'd go outside with painted nails.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-e8132c15-a686-4fda-a1c1-9ef9be29d756",
+      "id": "evidence-e52de306-8910-47f2-b76e-1edb75ad58d1",
       "source": "Personal Hobby Log",
       "text": "- **Dev Blog**: Last updated 1 month ago, high interest, the overhead of a dev log right now is a bit much with all the things going on in life.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-1f51c70e-b8f3-402f-ad28-62ca0dc45c1a",
+      "id": "evidence-aa4c0a31-850c-415c-ac08-3dad912ea9f9",
       "source": "Personal Hobby Log",
       "text": "- **Technology Side Projects**: Ongoing, high interest, llm's are such a fantastic tool to bring to life creations. Any creations, I've used it for tech projects on languages or toolsets I'm interested in. I have a backlog of project code names which I flesh out using AI to be my sounding board. I mold llm's very well to build out entire projects. The product, design, requirements, architecture, UX, Tech stack, delivery, monetization, security, audit, observabililty, it's own llm usage to constrict the llm to behave. Agents.md, rulesets, personas, context, TDD practices to keep it on the rails. Go try TDD AI dev. I wrote a blog about it https://dev.to/bain_forge/tdd-and-ai-enabled-engineering-chl and have an active PR up at the time of writing https://github.com/pontusab/directories/pull/281. I'm going to be using AI a lot in the near future for everything. If you aren't ready for it. I think you're out.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-0580015b-48d6-41eb-8888-c259a3734ada",
+      "id": "evidence-d8fc5a31-1db6-436e-a13b-effbbcf96ff6",
       "source": "LinkedIn Recommendation",
       "text": "I have worked with Alex on multiple projects at Clinithink (Client). He is a positive and a hard working person making it a delight to work with him. At any given time he was available to help and also took feedback in a positive manner, solving the problem for success. He has a great pick up speed for technologies making it easier for us to start on new problems quickly and wrap them up. Communication is another great quality which helps understand and solve the problem easily for the product.",
       "author": "Amogh Madan"
     },
     {
-      "id": "evidence-62af115a-e55a-4e08-86c9-2515ff3be8d6",
+      "id": "evidence-434720d1-df2e-4c6b-85fd-8866051cf982",
       "source": "LinkedIn Recommendation",
       "text": "Alex will try out any new technology and make a success of it. He changed from python to .Net during our time together and most recently has made huge strides with utilising AI as part of engineering practice through using Cursor.",
       "author": "Phil Davies"
     },
     {
-      "id": "evidence-db32e7e2-9bba-46b5-ba06-d64340d7c23b",
+      "id": "evidence-d47cc560-2548-47ec-9a3d-e4833c3fb864",
       "source": "LinkedIn Recommendation",
       "text": "I had the pleasure of working with Alex when he was the Tech Lead and I was the Product Manager. He has that rare combination of technical depth and pragmatic execution, always focused on delivering impact, unblocking the team, and just getting things done. Partnering with him made complex projects move faster and smoother, and I’d happily work with him again on any team.",
       "author": "Martin O'Donnell"
     },
     {
-      "id": "evidence-7d69a8a4-ced5-4322-9699-5b78cb955de9",
+      "id": "evidence-6ad1231d-b6e5-44dd-a538-23ecd9300547",
       "source": "LinkedIn Recommendation",
       "text": "Wow, it has been great working with Alex and watching him develop and grow in expertise. He is an expert coder who can turn his hand to any part of the software stack - backend, frontend, CI, design, test. He has become expert in handing some jobs over to an LLM. He doesn't just do the job as specified: he can see when there's an easier solution. He is quick to help others. He is collaborative, good humoured and hard working.",
       "author": "Thomas Guest"
     },
     {
-      "id": "evidence-5b0da2b2-1b32-41c1-ae3f-01338318b7c3",
+      "id": "evidence-74ea55e8-791b-45df-b3de-26d58b2ef128",
       "source": "LinkedIn Recommendation",
       "text": "Alex is an excellent software engineer with outstanding technical skills who consistently delivers high-quality, production-ready code. His expertise in software development and problem-solving abilities make him an asset to any engineering team.",
       "author": "Peter Hatton"
     },
     {
-      "id": "evidence-5dfb75e5-76fa-457e-b5e9-abb21fe5ce3c",
+      "id": "evidence-5c088b44-48b7-41f6-9eba-7107e91333a3",
       "source": "LinkedIn Recommendation",
       "text": "I've worked with Alex for the past four years and can honestly say he's one of the best, most proactive, well-rounded engineers I've ever worked with. Whatever thing was thrown Alex's way, he tackled it with passion - from UX, UI/front-end design, backend design, CI/CD pipelines, nothing fazed him. Alex is comfortable using his initiative to learn the things and tools he doesn't know, but needs to know to get the job done. He is curious, inquisitive and gets stuff done to a high standard. None of this is evidenced more by his ability and experience throwing himself deep into using the latest AI engineering technology and tooling to make himself far more productive. Alex would be an asset for any engineering or modern product team.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-0a25a886-52d5-426b-ade1-884e782a1aaf",
+      "id": "evidence-ca9f5ded-8867-4539-85de-594cf5b16f59",
       "source": "LinkedIn Recommendation",
       "text": "I found him to be very flexible and versatile in his approach to work, and he has a broad-range of knowledge across the software landscape.",
       "author": "Jean Rollinson"
     },
     {
-      "id": "evidence-5a6d0228-7a5e-41e0-b4b6-eb7639ea4093",
+      "id": "evidence-bb95ddb2-4a9e-413f-8f67-0fed548d043e",
       "source": "Personal Hobby Log",
       "text": "Joined a small python/react team in a new domain. Python was rusty and I had never worked with django. I quickly got up to speed.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-e25afae8-9a8c-491c-a19c-c2edac25042d",
+      "id": "evidence-eff30e0f-4d61-4340-b50b-68710c30e790",
       "source": "CV",
       "text": "Championed build tools, a collection of powershell modules and azure devops templates to facilitate re-use build pipeline tooling.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-3fad3b00-dfc2-4d7e-9539-569bdd927d33",
+      "id": "evidence-001b8490-30a0-4ca4-9eea-b000e2749458",
       "source": "CV",
       "text": "Led a team of offshore engineers to become the bar height of quality within engineering.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-4d7dbbb0-2f1b-4f3f-bc9a-9b48e8d04fa1",
+      "id": "evidence-a17f46e7-35c8-460e-97c8-852bee1b8b2f",
       "source": "CV",
       "text": "Demonstrated the value in adding static analysis to build pipelines which was quickly funded and integrated.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-f5e5402b-b556-4afb-8e3d-87a61e910544",
+      "id": "evidence-0fb7edbd-a67e-4ea9-9b73-fb85b4a44cfa",
       "source": "Personal Hobby Log",
       "text": "Built out the first CD pipeline using terraform. cutting QA time from minimum a day to minimum an hour.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-876a9925-c0d9-4f2a-b92b-d5245d4b4a82",
+      "id": "evidence-9bc48a33-9bbb-47d7-be24-1ba002338687",
       "source": "Personal Hobby Log",
       "text": "Heavily contritubed to the tech forum, showcasing learnings, different prototypes and side projects.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-42ae0fe6-b625-477a-a6a8-f7d8359fea15",
+      "id": "evidence-691de9b0-a5ea-42eb-abcf-b47a34623c34",
       "source": "Personal Note",
       "text": "Led a team using .Net with no useful (10 years of out date).Net experience. We delivered ahead of schedule on Release 1 and did 5 more releases within the following quarter",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-bfe27110-7d8f-497f-ad35-01a53cd2ad00",
+      "id": "evidence-ec0f7c3f-f475-4e54-b079-3675d002d389",
       "source": "CV",
       "text": "Managed the cultural differences with working with offshore engineers (India). (which was also a first)",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-7e9a007f-381a-46e1-b898-abfd80495659",
+      "id": "evidence-e227a23d-6454-4741-b219-ae1699ec9784",
       "source": "Personal Hobby Log",
       "text": "Made good use of personal development on Friday afternoons to explore technologies even adding back into the product and company with new tools and capabilities.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-80cd5bf7-5092-4b01-b01b-b7ed25324c09",
+      "id": "evidence-45a74caa-d7c5-4460-95ae-9585aaed5d3f",
       "source": "CV",
       "text": "Championed wellbeing and psycological safety by being a founding member of the internal wellbeing team.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-4a6e3f06-9d0a-4cb6-924b-e518560f115e",
+      "id": "evidence-1ca68315-b036-4e2b-ac0c-88c6b7378223",
       "source": "CV",
       "text": "Worked closely with the agile delivery lead to create high performing teams.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-5ff3afc2-6061-4b7e-9b42-539cbe71a651",
+      "id": "evidence-6883a30e-adf4-4dbe-8678-4b23caad7b35",
       "source": "CV",
       "text": "Worked closely with product owners to shape a more valuable product.",
       "author": "Alex Bainbridge"
     },
     {
-      "id": "evidence-7143bfc6-76d1-4609-9c79-c01b52dc20ee",
+      "id": "evidence-9aff2627-3151-4512-91b5-f2d74c9c90c8",
       "source": "Personal Note",
       "text": "Adapted excellently to an AI-enabled engineer. Implemented internal AI usage tracking and reporting to gain insights. I Steered the use of AI in engineering to be more targeted, an approach that I am continuing to revel in.",
       "author": "Alex Bainbridge"
@@ -352,84 +393,84 @@
       ]
     },
     {
-      "id": "concept-typescript-4da331c6-0139-4a44-a813-579f503e1fe3",
+      "id": "concept-typescript-64e89a58-51f5-465b-be63-c43cf076b415",
       "label": "TypeScript",
       "tabId": "engineer",
-      "weight": 0.85,
+      "weight": null,
       "sourceEvidenceIds": [
+        "evidence-49184a12-fbb3-4308-80e0-3760c73805e8",
         "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
-        "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
+        "evidence-d2a052fa-6752-4914-b6c1-ec0060b3c5cf",
         "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8",
-        "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8",
-        "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3",
+        "evidence-bd9a90e7-08ca-4700-9957-5b25a256ae6c",
         "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3"
       ]
     },
     {
-      "id": "concept-react-94275b97-168e-4e7f-8b44-8b4c022118ed",
+      "id": "concept-react-dafb45f9-5eec-4cf4-8b89-a42244c6883a",
       "label": "React",
       "tabId": "engineer",
-      "weight": 0.85,
+      "weight": null,
       "sourceEvidenceIds": [
+        "evidence-49184a12-fbb3-4308-80e0-3760c73805e8",
         "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
-        "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
+        "evidence-d2a052fa-6752-4914-b6c1-ec0060b3c5cf",
         "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8",
-        "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8",
+        "evidence-4453dc71-dff6-4225-abb8-17506d57cb21",
         "evidence-c50de544-dfc4-4fc9-98c4-559573226061",
-        "evidence-c50de544-dfc4-4fc9-98c4-559573226061",
+        "evidence-a157869c-3cab-40be-bb7b-36f2e47f21e1",
         "evidence-4d4ea251-2c60-4aa5-b715-764600733785",
-        "evidence-4d4ea251-2c60-4aa5-b715-764600733785",
+        "evidence-bd9a90e7-08ca-4700-9957-5b25a256ae6c",
         "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3",
-        "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3",
-        "evidence-5dfb75e5-76fa-457e-b5e9-abb21fe5ce3c",
-        "evidence-5a6d0228-7a5e-41e0-b4b6-eb7639ea4093",
+        "evidence-5c088b44-48b7-41f6-9eba-7107e91333a3",
+        "evidence-bb95ddb2-4a9e-413f-8f67-0fed548d043e",
         "evidence-5a6d0228-7a5e-41e0-b4b6-eb7639ea4093"
       ]
     },
     {
-      "id": "concept-python-aedba3dc-a4b1-4ebf-866e-afd948028037",
+      "id": "concept-python-75aff02a-102e-42fc-8cec-5ad913bb24d0",
       "label": "Python",
       "tabId": "engineer",
-      "weight": 0.85,
+      "weight": null,
       "sourceEvidenceIds": [
+        "evidence-49184a12-fbb3-4308-80e0-3760c73805e8",
         "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
-        "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
+        "evidence-4453dc71-dff6-4225-abb8-17506d57cb21",
         "evidence-c50de544-dfc4-4fc9-98c4-559573226061",
-        "evidence-c50de544-dfc4-4fc9-98c4-559573226061",
+        "evidence-1eba817c-9bda-46c8-9c94-a7416274150f",
         "evidence-7de84a60-f5e2-42f1-9a1d-c2cd31b63426",
-        "evidence-7de84a60-f5e2-42f1-9a1d-c2cd31b63426",
+        "evidence-bd9a90e7-08ca-4700-9957-5b25a256ae6c",
         "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3",
-        "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3",
-        "evidence-62af115a-e55a-4e08-86c9-2515ff3be8d6",
-        "evidence-5dfb75e5-76fa-457e-b5e9-abb21fe5ce3c",
-        "evidence-5a6d0228-7a5e-41e0-b4b6-eb7639ea4093",
+        "evidence-434720d1-df2e-4c6b-85fd-8866051cf982",
+        "evidence-5c088b44-48b7-41f6-9eba-7107e91333a3",
+        "evidence-bb95ddb2-4a9e-413f-8f67-0fed548d043e",
         "evidence-5a6d0228-7a5e-41e0-b4b6-eb7639ea4093"
       ]
     },
     {
-      "id": "concept-azure-62672735-e412-4dde-8a84-3bcec109f2ad",
+      "id": "concept-azure-b04d3574-0936-4d92-a658-ac9b99f29355",
       "label": "Azure",
       "tabId": "engineer",
-      "weight": 0.85,
+      "weight": null,
       "sourceEvidenceIds": [
+        "evidence-49184a12-fbb3-4308-80e0-3760c73805e8",
         "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
-        "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
-        "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8",
-        "evidence-c50de544-dfc4-4fc9-98c4-559573226061",
-        "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3",
-        "evidence-5dfb75e5-76fa-457e-b5e9-abb21fe5ce3c",
-        "evidence-e25afae8-9a8c-491c-a19c-c2edac25042d"
+        "evidence-d2a052fa-6752-4914-b6c1-ec0060b3c5cf",
+        "evidence-4453dc71-dff6-4225-abb8-17506d57cb21",
+        "evidence-bd9a90e7-08ca-4700-9957-5b25a256ae6c",
+        "evidence-5c088b44-48b7-41f6-9eba-7107e91333a3",
+        "evidence-eff30e0f-4d61-4340-b50b-68710c30e790"
       ]
     },
     {
-      "id": "concept-docker-15c0caeb-69ff-47a8-86a4-4f7184a83423",
+      "id": "concept-docker-46c4307c-40de-4850-b468-5625f00e8604",
       "label": "Docker",
       "tabId": "engineer",
-      "weight": 0.85,
+      "weight": null,
       "sourceEvidenceIds": [
+        "evidence-49184a12-fbb3-4308-80e0-3760c73805e8",
         "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
-        "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
-        "evidence-4d4ea251-2c60-4aa5-b715-764600733785",
+        "evidence-a157869c-3cab-40be-bb7b-36f2e47f21e1",
         "evidence-4d4ea251-2c60-4aa5-b715-764600733785"
       ]
     },
@@ -437,11 +478,11 @@
       "id": "concept-dotnet",
       "label": ".NET",
       "tabId": "engineer",
-      "weight": 0.8,
+      "weight": null,
       "sourceEvidenceIds": [
         "evidence-c36d7565-dfc0-4755-a9f4-323d2d1bc0b8",
-        "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8",
-        "evidence-d6a5927f-6b65-4f5e-94d5-0c509f4a48e3",
+        "evidence-d2a052fa-6752-4914-b6c1-ec0060b3c5cf",
+        "evidence-bd9a90e7-08ca-4700-9957-5b25a256ae6c",
         "evidence-42ae0fe6-b625-477a-a6a8-f7d8359fea15"
       ]
     },
@@ -466,14 +507,14 @@
       ]
     },
     {
-      "id": "concept-collaboration-ea71fbdf-355a-4d4f-b0e7-df062cf63e82",
+      "id": "concept-collaboration-7a8fa05f-6633-4331-90c9-36bc748b9026",
       "label": "Collaboration",
       "tabId": "leader",
-      "weight": 0.85,
+      "weight": null,
       "sourceEvidenceIds": [
-        "evidence-4341d46f-7b6a-4471-bb53-41e202410ac8",
-        "evidence-5b0da2b2-1b32-41c1-ae3f-01338318b7c3",
-        "evidence-5dfb75e5-76fa-457e-b5e9-abb21fe5ce3c"
+        "evidence-d2a052fa-6752-4914-b6c1-ec0060b3c5cf",
+        "evidence-74ea55e8-791b-45df-b3de-26d58b2ef128",
+        "evidence-5c088b44-48b7-41f6-9eba-7107e91333a3"
       ]
     },
     {
@@ -563,35 +604,35 @@
       ]
     },
     {
-      "id": "concept-ci/cd-d259aa35-cc67-450e-bfce-c6c4a954ea0c",
+      "id": "concept-ci/cd-063ed074-7c70-4d97-8aed-12ce82bb05fa",
       "label": "CI/CD",
       "tabId": "engineer",
-      "weight": 0.85,
+      "weight": null,
       "sourceEvidenceIds": [
-        "evidence-c50de544-dfc4-4fc9-98c4-559573226061",
-        "evidence-7de84a60-f5e2-42f1-9a1d-c2cd31b63426",
-        "evidence-5dfb75e5-76fa-457e-b5e9-abb21fe5ce3c"
+        "evidence-4453dc71-dff6-4225-abb8-17506d57cb21",
+        "evidence-1eba817c-9bda-46c8-9c94-a7416274150f",
+        "evidence-5c088b44-48b7-41f6-9eba-7107e91333a3"
       ]
     },
     {
-      "id": "concept-agile-01d0793a-a3f4-45a7-9fd4-269e150491ce",
+      "id": "concept-agile-7b3d0138-094e-4bea-a9d4-99f353c22855",
       "label": "Agile",
       "tabId": "engineer",
-      "weight": 0.85,
+      "weight": null,
       "sourceEvidenceIds": [
-        "evidence-c50de544-dfc4-4fc9-98c4-559573226061",
-        "evidence-5dfb75e5-76fa-457e-b5e9-abb21fe5ce3c",
-        "evidence-4a6e3f06-9d0a-4cb6-924b-e518560f115e"
+        "evidence-4453dc71-dff6-4225-abb8-17506d57cb21",
+        "evidence-5c088b44-48b7-41f6-9eba-7107e91333a3",
+        "evidence-1ca68315-b036-4e2b-ac0c-88c6b7378223"
       ]
     },
     {
-      "id": "concept-scrum-e9319184-cb93-4a15-adaf-a8ce761b8264",
+      "id": "concept-scrum-a0fa1152-3c13-4a1e-9ba1-d90691de2e7f",
       "label": "Scrum",
       "tabId": "engineer",
-      "weight": 0.85,
+      "weight": null,
       "sourceEvidenceIds": [
-        "evidence-c50de544-dfc4-4fc9-98c4-559573226061",
-        "evidence-5dfb75e5-76fa-457e-b5e9-abb21fe5ce3c"
+        "evidence-4453dc71-dff6-4225-abb8-17506d57cb21",
+        "evidence-5c088b44-48b7-41f6-9eba-7107e91333a3"
       ]
     },
     {
@@ -632,12 +673,12 @@
       ]
     },
     {
-      "id": "concept-node.js-c9e73312-749b-41a3-8519-c1d828ed07af",
+      "id": "concept-node.js-ab2d9657-c23a-4c2a-a697-8056ffe1035a",
       "label": "Node.js",
       "tabId": "engineer",
-      "weight": 0.85,
+      "weight": null,
       "sourceEvidenceIds": [
-        "evidence-4d4ea251-2c60-4aa5-b715-764600733785",
+        "evidence-a157869c-3cab-40be-bb7b-36f2e47f21e1",
         "evidence-4d4ea251-2c60-4aa5-b715-764600733785"
       ]
     },
@@ -951,30 +992,154 @@
       ]
     },
     {
+      "id": "concept-creativity-3f187910-a080-4364-8c87-f097e3aa7550",
+      "label": "Creativity",
+      "tabId": "leader",
+      "weight": null,
+      "sourceEvidenceIds": [
+        "evidence-78f02915-6b05-45b3-9e73-e4b4d8fb356b",
+        "evidence-78f02915-6b05-45b3-9e73-e4b4d8fb356b",
+        "evidence-434720d1-df2e-4c6b-85fd-8866051cf982",
+        "evidence-74ea55e8-791b-45df-b3de-26d58b2ef128"
+      ]
+    },
+    {
+      "id": "concept-software-engineering",
+      "label": "Software Engineering",
+      "tabId": "engineer",
+      "weight": 0.81,
+      "sourceEvidenceIds": [
+        "evidence-78f02915-6b05-45b3-9e73-e4b4d8fb356b"
+      ]
+    },
+    {
+      "id": "concept-teamwork",
+      "label": "Teamwork",
+      "tabId": "colleague",
+      "weight": 0.7200000000000001,
+      "sourceEvidenceIds": [
+        "evidence-78f02915-6b05-45b3-9e73-e4b4d8fb356b"
+      ]
+    },
+    {
+      "id": "concept-user-focused-solutions",
+      "label": "User-Focused Solutions",
+      "tabId": "engineer",
+      "weight": 0.7200000000000001,
+      "sourceEvidenceIds": [
+        "evidence-78f02915-6b05-45b3-9e73-e4b4d8fb356b"
+      ]
+    },
+    {
+      "id": "concept-tdd-33c47185-0ee6-4363-845a-fe666f91e8fb",
+      "label": "TDD",
+      "tabId": "engineer",
+      "weight": null,
+      "sourceEvidenceIds": [
+        "evidence-a9c92b9d-f956-4a72-a9d8-4821565aee43",
+        "evidence-aa4c0a31-850c-415c-ac08-3dad912ea9f9"
+      ]
+    },
+    {
+      "id": "concept-test-driven-development",
+      "label": "Test-Driven Development",
+      "tabId": "engineer",
+      "weight": 0.567,
+      "sourceEvidenceIds": [
+        "evidence-a9c92b9d-f956-4a72-a9d8-4821565aee43"
+      ]
+    },
+    {
+      "id": "concept-ai-assisted-development",
+      "label": "AI-Assisted Development",
+      "tabId": "engineer",
+      "weight": 0.567,
+      "sourceEvidenceIds": [
+        "evidence-a9c92b9d-f956-4a72-a9d8-4821565aee43"
+      ]
+    },
+    {
+      "id": "concept-side-projects",
+      "label": "Side Projects",
+      "tabId": "personal",
+      "weight": 0.486,
+      "sourceEvidenceIds": [
+        "evidence-a9c92b9d-f956-4a72-a9d8-4821565aee43",
+        "evidence-876a9925-c0d9-4f2a-b92b-d5245d4b4a82"
+      ]
+    },
+    {
+      "id": "concept-problem-solving-b2454d02-af40-4c89-a0bb-c57df9d9cd5b",
+      "label": "Problem-Solving",
+      "tabId": "leader",
+      "weight": null,
+      "sourceEvidenceIds": [
+        "evidence-2a7039c9-acc3-4d46-9ed6-d70825e9502c",
+        "evidence-74ea55e8-791b-45df-b3de-26d58b2ef128",
+        "evidence-001"
+      ]
+    },
+    {
+      "id": "concept-parenting-patience",
+      "label": "Parenting Patience",
+      "tabId": "personal",
+      "weight": 0.81,
+      "sourceEvidenceIds": [
+        "evidence-2a7039c9-acc3-4d46-9ed6-d70825e9502c"
+      ]
+    },
+    {
+      "id": "concept-parenting-problem-solving",
+      "label": "Parenting Problem-Solving",
+      "tabId": "personal",
+      "weight": 0.81,
+      "sourceEvidenceIds": [
+        "evidence-2a7039c9-acc3-4d46-9ed6-d70825e9502c"
+      ]
+    },
+    {
+      "id": "concept-parenting-resilience",
+      "label": "Parenting Resilience",
+      "tabId": "personal",
+      "weight": 0.81,
+      "sourceEvidenceIds": [
+        "evidence-2a7039c9-acc3-4d46-9ed6-d70825e9502c"
+      ]
+    },
+    {
+      "id": "concept-balancing-family-career",
+      "label": "Balancing Family and Career",
+      "tabId": "personal",
+      "weight": 0.7200000000000001,
+      "sourceEvidenceIds": [
+        "evidence-2a7039c9-acc3-4d46-9ed6-d70825e9502c"
+      ]
+    },
+    {
+      "id": "concept-personal-growth",
+      "label": "Personal Growth",
+      "tabId": "leader",
+      "weight": 0.54,
+      "sourceEvidenceIds": [
+        "evidence-0c442726-5a2c-4f48-96fd-f455ec907042"
+      ]
+    },
+    {
+      "id": "concept-team-collaboration",
+      "label": "Team Collaboration",
+      "tabId": "colleague",
+      "weight": 0.63,
+      "sourceEvidenceIds": [
+        "evidence-0c442726-5a2c-4f48-96fd-f455ec907042"
+      ]
+    },
+    {
       "id": "concept-long-term-partnership",
       "label": "Long-term Partnership",
       "tabId": "personal",
       "weight": 0.8,
       "sourceEvidenceIds": [
         "evidence-b24709fc-df31-4a59-a0a8-c39fd00c2ca4"
-      ]
-    },
-    {
-      "id": "concept-family-proximity",
-      "label": "Family Proximity",
-      "tabId": "personal",
-      "weight": 0.7,
-      "sourceEvidenceIds": [
-        "evidence-686c2d9a-fb55-48d5-a708-245ad704038d"
-      ]
-    },
-    {
-      "id": "concept-frequent-relocation",
-      "label": "Frequent Relocation",
-      "tabId": "personal",
-      "weight": 0.6,
-      "sourceEvidenceIds": [
-        "evidence-686c2d9a-fb55-48d5-a708-245ad704038d"
       ]
     },
     {
@@ -1096,15 +1261,6 @@
       ]
     },
     {
-      "id": "concept-tdd-8a5c6586-f4ff-498c-9a52-7af7f694f151",
-      "label": "TDD",
-      "tabId": "engineer",
-      "weight": 0.85,
-      "sourceEvidenceIds": [
-        "evidence-1f51c70e-b8f3-402f-ad28-62ca0dc45c1a"
-      ]
-    },
-    {
       "id": "concept-llm-projects",
       "label": "LLM Projects",
       "tabId": "engineer",
@@ -1132,12 +1288,12 @@
       ]
     },
     {
-      "id": "concept-communication-78934910-e3ac-4f03-93be-2912aa86c136",
+      "id": "concept-communication-54099396-358b-4786-af1b-d93b5af5a177",
       "label": "Communication",
       "tabId": "leader",
-      "weight": 0.85,
+      "weight": null,
       "sourceEvidenceIds": [
-        "evidence-0580015b-48d6-41eb-8888-c259a3734ada"
+        "evidence-d8fc5a31-1db6-436e-a13b-effbbcf96ff6"
       ]
     },
     {
@@ -1198,32 +1354,22 @@
       ]
     },
     {
-      "id": "concept-creativity-273810fa-6b0c-4f52-9507-35470b36b64b",
-      "label": "Creativity",
-      "tabId": "leader",
-      "weight": 0.85,
-      "sourceEvidenceIds": [
-        "evidence-62af115a-e55a-4e08-86c9-2515ff3be8d6",
-        "evidence-5b0da2b2-1b32-41c1-ae3f-01338318b7c3"
-      ]
-    },
-    {
-      "id": "concept-positivity-299081b9-497a-495b-b95d-2349d7ed6f2d",
+      "id": "concept-positivity-d9e0a96b-7b57-4166-9933-419a3cfe467c",
       "label": "Positivity",
       "tabId": "leader",
-      "weight": 0.85,
+      "weight": null,
       "sourceEvidenceIds": [
-        "evidence-62af115a-e55a-4e08-86c9-2515ff3be8d6"
+        "evidence-434720d1-df2e-4c6b-85fd-8866051cf982"
       ]
     },
     {
-      "id": "concept-initiative-93238c4b-80b0-4c12-befa-0091c17522ea",
+      "id": "concept-initiative-a78d0f6d-2e47-428c-bb9b-cbc475d17c2e",
       "label": "Initiative",
       "tabId": "leader",
-      "weight": 0.85,
+      "weight": null,
       "sourceEvidenceIds": [
-        "evidence-62af115a-e55a-4e08-86c9-2515ff3be8d6",
-        "evidence-5dfb75e5-76fa-457e-b5e9-abb21fe5ce3c"
+        "evidence-434720d1-df2e-4c6b-85fd-8866051cf982",
+        "evidence-5c088b44-48b7-41f6-9eba-7107e91333a3"
       ]
     },
     {
@@ -1240,50 +1386,40 @@
       ]
     },
     {
-      "id": "concept-problem-solving-eabc6916-b394-4492-830e-69da16136959",
-      "label": "Problem-Solving",
-      "tabId": "leader",
-      "weight": 0.85,
-      "sourceEvidenceIds": [
-        "evidence-5b0da2b2-1b32-41c1-ae3f-01338318b7c3",
-        "evidence-001"
-      ]
-    },
-    {
-      "id": "concept-adaptability-e72fcd47-ee24-4ccd-9ebe-ca40cddfc12f",
+      "id": "concept-adaptability-b9bf1f0e-ac65-4b51-a77b-b6e7198211b5",
       "label": "Adaptability",
       "tabId": "leader",
-      "weight": 0.85,
+      "weight": null,
       "sourceEvidenceIds": [
-        "evidence-5b0da2b2-1b32-41c1-ae3f-01338318b7c3",
+        "evidence-74ea55e8-791b-45df-b3de-26d58b2ef128",
         "evidence-001"
       ]
     },
     {
-      "id": "concept-growth-mindset-15a4cb8e-84db-4e01-a671-dba80007cd5e",
+      "id": "concept-growth-mindset-5e35b311-1e5a-48af-af2a-bd8537113258",
       "label": "Growth Mindset",
       "tabId": "leader",
-      "weight": 0.85,
+      "weight": null,
       "sourceEvidenceIds": [
-        "evidence-5b0da2b2-1b32-41c1-ae3f-01338318b7c3"
+        "evidence-74ea55e8-791b-45df-b3de-26d58b2ef128"
       ]
     },
     {
-      "id": "concept-sql-402ef7d2-258e-4a80-a0d6-9925d32bae34",
+      "id": "concept-sql-7906e187-ec59-4c8e-b39b-72382bf5a09e",
       "label": "SQL",
       "tabId": "engineer",
-      "weight": 0.85,
+      "weight": null,
       "sourceEvidenceIds": [
-        "evidence-5dfb75e5-76fa-457e-b5e9-abb21fe5ce3c"
+        "evidence-5c088b44-48b7-41f6-9eba-7107e91333a3"
       ]
     },
     {
-      "id": "concept-leadership-ff6cc92d-23ee-4030-91b7-a922720a7eb3",
+      "id": "concept-leadership-ca3b0c8b-aad6-4746-8f3d-0bb7f0c7c0e9",
       "label": "Leadership",
       "tabId": "leader",
-      "weight": 0.85,
+      "weight": null,
       "sourceEvidenceIds": [
-        "evidence-5dfb75e5-76fa-457e-b5e9-abb21fe5ce3c"
+        "evidence-5c088b44-48b7-41f6-9eba-7107e91333a3"
       ]
     },
     {
@@ -1373,15 +1509,6 @@
       "label": "Prototyping",
       "tabId": "engineer",
       "weight": 0.7,
-      "sourceEvidenceIds": [
-        "evidence-876a9925-c0d9-4f2a-b92b-d5245d4b4a82"
-      ]
-    },
-    {
-      "id": "concept-side-projects",
-      "label": "Side Projects",
-      "tabId": "personal",
-      "weight": 0.8,
       "sourceEvidenceIds": [
         "evidence-876a9925-c0d9-4f2a-b92b-d5245d4b4a82"
       ]
@@ -1512,5 +1639,6 @@
         "evidence-7143bfc6-76d1-4609-9c79-c01b52dc20ee"
       ]
     }
-  ]
+  ],
+  "aboutMe": "# About Me\r\n\r\nHi, I’m Alex. I’m a software engineer with 10 of experience building reliable, user-focused solutions. For the past four years, I worked at Clinithink, where I collaborated with an incredible team until the company unfortunately closed. While it was tough to see colleagues and friends go through that experience, it also gave me time to reflect on what I value most in my work: teamwork, creativity, and building technology that makes people’s lives easier.\r\n\r\n## A Journey of Growth\r\n\r\nRecently, I’ve been pushing myself through side projects including this portfolio. After a final-stage rejection from a role I was excited about, I received some fantastic feedback that highlighted both my strengths and growth areas. I’m grateful to the people who shared that feedback with me; it’s helped me sharpen my skills and inspired me to explore new ideas like using TDD and AI-assisted development for animations on this site.\r\n\r\n## Life Beyond the Code\r\n\r\nOutside of work, I’m a parent of two, which has taught me more about patience, problem-solving, and resilience than I could have ever learned in a classroom. Balancing family and career gives me a strong sense of purpose and a drive to build a “new normal” that’s both stable and meaningful.\r\n\r\n## Looking Forward\r\n\r\nI’m excited about the opportunity to bring my skills and the lessons I’ve learned along the way to a new role where I can grow, contribute, and create impact alongside a great team.\r\n"
 }

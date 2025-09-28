@@ -1,4 +1,4 @@
-export function assembleFinalJson(baseProfile: any, tabs: any[], settings: any, processedData: any[]): any {
+export function assembleFinalJson(baseProfile: any, tabs: any[], settings: any, processedData: any[], aboutMeContent: string): any {
   const allEvidence = processedData.map(data => data.evidence);
   const allConcepts = processedData.flatMap(data => data.concepts);
 
@@ -35,5 +35,6 @@ export function assembleFinalJson(baseProfile: any, tabs: any[], settings: any, 
     settings: settings,
     evidence: allEvidence,
     concepts: finalConcepts,
+    aboutMe: aboutMeContent,
   };
 }

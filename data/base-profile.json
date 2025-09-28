@@ -11,6 +11,7 @@
     "website": "https://alex.dev"
   },
   "tabs": [
+    { "id": "about", "title": "About Me", "order": -1 },
     { "id": "personal", "title": "Personal", "order": 0 },
     { "id": "leader", "title": "Leader", "order": 1 },
     { "id": "engineer", "title": "Engineer", "order": 2 },

@@ -20,6 +20,7 @@ export async function main() {
   console.log("Data processing pipeline starting...");
 
   const rawDataPath = path.join(__dirname, '..', '1_raw');
+  const aboutMePath = path.join(rawDataPath, 'personal', 'aboutme.md');
   const baseProfilePath = path.join(__dirname, '..', 'base-profile.json');
   const outputPath = path.join(__dirname, '..', '..', 'project', 'public', 'profile.json');
 
@@ -29,6 +30,8 @@ export async function main() {
   const baseProfileContent = await fs.readFile(baseProfilePath, 'utf-8');
   const baseProfileData = JSON.parse(baseProfileContent);
   const { profile, tabs, settings } = baseProfileData;
+
+  const aboutMeContent = await fs.readFile(aboutMePath, 'utf-8');
 
   const rawFiles = await readAllFiles(rawDataPath);
   
@@ -56,7 +59,7 @@ export async function main() {
     }
   }
 
-  const assembledJson = assembleFinalJson(profile, tabs, settings, processedData);
+  const assembledJson = assembleFinalJson(profile, tabs, settings, processedData, aboutMeContent);
 
   // Post-process the weights
   const scaledConcepts = scaleWeights(assembledJson.concepts, assembledJson.evidence);
