@@ -33,9 +33,15 @@ export async function main() {
 
   const aboutMeContent = await fs.readFile(aboutMePath, 'utf-8');
 
-  const rawFiles = await readAllFiles(rawDataPath);
+  const allRawFiles = await readAllFiles(rawDataPath);
   
-  const chunksToProcess = rawFiles.flatMap(file => chunkFile(file));
+  // Exclude config and content files from the evidence processing list
+  const evidenceFiles = allRawFiles.filter(file => {
+    const fileName = path.basename(file.path);
+    return fileName !== 'aboutme.md' && fileName !== 'keywords.json' && fileName !== 'base-profile.json';
+  });
+  
+  const chunksToProcess = evidenceFiles.flatMap(file => chunkFile(file));
 
   const processedData = [];
   for (const chunk of chunksToProcess) {
