@@ -7,10 +7,11 @@ import ProfileCard from '@/components/ProfileCard';
 import TabStrip from '@/components/TabStrip';
 import VoronoiCloud from '@/components/VoronoiCloud';
 import ConceptModal from '@/components/ConceptModal';
+import AboutMeTab from '@/components/AboutMeTab';
 
 export default function Home() {
   const [profileData, setProfileData] = useState<ProfileData | null>(null);
-  const [activeTab, setActiveTab] = useState<string>('personal');
+  const [activeTab, setActiveTab] = useState<string>('about');
   const [selectedConcept, setSelectedConcept] = useState<Concept | null>(null);
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
 
@@ -100,7 +101,7 @@ export default function Home() {
             />
           </motion.div>
 
-          {/* Voronoi Canvas */}
+          {/* Main Content Area */}
           <motion.div 
             id="voronoi-container"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -108,14 +109,18 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.6, type: "spring" }}
             className="flex-1 min-h-0"
           >
-            <VoronoiCloud
-              concepts={filteredConcepts}
-              evidence={profileData.evidence}
-              width={dimensions.width}
-              height={dimensions.height}
-              onConceptClick={setSelectedConcept}
-              recencyDecayDays={profileData.settings.recencyDecayDays}
-            />
+            {activeTab === 'about' && profileData.aboutMe ? (
+              <AboutMeTab content={profileData.aboutMe} />
+            ) : (
+              <VoronoiCloud
+                concepts={filteredConcepts}
+                evidence={profileData.evidence}
+                width={dimensions.width}
+                height={dimensions.height}
+                onConceptClick={setSelectedConcept}
+                recencyDecayDays={profileData.settings.recencyDecayDays}
+              />
+            )}
           </motion.div>
         </motion.div>
       </div>
