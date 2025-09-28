@@ -2,9 +2,10 @@
 
 import { motion } from 'framer-motion';
 import { Profile } from '@/lib/types';
-import { MapPin, Globe, User, FileText, Linkedin } from 'lucide-react';
+import { MapPin, Globe, User } from 'lucide-react';
 import Image from 'next/image';
 import IconButton from './IconButton';
+import { getIconForLink } from '@/lib/icon-map';
 
 interface ProfileCardProps {
   profile: Profile;
@@ -100,9 +101,9 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
           </a>
         )}
 
-        <div className="flex justify-center space-x-4 pt-4">
+        <div className="flex justify-center flex-wrap gap-2 pt-4">
           {profile.links?.map((link) => {
-            const Icon = link.label === 'CV' ? FileText : Linkedin;
+            const Icon = getIconForLink(link.label);
             return <IconButton key={link.label} href={link.url} label={link.label} icon={Icon} />;
           })}
         </div>

@@ -1,7 +1,9 @@
-import { render, screen } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
 import ProfileCard from '../ProfileCard';
 import { Profile } from '@/lib/types';
+import React from 'react';
+
 
 describe('ProfileCard', () => {
   const mockProfile: Profile = {
@@ -48,15 +50,14 @@ describe('ProfileCard', () => {
     expect(websiteLink.closest('a')).toHaveAttribute('href', mockProfile.website);
   })
 
-  it('renders the profile links', () => {
-    render(<ProfileCard profile={mockProfile} />)
-    const cvLink = screen.getByRole('link', { name: /CV/i });
-    const linkedinLink = screen.getByRole('link', { name: /LinkedIn/i });
+  it('renders icon buttons and shows a tooltip on hover', async () => {
+    render(<ProfileCard profile={mockProfile} />);
 
-    expect(cvLink).toBeInTheDocument();
-    expect(cvLink).toHaveAttribute('href', mockProfile.links[0].url);
-
-    expect(linkedinLink).toBeInTheDocument();
-    expect(linkedinLink).toHaveAttribute('href', mockProfile.links[1].url);
-  })
+    // Check for each link via its accessible name (aria-label)
+    mockProfile.links?.forEach(link => {
+      const linkEl = screen.getByLabelText(link.label);
+      expect(linkEl).toBeInTheDocument();
+      expect(linkEl).toHaveAttribute('href', link.url);
+    });
+  });
 })

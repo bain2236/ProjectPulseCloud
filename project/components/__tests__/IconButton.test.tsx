@@ -10,18 +10,18 @@ describe('IconButton', () => {
     icon: FileText,
   };
 
-  it('renders a link with the correct href', () => {
+  it('renders an accessible link with an aria-label and correct href', () => {
     render(<IconButton {...mockProps} />);
-    const link = screen.getByRole('link', { name: /Test Button/i });
+    const link = screen.getByLabelText(mockProps.label);
     expect(link).toBeInTheDocument();
     expect(link).toHaveAttribute('href', mockProps.href);
   });
 
-  it('renders the label and icon', () => {
+  it('renders the icon', () => {
     render(<IconButton {...mockProps} />);
-    expect(screen.getByText('Test Button')).toBeInTheDocument();
-    // Check if the icon's parent container is there
-    const icon = document.querySelector('.lucide-file-text');
+    const link = screen.getByLabelText(mockProps.label);
+    // Check that the SVG is rendered within the link
+    const icon = link.querySelector('svg');
     expect(icon).toBeInTheDocument();
   });
 });

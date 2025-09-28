@@ -3,6 +3,12 @@
 import { motion } from 'framer-motion';
 import { LucideProps } from 'lucide-react';
 import React from 'react';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 interface IconButtonProps {
   href: string;
@@ -12,28 +18,48 @@ interface IconButtonProps {
 
 export default function IconButton({ href, label, icon: Icon }: IconButtonProps) {
   return (
-    <motion.a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group relative flex items-center justify-center w-32 h-10 px-4 text-sm font-bold text-cyan-300 bg-black border-2 border-cyan-400 rounded-lg overflow-hidden"
-      whileHover="hover"
-    >
-      <span className="relative z-10 flex items-center">
-        <Icon className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:scale-110" />
-        {label}
-      </span>
-      <motion.div
-        className="absolute inset-0 bg-cyan-400"
-        variants={{
-          hover: {
-            scaleX: [0, 1],
-            opacity: [0, 0.2, 0],
-            transition: { duration: 0.7, ease: 'easeInOut' },
-          },
-        }}
-        style={{ originX: 0 }}
-      />
-    </motion.a>
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <motion.a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={label}
+            className="group relative flex items-center justify-center w-12 h-12 bg-black border-2 border-cyan-400/50 rounded-lg overflow-hidden transition-colors hover:border-cyan-400"
+            whileHover="hover"
+          >
+            <Icon className="w-6 h-6 text-cyan-400/70 transition-colors group-hover:text-cyan-400" />
+            
+            {/* Shimmer effect */}
+            <motion.div
+              className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
+              variants={{
+                hover: {
+                  x: ['-100%', '100%'],
+                  transition: { duration: 0.8, ease: 'linear' },
+                },
+              }}
+            />
+            
+            {/* Glow effect */}
+            <motion.div
+              className="absolute inset-0 border-2 border-cyan-400 rounded-lg"
+              variants={{
+                hover: {
+                  scale: 1.2,
+                  opacity: [0, 1, 0],
+                  boxShadow: '0 0 15px #00FFFF, 0 0 25px #00FFFF',
+                  transition: { duration: 0.8, ease: 'easeInOut' },
+                },
+              }}
+            />
+          </motion.a>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>{label}</p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   );
 }
