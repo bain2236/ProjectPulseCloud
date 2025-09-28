@@ -3,6 +3,7 @@ import { processRawText } from './processor.ts';
 import { assembleFinalJson } from './assembler.ts';
 import { extractKeywords } from './keywordExtractor.ts';
 import { chunkFile } from './chunker.ts';
+import { scaleWeights } from './weightScaler.ts';
 import * as fs from 'fs/promises';
 import * as path from 'path';
 
@@ -55,9 +56,17 @@ export async function main() {
     }
   }
 
-  const finalJson = assembleFinalJson(profile, tabs, settings, processedData);
+  const assembledJson = assembleFinalJson(profile, tabs, settings, processedData);
 
-  await fs.writeFile(outputPath, JSON.stringify(finalJson, null, 2));
+  // Post-process the weights
+  const scaledConcepts = scaleWeights(assembledJson.concepts, assembledJson.evidence);
+
+  const finalJsonWithScaledWeights = {
+    ...assembledJson,
+    concepts: scaledConcepts,
+  };
+
+  await fs.writeFile(outputPath, JSON.stringify(finalJsonWithScaledWeights, null, 2));
 
   console.log(`Data processing pipeline finished. Profile written to ${outputPath}`);
 }
