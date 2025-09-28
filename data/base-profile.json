@@ -12,11 +12,32 @@
     "links": [
       {
         "label": "CV",
-        "url": "https://github.com/your-username/your-cv-repo"
+        "url": "https://bain2236.github.io/"
       },
       {
         "label": "LinkedIn",
-        "url": "https://www.linkedin.com/in/your-profile/"
+        "url": "https://www.linkedin.com/in/alex-bainbridge-84a670116/"
+      }
+      ,
+      {
+        "label": "GitHub",
+        "url": "https://github.com/bain2236"
+      },
+      {
+        "label": "Instagram @bain_lifts",
+        "url": "https://www.instagram.com/bain_lifts/"
+      },
+      {
+        "label": "Instagram @bain_paints",
+        "url": "https://www.instagram.com/bain_paints/"
+      },
+      {
+        "label": "Dev.to @bain_forge",
+        "url": "https://dev.to/bain_forge"
+      },
+      {
+        "label": "Youtube ",
+        "url": "https://www.youtube.com/@bainforge"
       }
     ]
   },
