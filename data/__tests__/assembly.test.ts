@@ -76,4 +76,27 @@ describe('JSON Assembly Utility', () => {
       expect.objectContaining({ label: 'Invalid Concept' })
     );
   });
+
+  it('should merge concepts by ID even if labels are different', () => {
+    const baseProfile = { displayName: "Test User" };
+    const tabs: any[] = [];
+    const settings = {};
+    const processedData = [
+      {
+        evidence: { id: 'evidence-1', text: 'Evidence 1' },
+        concepts: [{ id: 'concept-1', label: 'Test Concept', sourceEvidenceIds: ['evidence-1'] }]
+      },
+      {
+        evidence: { id: 'evidence-2', text: 'Evidence 2' },
+        concepts: [{ id: 'concept-1', label: 'Different Label', sourceEvidenceIds: ['evidence-2'] }]
+      }
+    ];
+
+    const finalJson = assembleFinalJson(baseProfile, tabs, settings, processedData);
+
+    expect(finalJson.concepts).toHaveLength(1);
+    expect(finalJson.concepts[0].sourceEvidenceIds).toHaveLength(2);
+    expect(finalJson.concepts[0].sourceEvidenceIds).toContain('evidence-1');
+    expect(finalJson.concepts[0].sourceEvidenceIds).toContain('evidence-2');
+  });
 });

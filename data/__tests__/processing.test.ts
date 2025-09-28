@@ -83,4 +83,10 @@ describe('Data Processing Utility', () => {
     expect(result.concepts[0]).toHaveProperty('sourceEvidenceIds');
     expect(result.concepts[0].sourceEvidenceIds).toEqual(expect.any(Array));
   });
+
+  it('should handle a null or undefined response from the LLM', async () => {
+    vi.mocked(llmClient.generateJson).mockResolvedValue(null);
+    const result = await processRawText('some text', '/path/to/file');
+    expect(result).toBeNull();
+  });
 });

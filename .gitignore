@@ -17,3 +17,5 @@
 
 # LLM Cache
 /data/.llm-cache
+
+/coverage

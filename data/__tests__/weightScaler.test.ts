@@ -67,4 +67,15 @@ describe('Weight Scaling Logic', () => {
     expect(scaledConcepts[0].weight).toBeLessThanOrEqual(1.0);
   });
 
+  it('should return the concept unchanged if no related evidence is found', () => {
+    const concepts: Concept[] = [
+      { id: 'concept-1', label: 'Orphan Concept', sourceEvidenceIds: ['non-existent-evidence'], weight: 0.5, tabId: 'engineer' },
+    ];
+    const evidence: Evidence[] = [
+      { id: 'evidence-1', source: 'CV', date: '2023-01-01', text: '', author: '' },
+    ];
+
+    const scaledConcepts = scaleWeights(concepts, evidence);
+    expect(scaledConcepts[0].weight).toEqual(0.5);
+  });
 });

@@ -51,17 +51,20 @@ export async function main() {
     const keywordConcepts = extractKeywords(chunk.content, keywords);
     const llmResult = await processRawText(chunk.content, chunk.path);
 
-    // Combine and add evidence ID to keyword concepts
-    if (llmResult && llmResult.evidence.id) {
-      keywordConcepts.forEach(c => c.sourceEvidenceIds.push(llmResult.evidence.id));
-      const combinedConcepts = [...keywordConcepts, ...llmResult.concepts];
+    if (llmResult) {
+      // Always add the evidence from the LLM result
+      const evidenceId = llmResult.evidence.id;
+      
+      // Add the evidenceId to all keyword concepts found in this chunk
+      keywordConcepts.forEach(c => c.sourceEvidenceIds.push(evidenceId));
+
+      // Combine the concepts from the LLM with the concepts from the keyword extractor
+      const combinedConcepts = [...(llmResult.concepts || []), ...keywordConcepts];
       
       processedData.push({
         evidence: llmResult.evidence,
         concepts: combinedConcepts,
       });
-    } else if (llmResult) {
-      processedData.push(llmResult);
     }
   }
 
@@ -80,7 +83,11 @@ export async function main() {
   console.log(`Data processing pipeline finished. Profile written to ${outputPath}`);
 }
 
-// Allow the script to be run directly from the command line
-if (require.main === module) {
-  main();
+export function run() {
+  // Allow the script to be run directly from the command line
+  if (require.main === module) {
+    main();
+  }
 }
+
+run();
