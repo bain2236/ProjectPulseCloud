@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, Suspense } from 'react';
+import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { ProfileData, Concept } from '@/lib/types';
 import ProfileCard from '@/components/ProfileCard';
@@ -9,25 +10,34 @@ import VoronoiCloud from '@/components/VoronoiCloud';
 import ConceptModal from '@/components/ConceptModal';
 import AboutMeTab from '@/components/AboutMeTab';
 
-export default function Home() {
+function HomePageContent() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
   const [profileData, setProfileData] = useState<ProfileData | null>(null);
-  const [activeTab, setActiveTab] = useState<string>('about');
   const [selectedConcept, setSelectedConcept] = useState<Concept | null>(null);
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
 
-  // Load profile data
+  const activeTab = searchParams.get('tab') || 'about';
+
+  // Load profile data and set initial state from URL
   useEffect(() => {
     fetch('/profile.json')
       .then(res => res.json())
       .then((data: ProfileData) => {
         setProfileData(data);
-        if (data.tabs.length > 0) {
-          const firstTab = data.tabs.sort((a, b) => a.order - b.order)[0];
-          setActiveTab(firstTab.id);
+        
+        const conceptIdFromUrl = searchParams.get('concept');
+        if (conceptIdFromUrl) {
+          const concept = data.concepts.find(c => c.id === conceptIdFromUrl);
+          if (concept) {
+            setSelectedConcept(concept);
+          }
         }
       })
       .catch(console.error);
-  }, []);
+  }, [searchParams]);
 
   // Handle window resize
   useEffect(() => {
@@ -55,6 +65,27 @@ export default function Home() {
     return profileData.concepts.filter(concept => concept.tabId === activeTab);
   }, [profileData, activeTab]);
 
+  const handleTabChange = (tabId: string) => {
+    const params = new URLSearchParams(searchParams);
+    params.set('tab', tabId);
+    router.push(`${pathname}?${params.toString()}`);
+  };
+
+  const handleConceptClick = (concept: Concept | null) => {
+    setSelectedConcept(concept);
+    const params = new URLSearchParams(searchParams);
+    if (concept) {
+      params.set('concept', concept.id);
+    } else {
+      params.delete('concept');
+    }
+    router.push(`${pathname}?${params.toString()}`);
+  };
+
+  const handleModalClose = () => {
+    handleConceptClick(null);
+  };
+
   if (!profileData) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
@@ -71,17 +102,17 @@ export default function Home() {
     <div className={`min-h-screen theme-${profileData.profile.theme}`}>
       <div className="h-screen flex overflow-hidden">
         {/* Left Column - Profile Card */}
-        <motion.div 
+        <motion.aside 
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="w-80 p-6 flex flex-col"
         >
           <ProfileCard profile={profileData.profile} />
-        </motion.div>
+        </motion.aside>
 
         {/* Right Column - Main Canvas */}
-        <motion.div 
+        <motion.main 
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
@@ -97,7 +128,7 @@ export default function Home() {
             <TabStrip
               tabs={profileData.tabs}
               activeTab={activeTab}
-              onTabChange={setActiveTab}
+              onTabChange={handleTabChange}
             />
           </motion.div>
 
@@ -117,19 +148,19 @@ export default function Home() {
                 evidence={profileData.evidence}
                 width={dimensions.width}
                 height={dimensions.height}
-                onConceptClick={setSelectedConcept}
+                onConceptClick={handleConceptClick}
                 recencyDecayDays={profileData.settings.recencyDecayDays}
               />
             )}
           </motion.div>
-        </motion.div>
+        </motion.main>
       </div>
 
       {/* Concept Modal */}
       <ConceptModal
         concept={selectedConcept}
         evidence={profileData.evidence}
-        onClose={() => setSelectedConcept(null)}
+        onClose={handleModalClose}
       />
 
       {/* Background Effects */}
@@ -147,5 +178,13 @@ export default function Home() {
         />
       </div>
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <HomePageContent />
+    </Suspense>
   );
 }
