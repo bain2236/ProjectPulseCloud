@@ -1,5 +1,9 @@
 # PulseCloud - AboutMe-Vibe
 
+[![CI](https://github.com/bain2236/PulseCloud/actions/workflows/ci.yml/badge.svg)](https://github.com/bain2236/PulseCloud/actions/workflows/ci.yml)
+[![Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io/)
+[![ESLint](https://img.shields.io/badge/linting-eslint-4B32C3.svg)](https://eslint.org/)
+
 A beautiful, interactive professional profile page with a data-driven Voronoi word cloud visualization. This project uses a sophisticated data pipeline to transform raw, unstructured text from your professional life into a structured, explorable format.
 
 This repository is a monorepo containing two main parts:
@@ -67,6 +71,16 @@ This project is committed to a strict **Test-Driven Development (TDD)** workflow
 
 ---
 
+## Production Readiness & CI/CD
+
+This project is equipped with a full suite of tools to ensure code quality, consistency, and stability.
+
+-   **Continuous Integration**: A GitHub Actions workflow runs on every push and pull request to the `main` branch. It automatically installs dependencies, runs the full test suite, lints the code, and performs a production build.
+-   **Linting & Formatting**: We use ESLint and Prettier to enforce a consistent code style. These checks are run automatically before each commit using a `pre-commit` hook managed by `husky` and `lint-staged`.
+-   **SEO & Metadata**: The application includes comprehensive `meta` tags for SEO and rich link previews on social media platforms, configured in `project/app/layout.tsx`.
+
+---
+
 ## Frontend Features
 
 - 🎨 **Neon Dark Theme** - Black background with cyan/pink neon highlights
@@ -76,6 +90,7 @@ This project is committed to a strict **Test-Driven Development (TDD)** workflow
 - 🎯 **Tab-based Navigation** - Filter concepts by Personal/Leader/Engineer/Colleague
 - 🚀 **Performance Optimized** - Debounced resize, useMemo, and reduced motion support
 - ♿ **Accessible** - WCAG compliant with keyboard navigation and screen reader support
+- 📊 **Analytics & Feedback** - Privacy-compliant analytics and user rating system
 
 ## Configuration
 
@@ -106,8 +121,8 @@ The primary configuration file, `project/public/profile.json`, is **generated au
 ```
 app/
 ├── globals.css          # Tailwind + neon theme styles
-├── layout.tsx          # App shell with fonts
-└── page.tsx           # Main application component
+├── layout.tsx           # App shell with fonts, metadata, and SEO tags
+└── page.tsx             # Main application component
 
 components/
 ├── ProfileCard.tsx     # Left column profile information
@@ -125,12 +140,25 @@ public/
 
 ## Deployment Notes
 
-- **Vercel**: Recommended for production deployments
-- **Static Export**: Configured for static export compatibility
-- **Asset Optimization**: Images are unoptimized for static export compatibility
+-   **Vercel**: Recommended for production deployments. Remember to set the `NEXT_PUBLIC_URL` environment variable to your production domain for SEO and metadata purposes.
+-   **Static Export**: Configured for static export compatibility
+-   **Asset Optimization**: Images are unoptimized for static export compatibility
+
+## Analytics & User Feedback
+
+This portfolio includes a comprehensive analytics and user feedback system designed with privacy-first principles:
+
+- **Privacy-Compliant Analytics** - No cookies required, GDPR compliant
+- **User Rating System** - Collect feedback on site experience, animations, and design
+- **Performance Monitoring** - Track user interactions and site performance
+- **SEO Optimization** - Automatic sitemap generation and search engine optimization
+
+📖 **[Read the full Analytics Documentation](project/docs/analytics.md)** for setup instructions and detailed feature overview.
 
 ## Future Features
 - **Multimedia Evidence**: Allow images and videos to be included as evidence sources, linking them to concepts.
+- **Advanced Analytics**: A/B testing, heatmaps, and user journey analysis
+- **Performance Optimization**: Real-time performance monitoring and optimization suggestions
 
 ## Browser Support
 

@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install root dependencies
+        run: npm install
+
+      - name: Install project dependencies
+        run: cd project && npm install
+
+      - name: Run linter
+        run: npm run lint --prefix project
+
+      - name: Audit root dependencies
+        run: npm audit --production
+
+      - name: Audit project dependencies
+        run: npm audit --production --prefix project
+
+      - name: Run tests with coverage
+        run: npm run test:coverage
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage/
+
+      - name: Build project
+        run: npm run build --prefix project

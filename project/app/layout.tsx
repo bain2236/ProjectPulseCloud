@@ -12,9 +12,36 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-mono'
 });
 
+const ogImageUrl = process.env.NEXT_PUBLIC_URL
+  ? `${process.env.NEXT_PUBLIC_URL}/face.jpeg`
+  : '/face.jpeg';
+
 export const metadata: Metadata = {
-  title: 'AboutMe-Vibe | Professional Profile',
-  description: 'A beautiful, interactive professional profile with Voronoi word cloud visualization',
+  title: 'Alex Bainbridge | Technical Lead & Cloud Native Architect',
+  description:
+    'A beautiful, interactive professional profile with a data-driven Voronoi word cloud visualization.',
+  openGraph: {
+    title: 'Alex Bainbridge | Technical Lead & Cloud Native Architect',
+    description:
+      'A beautiful, interactive professional profile with a data-driven Voronoi word cloud visualization.',
+    type: 'website',
+    url: process.env.NEXT_PUBLIC_URL || 'https://github.com/bain2236/PulseCloud',
+    images: [
+      {
+        url: ogImageUrl,
+        width: 1200,
+        height: 630,
+        alt: 'Alex Bainbridge',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Alex Bainbridge | Technical Lead & Cloud Native Architect',
+    description:
+      'A beautiful, interactive professional profile with a data-driven Voronoi word cloud visualization.',
+    images: [ogImageUrl],
+  },
 };
 
 export default function RootLayout({

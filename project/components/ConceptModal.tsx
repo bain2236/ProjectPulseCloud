@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Concept, Evidence } from '@/lib/types';
 import { X, User, Calendar, Building, ExternalLink } from 'lucide-react';
+import { useAnalyticsEvents } from '@/hooks/useAnalytics';
 
 interface ConceptModalProps {
   concept: Concept | null;
@@ -79,6 +80,23 @@ function EvidenceCard({ evidence }: EvidenceCardProps) {
 }
 
 export default function ConceptModal({ concept, evidence, onClose }: ConceptModalProps) {
+  const { trackModalOpen, trackModalClose } = useAnalyticsEvents();
+  const [modalStartTime] = useState(Date.now());
+
+  useEffect(() => {
+    if (concept) {
+      trackModalOpen('concept_modal');
+    }
+  }, [concept, trackModalOpen]);
+
+  const handleClose = () => {
+    if (concept) {
+      const duration = Date.now() - modalStartTime;
+      trackModalClose('concept_modal', duration);
+    }
+    onClose();
+  };
+
   if (!concept) return null;
 
   const relatedEvidence = evidence.filter(e => 
@@ -92,7 +110,7 @@ export default function ConceptModal({ concept, evidence, onClose }: ConceptModa
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         className="fixed inset-0 z-50 flex items-center justify-center p-4"
-        onClick={onClose}
+        onClick={handleClose}
       >
         {/* Backdrop */}
         <motion.div
@@ -128,7 +146,7 @@ export default function ConceptModal({ concept, evidence, onClose }: ConceptModa
             </div>
             
             <motion.button
-              onClick={onClose}
+              onClick={handleClose}
               className="p-2 text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-gray-800"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}

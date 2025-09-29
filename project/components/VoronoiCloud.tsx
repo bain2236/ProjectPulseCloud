@@ -6,6 +6,7 @@ import { Delaunay } from 'd3-delaunay';
 import { Concept, Evidence } from '@/lib/types';
 import { weightToFontSize, weightToArea, calculateRecencyMultiplier, calculatePulseOrigin, debounce } from '@/lib/utils';
 import PulsingBorder from './PulsingBorder';
+import { useAnalyticsEvents } from '@/hooks/useAnalytics';
 
 interface VoronoiCloudProps {
   concepts: Concept[];
@@ -47,6 +48,7 @@ export default function VoronoiCloud({
   onConceptClick,
   recencyDecayDays
 }: VoronoiCloudProps) {
+  const { trackConceptClick } = useAnalyticsEvents();
   const [hoverState, setHoverState] = useState<HoverState>({ conceptId: null });
   const [selectedConceptId, setSelectedConceptId] = useState<string | null>(null);
   const [dimensions, setDimensions] = useState({ width, height });
@@ -77,6 +79,7 @@ export default function VoronoiCloud({
 
   const handleClick = (concept: Concept) => {
     setSelectedConceptId(prevId => prevId === concept.id ? null : concept.id); // Toggle selection
+    trackConceptClick(concept.label, 'voronoi_cloud');
     onConceptClick(concept);
   };
 
@@ -169,7 +172,7 @@ export default function VoronoiCloud({
         fontSize,
         area: 0, 
       };
-    }).filter((cell): cell is VoronoiCell => cell !== null);
+    }).filter((cell): cell is NonNullable<typeof cell> => cell !== null);
 
   }, [concepts, evidence, dimensions.width, dimensions.height, recencyDecayDays]);
 

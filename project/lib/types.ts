@@ -49,6 +49,7 @@ export interface ProfileData {
   tabs: Tab[];
   evidence: Evidence[];
   concepts: Concept[];
+  aboutMe?: string;
   settings: {
     recencyDecayDays: number;
     llm: {

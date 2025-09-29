@@ -9,11 +9,15 @@ import TabStrip from '@/components/TabStrip';
 import VoronoiCloud from '@/components/VoronoiCloud';
 import ConceptModal from '@/components/ConceptModal';
 import AboutMeTab from '@/components/AboutMeTab';
+import PrivacyFooter from '@/components/PrivacyFooter';
+import SiteRating from '@/components/SiteRating';
+import { useAnalyticsEvents } from '@/hooks/useAnalytics';
 
 function HomePageContent() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const { trackPageView } = useAnalyticsEvents();
 
   const [profileData, setProfileData] = useState<ProfileData | null>(null);
   const [selectedConcept, setSelectedConcept] = useState<Concept | null>(null);
@@ -38,6 +42,11 @@ function HomePageContent() {
       })
       .catch(console.error);
   }, [searchParams]);
+
+  // Track page view on mount
+  useEffect(() => {
+    trackPageView();
+  }, [trackPageView]);
 
   // Handle window resize
   useEffect(() => {
@@ -66,14 +75,14 @@ function HomePageContent() {
   }, [profileData, activeTab]);
 
   const handleTabChange = (tabId: string) => {
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParams.toString());
     params.set('tab', tabId);
     router.push(`${pathname}?${params.toString()}`);
   };
 
   const handleConceptClick = (concept: Concept | null) => {
     setSelectedConcept(concept);
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParams.toString());
     if (concept) {
       params.set('concept', concept.id);
     } else {
@@ -99,8 +108,8 @@ function HomePageContent() {
   }
 
   return (
-    <div className={`min-h-screen theme-${profileData.profile.theme}`}>
-      <div className="h-screen flex overflow-hidden">
+    <div className={`min-h-screen theme-${profileData.profile.theme} flex flex-col`}>
+      <div className="flex-1 flex overflow-hidden">
         {/* Left Column - Profile Card */}
         <motion.aside 
           initial={{ opacity: 0, x: -100 }}
@@ -155,6 +164,12 @@ function HomePageContent() {
           </motion.div>
         </motion.main>
       </div>
+
+      {/* Privacy Footer */}
+      <PrivacyFooter />
+
+      {/* Site Rating Widget */}
+      <SiteRating />
 
       {/* Concept Modal */}
       <ConceptModal

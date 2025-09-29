@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Tab } from '@/lib/types';
+import { useAnalyticsEvents } from '@/hooks/useAnalytics';
 
 interface TabStripProps {
   tabs: Tab[];
@@ -10,6 +11,7 @@ interface TabStripProps {
 }
 
 export default function TabStrip({ tabs, activeTab, onTabChange }: TabStripProps) {
+  const { trackTabChange } = useAnalyticsEvents();
   const sortedTabs = [...tabs].sort((a, b) => a.order - b.order);
 
   if (!sortedTabs.length) {
@@ -24,7 +26,10 @@ export default function TabStrip({ tabs, activeTab, onTabChange }: TabStripProps
         return (
           <motion.button
             key={tab.id}
-            onClick={() => onTabChange(tab.id)}
+            onClick={() => {
+              trackTabChange(tab.title);
+              onTabChange(tab.id);
+            }}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}

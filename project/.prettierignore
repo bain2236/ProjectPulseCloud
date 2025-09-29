@@ -1,0 +1,9 @@
+# Ignore artifacts
+.next
+out
+coverage
+.vercel
+
+# Ignore dependencies
+node_modules
+package-lock.json
