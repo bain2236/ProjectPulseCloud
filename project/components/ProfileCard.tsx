@@ -83,7 +83,7 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
         className="space-y-3"
       >
         {profile.location && (
-          <div className="flex items-center text-gray-400 hover:text-cyan-400 transition-colors">
+          <div className="flex items-center text-gray-300 hover:text-cyan-400 transition-colors">
             <MapPin className="w-4 h-4 mr-2" />
             <span className="text-sm">{profile.location}</span>
           </div>
@@ -94,7 +94,7 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
             href={profile.website}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center text-gray-400 hover:text-pink-400 transition-colors group"
+            className="flex items-center text-gray-300 hover:text-pink-400 transition-colors group"
           >
             <Globe className="w-4 h-4 mr-2" />
             <span className="text-sm group-hover:underline">{profile.website}</span>
@@ -109,7 +109,7 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
         </div>
 
         <div className="pt-4 border-t border-gray-700">
-          <div className="flex items-center justify-between text-xs text-gray-500">
+          <div className="flex items-center justify-between text-xs text-gray-400">
             <span>Created</span>
             <span>{new Date(profile.createdAt).toLocaleDateString()}</span>
           </div>

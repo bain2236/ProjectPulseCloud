@@ -84,7 +84,7 @@ describe('TabStrip', () => {
         expect(engineerTabButton.closest('button')).toHaveClass('text-white');
         
         const leaderTabButton = screen.getByText('Leader');
-        expect(leaderTabButton.closest('button')).toHaveClass('text-gray-400');
+        expect(leaderTabButton.closest('button')).toHaveClass('text-gray-300');
     });
 
     it('should have no accessibility violations', async () => {

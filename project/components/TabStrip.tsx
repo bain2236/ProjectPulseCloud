@@ -32,7 +32,7 @@ export default function TabStrip({ tabs, activeTab, onTabChange }: TabStripProps
               relative px-6 py-3 rounded-lg font-medium text-sm transition-all duration-200
               ${isActive 
                 ? 'text-white' 
-                : 'text-gray-400 hover:text-white'
+                : 'text-gray-300 hover:text-white'
               }
             `}
             whileHover={{ scale: 1.05 }}
