@@ -5,6 +5,7 @@ import { Concept, Evidence } from '../../lib/types';
 import { JSX } from 'react/jsx-runtime';
 import '@testing-library/jest-dom';
 import { Delaunay } from 'd3-delaunay';
+import { axe } from 'jest-axe';
 
 // Mock d3-delaunay to control its output in tests
 vi.mock('d3-delaunay', () => {
@@ -187,5 +188,22 @@ describe('VoronoiCloud', () => {
 
         expect(parseFloat(textElement.getAttribute('x')!)).toBeCloseTo(expectedCenterX);
         expect(parseFloat(textElement.getAttribute('y')!)).toBeCloseTo(expectedCenterY);
+    });
+
+    it('should have no accessibility violations', async () => {
+        cellPolygonMock.mockReturnValue([[0, 0], [10, 0], [10, 10], [0, 10]]);
+
+        const { container } = render(
+            <VoronoiCloud
+                concepts={mockConcepts}
+                evidence={mockEvidence}
+                width={500}
+                height={500}
+                onConceptClick={() => {}}
+                recencyDecayDays={30}
+            />
+        );
+        const results = await axe(container);
+        expect(results).toHaveNoViolations();
     });
 });

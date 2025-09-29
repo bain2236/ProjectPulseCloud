@@ -3,6 +3,7 @@ import { describe, it, expect, vi } from 'vitest';
 import ProfileCard from '../ProfileCard';
 import { Profile } from '@/lib/types';
 import React from 'react';
+import { axe } from 'jest-axe';
 
 
 describe('ProfileCard', () => {
@@ -59,5 +60,11 @@ describe('ProfileCard', () => {
       expect(linkEl).toBeInTheDocument();
       expect(linkEl).toHaveAttribute('href', link.url);
     });
+  });
+
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<ProfileCard profile={mockProfile} />);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 })

@@ -3,6 +3,7 @@ import { describe, it, expect, vi } from 'vitest';
 import TabStrip from '../TabStrip';
 import { Tab } from '@/lib/types';
 import '@testing-library/jest-dom';
+import { axe } from 'jest-axe';
 
 // Mock Framer Motion
 vi.mock('framer-motion', () => {
@@ -84,5 +85,13 @@ describe('TabStrip', () => {
         
         const leaderTabButton = screen.getByText('Leader');
         expect(leaderTabButton.closest('button')).toHaveClass('text-gray-400');
+    });
+
+    it('should have no accessibility violations', async () => {
+        const { container } = render(
+            <TabStrip tabs={mockTabs} activeTab="engineer" onTabChange={() => {}} />
+        );
+        const results = await axe(container);
+        expect(results).toHaveNoViolations();
     });
 });

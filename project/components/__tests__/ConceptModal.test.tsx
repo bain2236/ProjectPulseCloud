@@ -3,6 +3,7 @@ import { describe, it, expect, vi } from 'vitest';
 import ConceptModal from '../ConceptModal';
 import { Concept, Evidence } from '@/lib/types';
 import '@testing-library/jest-dom';
+import { axe } from 'jest-axe';
 
 // Mock Framer Motion
 vi.mock('framer-motion', () => {
@@ -103,5 +104,13 @@ describe('ConceptModal', () => {
             <ConceptModal concept={conceptWithoutEvidence} evidence={mockEvidence} onClose={() => {}} />
         );
         expect(screen.getByText(/No evidence found/i)).toBeInTheDocument();
+    });
+
+    it('should have no accessibility violations', async () => {
+        const { container } = render(
+            <ConceptModal concept={mockConcept} evidence={mockEvidence} onClose={() => {}} />
+        );
+        const results = await axe(container);
+        expect(results).toHaveNoViolations();
     });
 });
