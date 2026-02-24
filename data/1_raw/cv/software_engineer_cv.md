@@ -1,5 +1,3 @@
-# CV - Technical Abilities
-
 # Alexander Bainbridge
 
 📍 Pontypool, South Wales  
@@ -31,8 +29,20 @@ I’m a technical lead and polyglot engineer with **10 years’ experience** bui
 
 ## 💼 Professional Experience
 
+### **Duel** — *Senior Full-stack Engineer*  
+*Oct 2025 – Feb 2026 | Bristol, Hybrid*
+
+- Built out an AI first advocate challenge creation and content creation analysis prototype using langraph
+- Productionised the content creation analysis in their unfamiliar stack. Released to several brands
+- Held a retro in the first month focussing on psycological safety
+- Assisted in BAU such as adding in new translations in short time frames for brand launches
+- Disseminated a years worth of AI enabled engineering learnings to the wider engineering team
+- Built out AI-enabled engineering - rules, skills and workflows
+
+---
+
 ### **Clinithink** — *Technical Lead*  
-*Jun 2023 – Present | Bridgend, Hybrid*
+*Jun 2023 – Aug 2025 | Bridgend, Hybrid*
 
 - Led a small team to architected and deliver **CustomerHub** in a quarter (ahead of schedule), re-platforming a legacy .NET/Azure app into **HubSpot CMS + React + Azure Functions**, **cutting deployment cycles by 75%**. .Net was new to me
 - Built **BuildTools** — a PowerShell cmdlet suite and reusable **Azure DevOps pipeline templates** to standardise pipelines across the business. Provided necessary tooling for across the business, such as tracking our AI coding metrics, generating change logs, versioning, auto promotion of artifacts in **Azure Devops**
@@ -85,8 +95,6 @@ I’m a technical lead and polyglot engineer with **10 years’ experience** bui
 
 ## 📜 Certifications
 
-- AWS Certified Cloud Practitioner  
-- Oracle Certified Java SE 7 Programmer (OCA)  
 - Mental Health First Aider
 
 ---

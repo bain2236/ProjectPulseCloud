@@ -4,6 +4,7 @@ import { assembleFinalJson } from './assembler.ts';
 import { extractKeywords } from './keywordExtractor.ts';
 import { chunkFile } from './chunker.ts';
 import { scaleWeights } from './weightScaler.ts';
+import { validateProfileData, filterInvalidConcepts } from './validator.ts';
 import * as fs from 'fs/promises';
 import * as path from 'path';
 
@@ -72,6 +73,21 @@ export async function main() {
 
   // Post-process the weights
   const scaledConcepts = scaleWeights(assembledJson.concepts, assembledJson.evidence);
+
+  // Validate the data
+  const validationResult = validateProfileData(scaledConcepts, assembledJson.evidence);
+  
+  if (!validationResult.isValid) {
+    console.error(`\n❌ Validation failed with ${validationResult.errors.length} error(s).`);
+    console.error('The pipeline will continue but invalid data may cause issues.\n');
+    
+    // Optionally filter out invalid concepts (uncomment to enable)
+    // const validConcepts = filterInvalidConcepts(scaledConcepts, assembledJson.evidence);
+    // console.log(`Filtered ${scaledConcepts.length - validConcepts.length} invalid concepts.`);
+    // scaledConcepts = validConcepts;
+  } else {
+    console.log('✅ Validation passed!');
+  }
 
   const finalJsonWithScaledWeights = {
     ...assembledJson,

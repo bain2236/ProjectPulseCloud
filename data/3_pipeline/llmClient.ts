@@ -7,22 +7,36 @@ import { getSystemPrompt } from './prompts/systemPrompt.ts';
 // Explicitly point to the .env file inside the 'project' directory
 dotenv.config({ path: path.resolve(__dirname, '../../project/.env') });
 
-
-if (!process.env.OPENAI_API_KEY) {
-  throw new Error('OPENAI_API_KEY is not set in the environment variables.');
+// Only require API key if not in dry-run mode
+if (!process.env.LLM_DRY_RUN && !process.env.OPENAI_API_KEY) {
+  throw new Error('OPENAI_API_KEY is not set in the environment variables. Set LLM_DRY_RUN=true to run without API calls.');
 }
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-  dangerouslyAllowBrowser: true,
-});
+const openai = process.env.LLM_DRY_RUN 
+  ? null 
+  : new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY!,
+      dangerouslyAllowBrowser: true,
+    });
 
 export const llmClient = {
   async generateJson(text: string, evidenceId: string): Promise<any> {
     if (process.env.LLM_DRY_RUN === 'true') {
       console.log('[DRY RUN] LLM call skipped.');
+      const currentDate = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
       return {
-        evidence: { id: evidenceId, source: 'dry-run', text: text, author: 'Dry Run' },
+        evidence: { 
+          id: evidenceId, 
+          source: 'dry-run', 
+          text: text, 
+          author: 'Dry Run',
+          date: currentDate,
+          tabId: 'engineer',
+          authorRole: '',
+          imageUrl: null,
+          externalUrl: null,
+          createdAt: new Date().toISOString()
+        },
         concepts: [],
       };
     }
@@ -35,6 +49,10 @@ export const llmClient = {
     const systemPrompt = getSystemPrompt(evidenceId);
 
     try {
+      if (!openai) {
+        throw new Error('OpenAI client not initialized. This should not happen in dry-run mode.');
+      }
+      
       const response = await openai.chat.completions.create({
         model: "gpt-4o",
         messages: [
