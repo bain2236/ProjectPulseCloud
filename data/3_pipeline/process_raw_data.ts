@@ -4,7 +4,7 @@ import { assembleFinalJson } from './assembler.ts';
 import { extractKeywords } from './keywordExtractor.ts';
 import { chunkFile } from './chunker.ts';
 import { scaleWeights } from './weightScaler.ts';
-import { validateProfileData, filterInvalidConcepts } from './validator.ts';
+import { validateProfileData, filterInvalidConcepts, normaliseDates } from './validator.ts';
 import * as fs from 'fs/promises';
 import * as path from 'path';
 
@@ -71,11 +71,14 @@ export async function main() {
 
   const assembledJson = assembleFinalJson(profile, tabs, settings, processedData, aboutMeContent);
 
+  // Normalise date formats in evidence (e.g. DD/MM/YYYY → YYYY-MM-DD)
+  const normalisedEvidence = normaliseDates(assembledJson.evidence);
+
   // Post-process the weights
-  const scaledConcepts = scaleWeights(assembledJson.concepts, assembledJson.evidence);
+  const scaledConcepts = scaleWeights(assembledJson.concepts, normalisedEvidence);
 
   // Validate the data
-  const validationResult = validateProfileData(scaledConcepts, assembledJson.evidence);
+  const validationResult = validateProfileData(scaledConcepts, normalisedEvidence);
   
   if (!validationResult.isValid) {
     console.error(`\n❌ Validation failed with ${validationResult.errors.length} error(s).`);
@@ -91,6 +94,7 @@ export async function main() {
 
   const finalJsonWithScaledWeights = {
     ...assembledJson,
+    evidence: normalisedEvidence,
     concepts: scaledConcepts,
   };
 
