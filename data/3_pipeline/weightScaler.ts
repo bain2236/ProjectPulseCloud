@@ -1,5 +1,47 @@
 import { Concept, Evidence } from '../../project/lib/types';
 
+const NORMALISE_FLOOR = 0.15;
+const NORMALISE_CEIL = 1.0;
+const NORMALISE_DEFAULT = 0.7;
+
+export function normaliseWeightsByTab(concepts: Concept[]): Concept[] {
+  // Group concepts by tabId
+  const groups = new Map<string, Concept[]>();
+  for (const concept of concepts) {
+    const group = groups.get(concept.tabId) ?? [];
+    group.push(concept);
+    groups.set(concept.tabId, group);
+  }
+
+  const result: Concept[] = [];
+
+  for (const group of groups.values()) {
+    if (group.length === 1) {
+      // Single concept in tab → assign default weight
+      result.push({ ...group[0], weight: NORMALISE_DEFAULT });
+      continue;
+    }
+
+    const weights = group.map(c => c.weight);
+    const minW = Math.min(...weights);
+    const maxW = Math.max(...weights);
+
+    if (maxW === minW) {
+      // All identical → assign default weight
+      group.forEach(c => result.push({ ...c, weight: NORMALISE_DEFAULT }));
+      continue;
+    }
+
+    // Min-max scale to [FLOOR, CEIL]
+    group.forEach(c => {
+      const normalised = NORMALISE_FLOOR + ((c.weight - minW) / (maxW - minW)) * (NORMALISE_CEIL - NORMALISE_FLOOR);
+      result.push({ ...c, weight: normalised });
+    });
+  }
+
+  return result;
+}
+
 const SOURCE_AUTHORITY_MAP: Record<string, number> = {
   'CV': 1.2,
   'LinkedIn Recommendation': 1.1,
@@ -16,7 +58,7 @@ const DEFAULT_WEIGHT = 0.5;
 export function scaleWeights(concepts: Concept[], evidence: Evidence[]): Concept[] {
   const evidenceMap = new Map(evidence.map(e => [e.id, e]));
 
-  return concepts.map(concept => {
+  const scaled = concepts.map(concept => {
     // Handle null/undefined weights - use default and log warning
     if (concept.weight === null || concept.weight === undefined || isNaN(concept.weight)) {
       console.warn(`Concept "${concept.label}" (${concept.id}) has invalid weight (${concept.weight}), using default ${DEFAULT_WEIGHT}`);
@@ -78,4 +120,6 @@ export function scaleWeights(concepts: Concept[], evidence: Evidence[]): Concept
       weight: finalWeight,
     };
   });
+
+  return normaliseWeightsByTab(scaled);
 }
