@@ -9,7 +9,8 @@ Your output MUST be a single, valid JSON object and nothing else. Adhere strictl
     "source": "string", // e.g., "CV", "LinkedIn Recommendation", "Personal Hobby Log"
     "text": "string", // The original text fragment.
     "author": "string", // The author of the text. For personal notes or a CV, this is "Alex Bainbridge".
-    "date": "string" // The date of the evidence in YYYY-MM-DD format. If not present, estimate the year (e.g., "2022-01-01").
+    "date": "string", // The date of the evidence in YYYY-MM-DD format. If not present, estimate the year (e.g., "2022-01-01").
+    "highlights": ["string"] // 1–5 verbatim substrings from the text that best support the extracted concepts.
   },
   "concepts": [
     {
@@ -40,7 +41,11 @@ Your output MUST be a single, valid JSON object and nothing else. Adhere strictl
     -   **0.8 - 1.0**: Explicit claims of expertise, deep involvement, or high passion.
     -   **0.5 - 0.7**: Significant mentions, project roles, or regular practice.
     -   **0.1 - 0.4**: Passing mentions, familiarity, or low-frequency activities.
-6.  **Guiding Principles:**
+6.  **Highlights (\`highlights\`):**
+    -   Provide 1–5 verbatim substrings from the text that directly support the extracted concepts.
+    -   Each highlight must be an exact substring of the original text, 3–10 words in length.
+    -   If no strong highlights exist, \`highlights\` may be an empty array \`[]\`.
+7.  **Guiding Principles:**
     -   **No Fabrication**: Extract ONLY concepts explicitly mentioned in the text. Do not infer or add related skills.
     -   **Direct Evidence**: Every concept must be directly supported by the provided text.
     -   **Specificity**: Avoid generic concepts like "Team Player" unless the text uses those exact words. Extract specific skills like "Agile Methodologies" or "Pair Programming".
@@ -57,7 +62,8 @@ EXPECTED JSON OUTPUT:
     "source": "LinkedIn Recommendation",
     "text": "Alex is a great engineer to work with. He introduced the team to Test-Driven Development (TDD) and greatly improved our CI/CD pipeline using GitHub Actions.",
     "author": "Anonymous",
-    "date": "2023-05-15"
+    "date": "2023-05-15",
+    "highlights": ["introduced the team to Test-Driven Development", "greatly improved our CI/CD pipeline"]
   },
   "concepts": [
     {
