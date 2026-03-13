@@ -33,13 +33,13 @@ describe('JSON Assembly Utility', () => {
 
     const settings = { recencyDecayDays: 365 };
 
-    const finalJson = assembleFinalJson(baseProfile, tabs, settings, processedData);
+    const finalJson = assembleFinalJson(baseProfile, tabs, settings, processedData, 'About me content');
 
     // Check that all parts are present
     expect(finalJson.profile).toEqual(baseProfile);
     expect(finalJson.tabs).toEqual(tabs);
     expect(finalJson.evidence).toHaveLength(3);
-    
+
     // Check that concepts are correctly aggregated and duplicates are merged
     expect(finalJson.concepts).toHaveLength(3);
     const leadershipConcept = finalJson.concepts.find((c: any) => c.label === 'leadership');
@@ -47,11 +47,10 @@ describe('JSON Assembly Utility', () => {
     expect(leadershipConcept.sourceEvidenceIds).toEqual(['evidence-1', 'evidence-3']);
     // Weight should be max of merged weights (0.7 and 0.9 = 0.9)
     expect(leadershipConcept.weight).toBe(0.9);
-    expect(finalJson.concepts).toContainEqual({
-      id: 'concept-2',
-      label: 'collaboration',
-      sourceEvidenceIds: ['evidence-2'],
-    });
+    const collaborationConcept = finalJson.concepts.find((c: any) => c.label === 'collaboration');
+    expect(collaborationConcept).toBeDefined();
+    expect(collaborationConcept.id).toBe('concept-2');
+    expect(collaborationConcept.sourceEvidenceIds).toEqual(['evidence-2']);
     expect(finalJson.settings).toEqual(settings);
   });
 
@@ -69,7 +68,7 @@ describe('JSON Assembly Utility', () => {
       }
     ];
 
-    const finalJson = assembleFinalJson(baseProfile, tabs, settings, processedData);
+    const finalJson = assembleFinalJson(baseProfile, tabs, settings, processedData, '');
 
     expect(finalJson.concepts).toHaveLength(1);
     expect(finalJson.concepts).not.toContainEqual(
@@ -92,7 +91,7 @@ describe('JSON Assembly Utility', () => {
       }
     ];
 
-    const finalJson = assembleFinalJson(baseProfile, tabs, settings, processedData);
+    const finalJson = assembleFinalJson(baseProfile, tabs, settings, processedData, '');
 
     expect(finalJson.concepts).toHaveLength(1);
     expect(finalJson.concepts[0].sourceEvidenceIds).toHaveLength(2);
@@ -119,7 +118,7 @@ describe('JSON Assembly Utility', () => {
       }
     ];
 
-    const finalJson = assembleFinalJson(baseProfile, tabs, settings, processedData);
+    const finalJson = assembleFinalJson(baseProfile, tabs, settings, processedData, '');
 
     expect(finalJson.concepts).toHaveLength(1);
     // Should use max weight (0.85) when merging, ignoring null
@@ -142,7 +141,7 @@ describe('JSON Assembly Utility', () => {
       }
     ];
 
-    const finalJson = assembleFinalJson(baseProfile, tabs, settings, processedData);
+    const finalJson = assembleFinalJson(baseProfile, tabs, settings, processedData, '');
 
     expect(finalJson.concepts).toHaveLength(1);
     // Should use default weight (0.5) when all are null
