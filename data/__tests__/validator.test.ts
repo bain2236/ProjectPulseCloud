@@ -229,6 +229,36 @@ describe('Profile Data Validator', () => {
       expect(result.stats.orphanedEvidence).toBe(1);
     });
     
+    it('should reject rolled-over dates like 2024-02-30', () => {
+      const makeEvidence = (date: string): Evidence[] => [{
+        id: 'evidence-1',
+        tabId: 'engineer',
+        source: 'CV',
+        author: 'Alex',
+        authorRole: 'Engineer',
+        date,
+        text: 'Worked with React',
+        imageUrl: null,
+        externalUrl: null,
+        createdAt: '2024-01-01T00:00:00Z',
+      }];
+      const makeConcepts = (): Concept[] => [{
+        id: 'concept-1',
+        label: 'React',
+        tabId: 'engineer',
+        weight: 0.8,
+        confidence: 0.9,
+        sourceEvidenceIds: ['evidence-1'],
+        createdByLLM: true,
+        createdAt: '2024-01-01T00:00:00Z',
+      }];
+
+      expect(validateProfileData(makeConcepts(), makeEvidence('2024-02-30')).stats.invalidDates).toBe(1);
+      expect(validateProfileData(makeConcepts(), makeEvidence('2024-04-31')).stats.invalidDates).toBe(1);
+      expect(validateProfileData(makeConcepts(), makeEvidence('2024-02-28')).stats.invalidDates).toBe(0);
+      expect(validateProfileData(makeConcepts(), makeEvidence('2024-02-29')).stats.invalidDates).toBe(0); // 2024 is a leap year
+    });
+
     it('should detect invalid date formats', () => {
       const concepts: Concept[] = [
         {

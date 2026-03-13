@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, afterAll } from 'vitest';
 
 // vi.hoisted runs before imports, so this sets the env before llmClient's
 // module-load guard executes.
@@ -10,6 +10,8 @@ const { cleanup } = vi.hoisted(() => {
     },
   };
 });
+
+afterAll(() => { cleanup(); });
 
 import { llmClient } from '../3_pipeline/llmClient';
 

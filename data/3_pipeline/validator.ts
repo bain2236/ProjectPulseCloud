@@ -135,7 +135,17 @@ function isValidDate(dateString: string): boolean {
   }
   
   const date = new Date(dateString);
-  return date instanceof Date && !isNaN(date.getTime());
+  if (!(date instanceof Date) || isNaN(date.getTime())) {
+    return false;
+  }
+  const parts = dateString.split('-');
+  const year = parseInt(parts[0], 10);
+  const month = parseInt(parts[1], 10);
+  const day = parseInt(parts[2], 10);
+  if (date.getUTCFullYear() !== year || date.getUTCMonth() + 1 !== month || date.getUTCDate() !== day) {
+    return false;
+  }
+  return true;
 }
 
 /**
