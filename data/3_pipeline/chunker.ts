@@ -18,7 +18,7 @@ export function chunkFile(file: File): Chunk[] {
 
   if (baseName.includes('linkdin')) {
     // Split recommendations by multiple newlines
-    chunks = file.content.split(/\n\s*\n\s*\n/);
+    chunks = file.content.split(/\n{2,}/);
   } else if (baseName.includes('cv.md')) {
     // Split CV by headings, then clean up the content
     chunks = file.content.split(/##\s+/).map(chunk => {
