@@ -7,12 +7,12 @@ const cacheDir = path.join(__dirname, '..', '.llm-cache');
 // Ensure the cache directory exists
 fs.mkdir(cacheDir, { recursive: true });
 
-function getCacheKey(text: string): string {
-  return crypto.createHash('sha256').update(text).digest('hex');
+function getCacheKey(text: string, promptTemplate: string): string {
+  return crypto.createHash('sha256').update(promptTemplate + '\n---\n' + text).digest('hex');
 }
 
-export async function getFromCache(text: string): Promise<any | null> {
-  const cacheKey = getCacheKey(text);
+export async function getFromCache(text: string, promptTemplate: string): Promise<any | null> {
+  const cacheKey = getCacheKey(text, promptTemplate);
   const filePath = path.join(cacheDir, `${cacheKey}.json`);
 
   try {
@@ -25,8 +25,8 @@ export async function getFromCache(text: string): Promise<any | null> {
   }
 }
 
-export async function saveToCache(text: string, data: any): Promise<void> {
-  const cacheKey = getCacheKey(text);
+export async function saveToCache(text: string, promptTemplate: string, data: any): Promise<void> {
+  const cacheKey = getCacheKey(text, promptTemplate);
   const filePath = path.join(cacheDir, `${cacheKey}.json`);
   console.log(`[CACHE MISS] Saving new LLM response to cache.`);
   await fs.writeFile(filePath, JSON.stringify(data, null, 2));

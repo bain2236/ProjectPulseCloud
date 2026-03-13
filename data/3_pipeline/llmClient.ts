@@ -43,7 +43,8 @@ export const llmClient = {
       };
     }
     
-    const cached = await getFromCache(text);
+    const promptTemplate = getSystemPrompt('__TEMPLATE__');
+    const cached = await getFromCache(text, promptTemplate);
     if (cached) {
       // Substitute the current evidenceId — the cache key is text-only, so the
       // cached response contains the UUID from a previous run. Replace it so
@@ -84,7 +85,7 @@ export const llmClient = {
       }
 
       const parsedJson = JSON.parse(jsonContent);
-      await saveToCache(text, parsedJson);
+      await saveToCache(text, promptTemplate, parsedJson);
       return parsedJson;
 
     } catch (error) {
