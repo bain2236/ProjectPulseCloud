@@ -45,6 +45,19 @@ export const llmClient = {
     
     const cached = await getFromCache(text);
     if (cached) {
+      // Substitute the current evidenceId — the cache key is text-only, so the
+      // cached response contains the UUID from a previous run. Replace it so
+      // concept→evidence cross-references remain consistent within this run.
+      const oldId = cached.evidence?.id;
+      if (oldId && oldId !== evidenceId) {
+        cached.evidence.id = evidenceId;
+        cached.concepts = (cached.concepts ?? []).map((c: any) => ({
+          ...c,
+          sourceEvidenceIds: (c.sourceEvidenceIds ?? []).map((id: string) =>
+            id === oldId ? evidenceId : id
+          ),
+        }));
+      }
       return cached;
     }
 
