@@ -7,13 +7,15 @@ import { getSystemPrompt } from './prompts/systemPrompt.ts';
 // Explicitly point to the .env file inside the 'project' directory
 dotenv.config({ path: path.resolve(__dirname, '../../project/.env') });
 
+const isDryRun = () => process.env.LLM_DRY_RUN === 'true';
+
 // Only require API key if not in dry-run mode
-if (!process.env.LLM_DRY_RUN && !process.env.OPENAI_API_KEY) {
+if (!isDryRun() && !process.env.OPENAI_API_KEY) {
   throw new Error('OPENAI_API_KEY is not set in the environment variables. Set LLM_DRY_RUN=true to run without API calls.');
 }
 
-const openai = process.env.LLM_DRY_RUN 
-  ? null 
+const openai = isDryRun()
+  ? null
   : new OpenAI({
       apiKey: process.env.OPENAI_API_KEY!,
       dangerouslyAllowBrowser: true,
@@ -21,7 +23,7 @@ const openai = process.env.LLM_DRY_RUN
 
 export const llmClient = {
   async generateJson(text: string, evidenceId: string): Promise<any> {
-    if (process.env.LLM_DRY_RUN === 'true') {
+    if (isDryRun()) {
       console.log('[DRY RUN] LLM call skipped.');
       const currentDate = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
       return {
