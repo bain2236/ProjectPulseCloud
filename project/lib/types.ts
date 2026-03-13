@@ -31,6 +31,7 @@ export interface Evidence {
   imageUrl: string | null;
   externalUrl: string | null;
   createdAt: string;
+  highlights?: string[];
 }
 
 export interface Concept {
