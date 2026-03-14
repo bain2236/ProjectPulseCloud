@@ -75,7 +75,7 @@ export async function main() {
   const normalisedEvidence = normaliseDates(assembledJson.evidence);
 
   // Post-process the weights
-  const scaledConcepts = scaleWeights(assembledJson.concepts, normalisedEvidence);
+  let scaledConcepts = scaleWeights(assembledJson.concepts, normalisedEvidence);
 
   // Validate the data
   const validationResult = validateProfileData(scaledConcepts, normalisedEvidence);
@@ -84,10 +84,10 @@ export async function main() {
     console.error(`\n❌ Validation failed with ${validationResult.errors.length} error(s).`);
     console.error('The pipeline will continue but invalid data may cause issues.\n');
     
-    // Optionally filter out invalid concepts (uncomment to enable)
-    // const validConcepts = filterInvalidConcepts(scaledConcepts, assembledJson.evidence);
-    // console.log(`Filtered ${scaledConcepts.length - validConcepts.length} invalid concepts.`);
-    // scaledConcepts = validConcepts;
+    // Remove any concepts whose sourceEvidenceIds reference non-existent evidence
+    const validConcepts = filterInvalidConcepts(scaledConcepts, normalisedEvidence);
+    console.log(`Filtered ${scaledConcepts.length - validConcepts.length} invalid concepts from output.`);
+    scaledConcepts = validConcepts;
   } else {
     console.log('✅ Validation passed!');
   }

@@ -35,7 +35,9 @@ describe('Data Processing Utility', () => {
     // Assert that the processor function returns the data as expected, allowing for a dynamic ID
     expect(result.evidence.id).toEqual(expect.any(String));
     expect(result.evidence.text).toEqual(mockLlmResponse.evidence.text);
-    expect(result.concepts).toEqual(mockLlmResponse.concepts);
+    // sourceEvidenceIds must be overridden to use the real evidenceId (not the LLM's value)
+    expect(result.concepts[0].sourceEvidenceIds).toEqual([result.evidence.id]);
+    expect(result.concepts[1].sourceEvidenceIds).toEqual([result.evidence.id]);
     
     // Assert that the LLM client was called correctly
     expect(llmClient.generateJson).toHaveBeenCalledWith(rawText, expect.any(String));

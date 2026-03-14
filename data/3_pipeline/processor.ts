@@ -16,10 +16,11 @@ export async function processRawText(rawText: string, sourcePath: string): Promi
       ...llmResult.evidence,
       id: evidenceId,
     },
-    // Ensure all concepts have a sourceEvidenceIds array
+    // Always override sourceEvidenceIds with the current evidenceId.
+    // The LLM cannot be trusted to produce the correct ID here.
     concepts: (llmResult.concepts || []).map((concept: any) => ({
       ...concept,
-      sourceEvidenceIds: concept.sourceEvidenceIds || [],
+      sourceEvidenceIds: [evidenceId],
     })),
   };
   

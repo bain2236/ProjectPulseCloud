@@ -8,8 +8,9 @@ vi.mock('fs/promises');
 
 describe('LLM Cache', () => {
   const text = 'test content';
+  const promptTemplate = 'test prompt';
   const data = { result: 'test data' };
-  const cacheKey = crypto.createHash('sha256').update(text).digest('hex');
+  const cacheKey = crypto.createHash('sha256').update(promptTemplate + '\n---\n' + text).digest('hex');
 
   beforeEach(() => {
     vi.resetAllMocks();
@@ -20,7 +21,7 @@ describe('LLM Cache', () => {
       vi.mocked(fs.access).mockResolvedValue();
       vi.mocked(fs.readFile).mockResolvedValue(JSON.stringify(data));
 
-      const result = await getFromCache(text);
+      const result = await getFromCache(text, promptTemplate);
 
       expect(fs.access).toHaveBeenCalled();
       expect(fs.readFile).toHaveBeenCalled();
@@ -30,7 +31,7 @@ describe('LLM Cache', () => {
     it('should return null when cache file does not exist', async () => {
       vi.mocked(fs.access).mockRejectedValue(new Error('File not found'));
 
-      const result = await getFromCache(text);
+      const result = await getFromCache(text, promptTemplate);
 
       expect(fs.access).toHaveBeenCalled();
       expect(fs.readFile).not.toHaveBeenCalled();
@@ -42,7 +43,7 @@ describe('LLM Cache', () => {
     it('should write data to a cache file', async () => {
       vi.mocked(fs.writeFile).mockResolvedValue();
 
-      await saveToCache(text, data);
+      await saveToCache(text, promptTemplate, data);
 
       expect(fs.writeFile).toHaveBeenCalledWith(
         expect.stringContaining(cacheKey),

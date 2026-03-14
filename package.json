@@ -7,7 +7,8 @@
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest",
-    "pipeline:run": "node -r ts-node/register data/3_pipeline/process_raw_data.ts"
+    "pipeline:run": "node -r ts-node/register data/3_pipeline/process_raw_data.ts",
+    "validate:output": "node -r ts-node/register data/scripts/validate-output.ts"
   },
   "devDependencies": {
     "@types/uuid": "^10.0.0",
