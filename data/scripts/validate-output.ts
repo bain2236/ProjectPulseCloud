@@ -6,7 +6,7 @@
  */
 import * as fs from 'fs/promises';
 import * as path from 'path';
-import { validateProfileData } from '../3_pipeline/validator.ts';
+import { validateProfileData, filterInvalidConcepts } from '../3_pipeline/validator.ts';
 
 const profilePath = path.join(__dirname, '..', '..', 'project', 'public', 'profile.json');
 
@@ -29,6 +29,15 @@ async function main() {
 
   // Core cross-reference validation
   const result = validateProfileData(concepts, evidence);
+
+  // Show what would be filtered and why (diagnostic, non-destructive)
+  const { dropped } = filterInvalidConcepts(concepts, evidence);
+  if (dropped.length > 0) {
+    console.warn(`\n  Would filter ${dropped.length} concept(s):`);
+    dropped.forEach(({ concept, reason }) =>
+      console.warn(`   ✂️  "${concept.label}" — ${reason}`)
+    );
+  }
 
   // Weight distribution summary
   const weights = concepts.map((c: any) => c.weight ?? 0).sort((a: number, b: number) => a - b);

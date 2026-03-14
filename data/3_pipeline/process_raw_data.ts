@@ -85,9 +85,15 @@ export async function main() {
     console.error('The pipeline will continue but invalid data may cause issues.\n');
     
     // Remove any concepts whose sourceEvidenceIds reference non-existent evidence
-    const validConcepts = filterInvalidConcepts(scaledConcepts, normalisedEvidence);
-    console.log(`Filtered ${scaledConcepts.length - validConcepts.length} invalid concepts from output.`);
-    scaledConcepts = validConcepts;
+    const filterResult = filterInvalidConcepts(scaledConcepts, normalisedEvidence);
+    if (filterResult.dropped.length > 0) {
+      console.warn(`\n⚠️  Dropped ${filterResult.dropped.length} invalid concept(s):`);
+      filterResult.dropped.forEach(({ concept, reason }) =>
+        console.warn(`   ✂️  "${concept.label}" (${concept.id}) — ${reason}`)
+      );
+      console.warn('');
+    }
+    scaledConcepts = filterResult.valid;
   } else {
     console.log('✅ Validation passed!');
   }

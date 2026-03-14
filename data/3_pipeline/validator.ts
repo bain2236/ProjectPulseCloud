@@ -264,29 +264,39 @@ export function validateProfileData(concepts: Concept[], evidence: Evidence[]): 
   };
 }
 
+export interface FilterResult {
+  valid: Concept[];
+  dropped: { concept: Concept; reason: string }[];
+}
+
 /**
- * Filters out invalid concepts from the array
+ * Filters out invalid concepts and returns both the valid set and a
+ * list of every dropped concept with a human-readable reason.
  */
-export function filterInvalidConcepts(concepts: Concept[], evidence: Evidence[]): Concept[] {
+export function filterInvalidConcepts(concepts: Concept[], evidence: Evidence[]): FilterResult {
   const evidenceIds = new Set(evidence.map(e => e.id));
-  
-  return concepts.filter(concept => {
-    // Keep only concepts with valid weights
+  const valid: Concept[] = [];
+  const dropped: { concept: Concept; reason: string }[] = [];
+
+  for (const concept of concepts) {
     if (!isValidWeight(concept.weight)) {
-      return false;
+      dropped.push({ concept, reason: `invalid weight: ${concept.weight} (must be 0.1–1.0)` });
+      continue;
     }
-    
-    // Keep only concepts with at least one evidence ID
+
     if (!concept.sourceEvidenceIds || concept.sourceEvidenceIds.length === 0) {
-      return false;
+      dropped.push({ concept, reason: 'no sourceEvidenceIds' });
+      continue;
     }
-    
-    // Keep only concepts where all evidence IDs exist
-    const allEvidenceExists = concept.sourceEvidenceIds.every(id => evidenceIds.has(id));
-    if (!allEvidenceExists) {
-      return false;
+
+    const missing = concept.sourceEvidenceIds.filter(id => !evidenceIds.has(id));
+    if (missing.length > 0) {
+      dropped.push({ concept, reason: `references non-existent evidence: ${missing.join(', ')}` });
+      continue;
     }
-    
-    return true;
-  });
+
+    valid.push(concept);
+  }
+
+  return { valid, dropped };
 }

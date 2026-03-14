@@ -336,12 +336,15 @@ describe('Profile Data Validator', () => {
         },
       ];
       
-      const filtered = filterInvalidConcepts(concepts, evidence);
-      
-      expect(filtered).toHaveLength(1);
-      expect(filtered[0].label).toBe('Valid');
+      const { valid, dropped } = filterInvalidConcepts(concepts, evidence);
+
+      expect(valid).toHaveLength(1);
+      expect(valid[0].label).toBe('Valid');
+      expect(dropped).toHaveLength(1);
+      expect(dropped[0].concept.label).toBe('Invalid Weight');
+      expect(dropped[0].reason).toMatch(/invalid weight/);
     });
-    
+
     it('should filter out concepts without evidence', () => {
       const concepts: Concept[] = [
         {
@@ -381,12 +384,15 @@ describe('Profile Data Validator', () => {
         },
       ];
       
-      const filtered = filterInvalidConcepts(concepts, evidence);
-      
-      expect(filtered).toHaveLength(1);
-      expect(filtered[0].label).toBe('Valid');
+      const { valid, dropped } = filterInvalidConcepts(concepts, evidence);
+
+      expect(valid).toHaveLength(1);
+      expect(valid[0].label).toBe('Valid');
+      expect(dropped).toHaveLength(1);
+      expect(dropped[0].concept.label).toBe('No Evidence');
+      expect(dropped[0].reason).toMatch(/no sourceEvidenceIds/);
     });
-    
+
     it('should filter out concepts with non-existent evidence IDs', () => {
       const concepts: Concept[] = [
         {
@@ -426,10 +432,13 @@ describe('Profile Data Validator', () => {
         },
       ];
       
-      const filtered = filterInvalidConcepts(concepts, evidence);
-      
-      expect(filtered).toHaveLength(1);
-      expect(filtered[0].label).toBe('Valid');
+      const { valid, dropped } = filterInvalidConcepts(concepts, evidence);
+
+      expect(valid).toHaveLength(1);
+      expect(valid[0].label).toBe('Valid');
+      expect(dropped).toHaveLength(1);
+      expect(dropped[0].concept.label).toBe('Invalid Evidence');
+      expect(dropped[0].reason).toMatch(/evidence-nonexistent/);
     });
   });
 });

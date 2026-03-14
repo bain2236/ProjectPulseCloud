@@ -8,7 +8,10 @@
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest",
     "pipeline:run": "node -r ts-node/register data/3_pipeline/process_raw_data.ts",
-    "validate:output": "node -r ts-node/register data/scripts/validate-output.ts"
+    "pipeline:fresh": "npm run cache:clear && npm run pipeline:run",
+    "validate:output": "node -r ts-node/register data/scripts/validate-output.ts",
+    "cache:clear": "node -e \"require('fs').rmSync('data/.llm-cache', { recursive: true, force: true }); console.log('LLM cache cleared.')\"",
+    "cache:stats": "node -e \"const f=require('fs');const d='data/.llm-cache';if(!f.existsSync(d)){console.log('Cache empty.')}else{const files=f.readdirSync(d);console.log(files.length+' cached responses, '+Math.round(f.statSync(d).size/1024||files.reduce((a,n)=>a+f.statSync(d+'/'+n).size,0)/1024)+'KB')}\" "
   },
   "devDependencies": {
     "@types/uuid": "^10.0.0",
