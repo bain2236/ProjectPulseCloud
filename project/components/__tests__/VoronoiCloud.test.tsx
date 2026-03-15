@@ -6,6 +6,7 @@ import { JSX } from 'react/jsx-runtime';
 import '@testing-library/jest-dom';
 import { Delaunay } from 'd3-delaunay';
 import { axe } from 'jest-axe';
+import * as utils from '../../lib/utils';
 
 // Mock d3-delaunay to control its output in tests
 vi.mock('d3-delaunay', () => {
@@ -206,4 +207,10 @@ describe('VoronoiCloud', () => {
         const results = await axe(container);
         expect(results).toHaveNoViolations();
     });
+});
+
+describe('utils — dead code removed', () => {
+  it('weightToArea should not exist in utils', () => {
+    expect((utils as any).weightToArea).toBeUndefined();
+  });
 });

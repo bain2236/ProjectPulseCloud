@@ -4,7 +4,7 @@ import { useMemo, useState, useCallback, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import { Delaunay } from 'd3-delaunay';
 import { Concept, Evidence } from '@/lib/types';
-import { weightToFontSize, weightToArea, calculateRecencyMultiplier, calculatePulseOrigin, debounce } from '@/lib/utils';
+import { weightToFontSize, calculateRecencyMultiplier, calculatePulseOrigin, debounce } from '@/lib/utils';
 import PulsingBorder from './PulsingBorder';
 import { useAnalyticsEvents } from '@/hooks/useAnalytics';
 
