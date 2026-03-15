@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Tab } from '@/lib/types';
-import { useAnalyticsEvents } from '@/hooks/useAnalytics';
+import { usePostHog } from '@/hooks/usePostHog';
 
 interface TabStripProps {
   tabs: Tab[];
@@ -11,13 +11,13 @@ interface TabStripProps {
 }
 
 export default function TabStrip({ tabs, activeTab, onTabChange }: TabStripProps) {
-  const { trackTabChange } = useAnalyticsEvents();
+  const { capture } = usePostHog();
   const sortedTabs = [...tabs].sort((a, b) => a.order - b.order);
 
   if (!sortedTabs.length) {
     return null;
   }
-  
+
   return (
     <div className="overflow-x-auto scrollbar-hide">
       <div className="flex space-x-1 bg-black/30 backdrop-blur-sm rounded-xl p-1 border border-gray-700 min-w-max md:min-w-0">
@@ -28,7 +28,7 @@ export default function TabStrip({ tabs, activeTab, onTabChange }: TabStripProps
             <motion.button
               key={tab.id}
               onClick={() => {
-                trackTabChange(tab.title);
+                capture('tab_changed', { tab: tab.title });
                 onTabChange(tab.id);
               }}
               initial={{ opacity: 0, y: -20 }}
