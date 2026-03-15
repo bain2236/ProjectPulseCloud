@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Concept, Evidence } from '@/lib/types';
 import { X, User, Calendar, Building, ExternalLink } from 'lucide-react';
-import { useAnalyticsEvents } from '@/hooks/useAnalytics';
+import { usePostHog } from '@/hooks/usePostHog';
 
 interface ConceptModalProps {
   concept: Concept | null;
@@ -80,19 +80,19 @@ function EvidenceCard({ evidence }: EvidenceCardProps) {
 }
 
 export default function ConceptModal({ concept, evidence, onClose }: ConceptModalProps) {
-  const { trackModalOpen, trackModalClose } = useAnalyticsEvents();
+  const { capture } = usePostHog();
   const [modalStartTime] = useState(Date.now());
 
   useEffect(() => {
     if (concept) {
-      trackModalOpen('concept_modal');
+      capture('modal_opened', { modal_type: 'concept_modal' });
     }
-  }, [concept, trackModalOpen]);
+  }, [concept, capture]);
 
   const handleClose = () => {
     if (concept) {
       const duration = Date.now() - modalStartTime;
-      trackModalClose('concept_modal', duration);
+      capture('modal_closed', { modal_type: 'concept_modal', duration_ms: duration });
     }
     onClose();
   };
