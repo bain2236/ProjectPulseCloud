@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, type Mock } from 'vitest';
 import VoronoiCloud from '../VoronoiCloud';
 import { Concept, Evidence } from '../../lib/types';
 import { JSX } from 'react/jsx-runtime';
@@ -71,7 +71,7 @@ const getScale = (element: HTMLElement): number => {
 };
 
 // Module-level mock reference — shared across all describe blocks
-let cellPolygonMock: vi.Mock;
+let cellPolygonMock: Mock;
 
 beforeEach(async () => {
     // Dynamically import to get the EXPOSED mock function

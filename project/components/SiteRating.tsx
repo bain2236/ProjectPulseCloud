@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, MessageSquare, X, Send, Heart, Zap, Palette } from 'lucide-react';
-import { useAnalyticsEvents } from '@/hooks/useAnalytics';
+import { useAnalytics } from '@/hooks/useAnalytics';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface RatingData {
@@ -22,7 +22,7 @@ export default function SiteRating() {
   const [hasRated, setHasRated] = useState(false);
   const [showButton, setShowButton] = useState(false);
 
-  const { trackEvent } = useAnalyticsEvents();
+  const { trackEvent } = useAnalytics();
 
   // Check if user has already rated (using sessionStorage)
   useEffect(() => {

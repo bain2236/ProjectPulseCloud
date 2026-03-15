@@ -32,6 +32,10 @@ jobs:
       - name: Audit dependencies
         run: npm audit --audit-level=high
 
+      - name: Type check
+        working-directory: ./project
+        run: npm run typecheck
+
       - name: Run tests
         run: npm test
 

@@ -1,7 +1,7 @@
 // lib/analytics.ts
 // Small wrapper that queues events until a provider is initialized.
 
-interface AnalyticsProvider {
+export interface AnalyticsProvider {
   trackEvent: (name: string, props?: Record<string, any>) => void;
 }
 

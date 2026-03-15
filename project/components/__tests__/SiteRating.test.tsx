@@ -3,11 +3,11 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 import { vi } from 'vitest';
 import { JSX } from 'react/jsx-runtime';
 import SiteRating from '../SiteRating';
-import { useAnalyticsEvents } from '@/hooks/useAnalytics';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 // Mock the analytics hook
 vi.mock('@/hooks/useAnalytics');
-const mockUseAnalyticsEvents = vi.mocked(useAnalyticsEvents);
+const mockUseAnalytics = vi.mocked(useAnalytics);
 
 // Mock Framer Motion so animations are instant and AnimatePresence unmounts immediately
 vi.mock('framer-motion', () => {
@@ -64,7 +64,7 @@ describe('SiteRating', () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    mockUseAnalyticsEvents.mockReturnValue({
+    mockUseAnalytics.mockReturnValue({
       trackEvent: mockTrackEvent,
       getSessionEntry: vi.fn(),
     });
