@@ -149,32 +149,34 @@ export default function VoronoiCloud({
       const polygon = voronoi.cellPolygon(index);
       if (!polygon) return null;
 
-      const [minX, minY, maxX, maxY] = polygon.reduce(
-        ([minX, minY, maxX, maxY], [x, y]) => [
-            Math.min(minX, x),
-            Math.min(minY, y),
-            Math.max(maxX, x),
-            Math.max(maxY, y),
-        ],
-        [Infinity, Infinity, -Infinity, -Infinity]
-      );
-      const cellWidth = maxX - minX;
-      const cellHeight = maxY - minY;
-
-      // Font size is now primarily driven by weight, then clamped by cell boundaries
-      // and then adjust for the label's length to prevent overflow.
-      const baseSize = Math.min(cellWidth, cellHeight);
-      const lengthAdjustedSize = (cellWidth / concept.label.length) * 1.6; // Slightly more aggressive
-      
-      const calculatedFontSize = Math.min(baseSize, lengthAdjustedSize) * 0.7; // Generous 30% padding
-      const fontSize = Math.max(MIN_FONT_SIZE, Math.min(calculatedFontSize, MAX_FONT_SIZE));
-
+      // Inscribed radius: minimum perpendicular distance from centroid to any edge.
+      // This avoids overestimating usable space in elongated cells.
       const sum = polygon.reduce(
         (acc, [x, y]) => [acc[0] + x, acc[1] + y],
         [0, 0]
       );
-      const centerX = sum[0] / polygon.length;
-      const centerY = sum[1] / polygon.length;
+      const centroidX = sum[0] / polygon.length;
+      const centroidY = sum[1] / polygon.length;
+
+      let inscribedRadius = Infinity;
+      for (let j = 0; j < polygon.length - 1; j++) {
+        const [x1, y1] = polygon[j];
+        const [x2, y2] = polygon[j + 1];
+        const num = Math.abs((y2 - y1) * centroidX - (x2 - x1) * centroidY + x2 * y1 - y2 * x1);
+        const den = Math.sqrt((y2 - y1) ** 2 + (x2 - x1) ** 2);
+        if (den > 0) inscribedRadius = Math.min(inscribedRadius, num / den);
+      }
+      if (!isFinite(inscribedRadius)) inscribedRadius = 10; // fallback for degenerate cells
+
+      const availableWidth  = 2 * inscribedRadius * 0.8;
+      const availableHeight = 2 * inscribedRadius * 0.6;
+      const label = concept.label.replace(/-/g, ' ');
+      const widthBound = (availableWidth / label.length) * AVG_CHAR_ASPECT_RATIO;
+      const calculatedFontSize = Math.min(widthBound, availableHeight, MAX_FONT_SIZE);
+      const fontSize = Math.max(calculatedFontSize, MIN_FONT_SIZE);
+
+      const centerX = centroidX;
+      const centerY = centroidY;
 
       return {
         concept,
