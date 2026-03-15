@@ -218,6 +218,16 @@ export default function VoronoiCloud({
             <stop offset="50%" stopColor="#FF1493" stopOpacity="0.6" />
             <stop offset="100%" stopColor="#00FFFF" stopOpacity="0.8" />
           </linearGradient>
+
+          {/* Per-cell clip paths — one polygon path per concept */}
+          {voronoiCells.map((cell) => {
+            const pathData = `M${cell.polygon.map(([x, y]) => `${x},${y}`).join('L')}Z`;
+            return (
+              <clipPath key={`clip-def-${cell.concept.id}`} id={`clip-${cell.concept.id}`}>
+                <path d={pathData} />
+              </clipPath>
+            );
+          })}
         </defs>
 
         {/* Render Voronoi cells */}
@@ -260,32 +270,34 @@ export default function VoronoiCloud({
                 <PulsingBorder pathData={pathData} />
               )}
 
-              {/* Concept label */}
-              <motion.text
-                x={cell.centerX}
-                y={cell.centerY}
-                dy="0.35em" // Vertically center
-                textAnchor="middle"
-                fill="white"
-                style={{
-                  fontSize: `${cell.fontSize}px`,
-                  pointerEvents: 'none',
-                  textShadow: '0 0 5px rgba(0,0,0,0.7)',
-                }}
-                animate={{
-                  scale: isHovered || isSelected ? 1.1 : 1,
-                  textShadow: isHovered || isSelected
-                    ? '0 0 15px #FFFFFF'
-                    : '0 0 5px rgba(0,0,0,0.7)'
-                }}
-                whileTap={{ scale: 0.9 }}
-                transition={{ 
-                  duration: 0.3,
-                  type: 'spring', stiffness: 300, damping: 20
-                }}
-              >
-                {cell.concept.label.replace(/-/g, ' ')}
-              </motion.text>
+              {/* Concept label — clipped to cell polygon */}
+              <g clipPath={`url(#clip-${cell.concept.id})`}>
+                <motion.text
+                  x={cell.centerX}
+                  y={cell.centerY}
+                  dy="0.35em"
+                  textAnchor="middle"
+                  fill="white"
+                  style={{
+                    fontSize: `${cell.fontSize}px`,
+                    pointerEvents: 'none',
+                    textShadow: '0 0 5px rgba(0,0,0,0.7)',
+                  }}
+                  animate={{
+                    scale: isHovered || isSelected ? 1.1 : 1,
+                    textShadow: isHovered || isSelected
+                      ? '0 0 15px #FFFFFF'
+                      : '0 0 5px rgba(0,0,0,0.7)'
+                  }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{
+                    duration: 0.3,
+                    type: 'spring', stiffness: 300, damping: 20
+                  }}
+                >
+                  {cell.concept.label.replace(/-/g, ' ')}
+                </motion.text>
+              </g>
             </g>
           );
         })}

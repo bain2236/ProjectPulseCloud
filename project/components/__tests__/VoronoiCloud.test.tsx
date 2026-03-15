@@ -331,3 +331,56 @@ describe('inscribed radius font size', () => {
     expect(fontSizeForShortLabel).toBeGreaterThan(fontSizeForLongLabel);
   });
 });
+
+describe('SVG clipPath per cell', () => {
+  it('renders a <clipPath> element for each concept', () => {
+    const concepts: Concept[] = [
+      { id: 'clip-concept-1', label: 'alpha', weight: 0.9, confidence: 1.0, sourceEvidenceIds: [], tabId: 't1', createdByLLM: false, createdAt: '' },
+      { id: 'clip-concept-2', label: 'beta',  weight: 0.5, confidence: 1.0, sourceEvidenceIds: [], tabId: 't1', createdByLLM: false, createdAt: '' },
+    ];
+
+    cellPolygonMock.mockReturnValue([[0, 0], [100, 0], [100, 100], [0, 100], [0, 0]]);
+
+    const { container } = render(
+      <VoronoiCloud
+        concepts={concepts}
+        evidence={[]}
+        width={600}
+        height={600}
+        onConceptClick={() => {}}
+        recencyDecayDays={30}
+      />
+    );
+
+    // JSDOM lowercases SVG element names in CSS selectors, so use attribute selector
+    const clipPaths = container.querySelectorAll('[id^="clip-"]');
+    expect(clipPaths).toHaveLength(2);
+    expect(container.querySelector('#clip-clip-concept-1')).toBeInTheDocument();
+    expect(container.querySelector('#clip-clip-concept-2')).toBeInTheDocument();
+  });
+
+  it('each clipPath contains a <path> element with the cell polygon', () => {
+    const concepts: Concept[] = [
+      { id: 'cp-test', label: 'test', weight: 0.7, confidence: 1.0, sourceEvidenceIds: [], tabId: 't1', createdByLLM: false, createdAt: '' },
+    ];
+
+    cellPolygonMock.mockReturnValue([[0, 0], [100, 0], [100, 100], [0, 100], [0, 0]]);
+
+    const { container } = render(
+      <VoronoiCloud
+        concepts={concepts}
+        evidence={[]}
+        width={600}
+        height={600}
+        onConceptClick={() => {}}
+        recencyDecayDays={30}
+      />
+    );
+
+    const clipPath = container.querySelector('#clip-cp-test');
+    expect(clipPath).not.toBeNull();
+    const pathInClip = clipPath!.querySelector('path');
+    expect(pathInClip).not.toBeNull();
+    expect(pathInClip!.getAttribute('d')).toMatch(/^M/);
+  });
+});
