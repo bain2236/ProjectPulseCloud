@@ -11,13 +11,10 @@ import ConceptModal from '@/components/ConceptModal';
 import AboutMeTab from '@/components/AboutMeTab';
 import PrivacyFooter from '@/components/PrivacyFooter';
 import SiteRating from '@/components/SiteRating';
-import { useAnalyticsEvents } from '@/hooks/useAnalytics';
-
 function HomePageContent() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const { trackPageView } = useAnalyticsEvents();
 
   const [profileData, setProfileData] = useState<ProfileData | null>(null);
   const [selectedConcept, setSelectedConcept] = useState<Concept | null>(null);
@@ -42,11 +39,6 @@ function HomePageContent() {
       })
       .catch(console.error);
   }, [searchParams]);
-
-  // Track page view on mount
-  useEffect(() => {
-    trackPageView();
-  }, [trackPageView]);
 
   // Handle window resize
   useEffect(() => {
