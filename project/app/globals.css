@@ -162,3 +162,12 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+/* Hide scrollbar visually but keep it functional (for TabStrip horizontal scroll) */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
