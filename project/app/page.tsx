@@ -55,8 +55,8 @@ function HomePageContent() {
       if (container) {
         const rect = container.getBoundingClientRect();
         setDimensions({
-          width: Math.max(400, rect.width),
-          height: Math.max(400, rect.height)
+          width: Math.max(300, rect.width),
+          height: Math.max(300, rect.height)
         });
       }
     };
@@ -109,13 +109,13 @@ function HomePageContent() {
 
   return (
     <div className={`min-h-screen theme-${profileData.profile.theme} flex flex-col`}>
-      <div className="flex-1 flex overflow-hidden">
+      <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
         {/* Left Column - Profile Card */}
         <motion.aside 
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="w-80 p-6 flex flex-col"
+          className="w-full lg:w-80 p-4 lg:p-6 flex flex-col"
         >
           <ProfileCard profile={profileData.profile} />
         </motion.aside>
@@ -125,7 +125,7 @@ function HomePageContent() {
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="flex-1 flex flex-col p-6 pl-0"
+          className="flex-1 flex flex-col p-4 lg:p-6 lg:pl-0 min-h-0"
         >
           {/* Tab Strip */}
           <motion.div 
