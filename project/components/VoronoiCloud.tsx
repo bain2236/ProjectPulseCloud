@@ -113,7 +113,12 @@ export default function VoronoiCloud({
       Math.random() * dimensions.height
     ]);
 
-    // Relax the points to spread them out more evenly
+    // Weighted CVT relaxation: high-weight concepts are attracted toward the
+    // canvas centre so they accumulate more cell area after relaxation.
+    const canvasCentreX = dimensions.width / 2;
+    const canvasCentreY = dimensions.height / 2;
+    const WEIGHT_PULL = 0.4; // fraction of canvas-centre attraction per unit weight
+
     for (let i = 0; i < RELAXATION_ITERATIONS; i++) {
       const delaunay = Delaunay.from(points);
       const voronoi = delaunay.voronoi([0, 0, dimensions.width, dimensions.height]);
@@ -124,9 +129,16 @@ export default function VoronoiCloud({
             (acc, [x, y]) => [acc[0] + x, acc[1] + y],
             [0, 0]
           );
-          return [centroid[0] / cell.length, centroid[1] / cell.length];
+          const centroidX = centroid[0] / cell.length;
+          const centroidY = centroid[1] / cell.length;
+          const w = weightedConcepts[index].weight;
+          const pull = w * WEIGHT_PULL;
+          return [
+            centroidX * (1 - pull) + canvasCentreX * pull,
+            centroidY * (1 - pull) + canvasCentreY * pull,
+          ];
         }
-        return point; // Keep original point if cell is invalid
+        return point;
       });
     }
     

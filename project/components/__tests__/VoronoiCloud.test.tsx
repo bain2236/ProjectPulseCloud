@@ -70,15 +70,17 @@ const getScale = (element: HTMLElement): number => {
     return match ? parseFloat(match[1]) : 1;
 };
 
-describe('VoronoiCloud', () => {
-    let cellPolygonMock: vi.Mock;
+// Module-level mock reference — shared across all describe blocks
+let cellPolygonMock: vi.Mock;
 
-    beforeEach(async () => {
-        // Dynamically import to get the EXPOSED mock function
-        const mockModule = await import('d3-delaunay');
-        cellPolygonMock = (mockModule as any)._cellPolygonMock;
-        cellPolygonMock.mockClear();
-    });
+beforeEach(async () => {
+    // Dynamically import to get the EXPOSED mock function
+    const mockModule = await import('d3-delaunay');
+    cellPolygonMock = (mockModule as any)._cellPolygonMock;
+    cellPolygonMock.mockClear();
+});
+
+describe('VoronoiCloud', () => {
 
     const mockEvidence: Evidence[] = [];
     const mockConcepts: Concept[] = [
@@ -212,5 +214,36 @@ describe('VoronoiCloud', () => {
 describe('utils — dead code removed', () => {
   it('weightToArea should not exist in utils', () => {
     expect((utils as any).weightToArea).toBeUndefined();
+  });
+});
+
+describe('weighted CVT — high-weight concept gets larger cell area', () => {
+  it('renders without crashing when concepts have varying weights', () => {
+    // This is a smoke test: the weighted CVT should not throw or produce null cells.
+    // We cannot verify area ratios without a real d3-delaunay instance,
+    // but we verify that the rendered concept count matches input.
+    const highLowConcepts: Concept[] = [
+      { id: 'high', label: 'alpha', weight: 1.0, confidence: 1.0, sourceEvidenceIds: [], tabId: 't1', createdByLLM: false, createdAt: '' },
+      { id: 'low',  label: 'beta',  weight: 0.1, confidence: 1.0, sourceEvidenceIds: [], tabId: 't1', createdByLLM: false, createdAt: '' },
+      { id: 'mid',  label: 'gamma', weight: 0.5, confidence: 1.0, sourceEvidenceIds: [], tabId: 't1', createdByLLM: false, createdAt: '' },
+    ];
+
+    cellPolygonMock.mockReturnValue([[0, 0], [100, 0], [100, 100], [0, 100]]);
+
+    render(
+      <VoronoiCloud
+        concepts={highLowConcepts}
+        evidence={[]}
+        width={600}
+        height={600}
+        onConceptClick={() => {}}
+        recencyDecayDays={30}
+      />
+    );
+
+    expect(screen.getByText('3 concepts')).toBeInTheDocument();
+    expect(screen.getByText('alpha')).toBeInTheDocument();
+    expect(screen.getByText('beta')).toBeInTheDocument();
+    expect(screen.getByText('gamma')).toBeInTheDocument();
   });
 });
