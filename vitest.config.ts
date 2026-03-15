@@ -9,6 +9,9 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './project/vitest.setup.tsx',
     include: ['project/components/**/*.test.tsx', 'data/**/*.test.ts'],
+    env: {
+      LLM_DRY_RUN: 'true',
+    },
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],
