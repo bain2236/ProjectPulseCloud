@@ -90,7 +90,7 @@ export default function SiteRating() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 2, duration: 0.5 }}
               onClick={handleOpenRating}
-              className="fixed bottom-6 right-6 z-40 p-3 bg-green-500/20 hover:bg-green-500/30 backdrop-blur-sm border border-green-500/50 rounded-full text-green-400 hover:text-green-300 transition-all duration-300"
+              className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-40 p-3 bg-green-500/20 hover:bg-green-500/30 backdrop-blur-sm border border-green-500/50 rounded-full text-green-400 hover:text-green-300 transition-all duration-300"
               aria-label="Thank you for rating"
             >
               <Heart className="w-5 h-5" />
@@ -115,7 +115,7 @@ export default function SiteRating() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 2, duration: 0.5 }}
               onClick={handleOpenRating}
-              className="fixed bottom-6 right-6 z-40 p-3 bg-gradient-to-r from-cyan-500/20 to-pink-500/20 hover:from-cyan-500/30 hover:to-pink-500/30 backdrop-blur-sm border border-cyan-500/50 rounded-full text-white transition-all duration-300 group"
+              className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-40 p-3 bg-gradient-to-r from-cyan-500/20 to-pink-500/20 hover:from-cyan-500/30 hover:to-pink-500/30 backdrop-blur-sm border border-cyan-500/50 rounded-full text-white transition-all duration-300 group"
               aria-label="Rate this site"
             >
               <motion.div
