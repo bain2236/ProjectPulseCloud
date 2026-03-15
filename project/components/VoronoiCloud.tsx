@@ -6,7 +6,7 @@ import { Delaunay } from 'd3-delaunay';
 import { Concept, Evidence } from '@/lib/types';
 import { weightToFontSize, calculateRecencyMultiplier, calculatePulseOrigin, debounce } from '@/lib/utils';
 import PulsingBorder from './PulsingBorder';
-import { useAnalyticsEvents } from '@/hooks/useAnalytics';
+import { usePostHog } from '@/hooks/usePostHog';
 
 interface VoronoiCloudProps {
   concepts: Concept[];
@@ -48,7 +48,7 @@ export default function VoronoiCloud({
   onConceptClick,
   recencyDecayDays
 }: VoronoiCloudProps) {
-  const { trackConceptClick } = useAnalyticsEvents();
+  const { capture } = usePostHog();
   const [hoverState, setHoverState] = useState<HoverState>({ conceptId: null });
   const [selectedConceptId, setSelectedConceptId] = useState<string | null>(null);
   const [dimensions, setDimensions] = useState({ width, height });
@@ -79,7 +79,7 @@ export default function VoronoiCloud({
 
   const handleClick = (concept: Concept) => {
     setSelectedConceptId(prevId => prevId === concept.id ? null : concept.id); // Toggle selection
-    trackConceptClick(concept.label, 'voronoi_cloud');
+    capture('concept_clicked', { concept: concept.label, tab: 'voronoi_cloud' });
     onConceptClick(concept);
   };
 
