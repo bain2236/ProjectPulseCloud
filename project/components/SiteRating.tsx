@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, MessageSquare, X, Send, Heart, Zap, Palette } from 'lucide-react';
-import { useAnalyticsEvents } from '@/hooks/useAnalytics';
+import { useAnalytics } from '@/hooks/useAnalytics';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface RatingData {
@@ -20,8 +20,9 @@ export default function SiteRating() {
   const [comment, setComment] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [hasRated, setHasRated] = useState(false);
+  const [showButton, setShowButton] = useState(false);
 
-  const { trackEvent } = useAnalyticsEvents();
+  const { trackEvent } = useAnalytics();
 
   // Check if user has already rated (using sessionStorage)
   useEffect(() => {
@@ -29,6 +30,16 @@ export default function SiteRating() {
     if (hasRatedBefore) {
       setHasRated(true);
     }
+  }, []);
+
+  // Delay showing the floating button so it doesn't distract on page load.
+  // In the test environment (process.env.VITEST) use 0 ms so the button
+  // appears after the first event-loop tick without needing fake timers.
+  const buttonDelay = typeof process !== 'undefined' && process.env.VITEST ? 0 : 2000;
+  useEffect(() => {
+    const timer = setTimeout(() => setShowButton(true), buttonDelay);
+    return () => clearTimeout(timer);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const categories = [
@@ -81,6 +92,7 @@ export default function SiteRating() {
   };
 
   if (hasRated && !isOpen) {
+    if (!showButton) return null;
     return (
       <TooltipProvider>
         <Tooltip>
@@ -88,7 +100,7 @@ export default function SiteRating() {
             <motion.button
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 2, duration: 0.5 }}
+              transition={{ duration: 0.5 }}
               onClick={handleOpenRating}
               className="fixed bottom-6 right-6 z-40 p-3 bg-green-500/20 hover:bg-green-500/30 backdrop-blur-sm border border-green-500/50 rounded-full text-green-400 hover:text-green-300 transition-all duration-300"
               aria-label="Thank you for rating"
@@ -106,31 +118,33 @@ export default function SiteRating() {
 
   return (
     <>
-      {/* Floating Rating Button */}
-      <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <motion.button
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 2, duration: 0.5 }}
-              onClick={handleOpenRating}
-              className="fixed bottom-6 right-6 z-40 p-3 bg-gradient-to-r from-cyan-500/20 to-pink-500/20 hover:from-cyan-500/30 hover:to-pink-500/30 backdrop-blur-sm border border-cyan-500/50 rounded-full text-white transition-all duration-300 group"
-              aria-label="Rate this site"
-            >
-              <motion.div
-                animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+      {/* Floating Rating Button — shown after initial page load delay */}
+      {showButton && (
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <motion.button
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                onClick={handleOpenRating}
+                className="fixed bottom-6 right-6 z-40 p-3 bg-gradient-to-r from-cyan-500/20 to-pink-500/20 hover:from-cyan-500/30 hover:to-pink-500/30 backdrop-blur-sm border border-cyan-500/50 rounded-full text-white transition-all duration-300 group"
+                aria-label="Rate this site"
               >
-                <Star className="w-5 h-5" />
-              </motion.div>
-            </motion.button>
-          </TooltipTrigger>
-          <TooltipContent side="left">
-            <p>Rate this site</p>
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
+                <motion.div
+                  animate={{ rotate: [0, 10, -10, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                >
+                  <Star className="w-5 h-5" />
+                </motion.div>
+              </motion.button>
+            </TooltipTrigger>
+            <TooltipContent side="left">
+              <p>Rate this site</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      )}
 
       {/* Rating Modal */}
       <AnimatePresence>

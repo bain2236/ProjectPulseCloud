@@ -4,7 +4,7 @@ import { useMemo, useState, useCallback, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import { Delaunay } from 'd3-delaunay';
 import { Concept, Evidence } from '@/lib/types';
-import { weightToFontSize, weightToArea, calculateRecencyMultiplier, calculatePulseOrigin, debounce } from '@/lib/utils';
+import { weightToFontSize, calculateRecencyMultiplier, calculatePulseOrigin, debounce } from '@/lib/utils';
 import PulsingBorder from './PulsingBorder';
 import { useAnalyticsEvents } from '@/hooks/useAnalytics';
 
@@ -113,7 +113,12 @@ export default function VoronoiCloud({
       Math.random() * dimensions.height
     ]);
 
-    // Relax the points to spread them out more evenly
+    // Weighted CVT relaxation: high-weight concepts are attracted toward the
+    // canvas centre so they accumulate more cell area after relaxation.
+    const canvasCentreX = dimensions.width / 2;
+    const canvasCentreY = dimensions.height / 2;
+    const WEIGHT_PULL = 0.4; // fraction of canvas-centre attraction per unit weight
+
     for (let i = 0; i < RELAXATION_ITERATIONS; i++) {
       const delaunay = Delaunay.from(points);
       const voronoi = delaunay.voronoi([0, 0, dimensions.width, dimensions.height]);
@@ -124,9 +129,16 @@ export default function VoronoiCloud({
             (acc, [x, y]) => [acc[0] + x, acc[1] + y],
             [0, 0]
           );
-          return [centroid[0] / cell.length, centroid[1] / cell.length];
+          const centroidX = centroid[0] / cell.length;
+          const centroidY = centroid[1] / cell.length;
+          const w = weightedConcepts[index].weight;
+          const pull = w * WEIGHT_PULL;
+          return [
+            centroidX * (1 - pull) + canvasCentreX * pull,
+            centroidY * (1 - pull) + canvasCentreY * pull,
+          ];
         }
-        return point; // Keep original point if cell is invalid
+        return point;
       });
     }
     
@@ -137,32 +149,34 @@ export default function VoronoiCloud({
       const polygon = voronoi.cellPolygon(index);
       if (!polygon) return null;
 
-      const [minX, minY, maxX, maxY] = polygon.reduce(
-        ([minX, minY, maxX, maxY], [x, y]) => [
-            Math.min(minX, x),
-            Math.min(minY, y),
-            Math.max(maxX, x),
-            Math.max(maxY, y),
-        ],
-        [Infinity, Infinity, -Infinity, -Infinity]
-      );
-      const cellWidth = maxX - minX;
-      const cellHeight = maxY - minY;
-
-      // Font size is now primarily driven by weight, then clamped by cell boundaries
-      // and then adjust for the label's length to prevent overflow.
-      const baseSize = Math.min(cellWidth, cellHeight);
-      const lengthAdjustedSize = (cellWidth / concept.label.length) * 1.6; // Slightly more aggressive
-      
-      const calculatedFontSize = Math.min(baseSize, lengthAdjustedSize) * 0.7; // Generous 30% padding
-      const fontSize = Math.max(MIN_FONT_SIZE, Math.min(calculatedFontSize, MAX_FONT_SIZE));
-
+      // Inscribed radius: minimum perpendicular distance from centroid to any edge.
+      // This avoids overestimating usable space in elongated cells.
       const sum = polygon.reduce(
         (acc, [x, y]) => [acc[0] + x, acc[1] + y],
         [0, 0]
       );
-      const centerX = sum[0] / polygon.length;
-      const centerY = sum[1] / polygon.length;
+      const centroidX = sum[0] / polygon.length;
+      const centroidY = sum[1] / polygon.length;
+
+      let inscribedRadius = Infinity;
+      for (let j = 0; j < polygon.length - 1; j++) {
+        const [x1, y1] = polygon[j];
+        const [x2, y2] = polygon[j + 1];
+        const num = Math.abs((y2 - y1) * centroidX - (x2 - x1) * centroidY + x2 * y1 - y2 * x1);
+        const den = Math.sqrt((y2 - y1) ** 2 + (x2 - x1) ** 2);
+        if (den > 0) inscribedRadius = Math.min(inscribedRadius, num / den);
+      }
+      if (!isFinite(inscribedRadius)) inscribedRadius = 10; // fallback for degenerate cells
+
+      const availableWidth  = 2 * inscribedRadius * 0.8;
+      const availableHeight = 2 * inscribedRadius * 0.6;
+      const label = concept.label.replace(/-/g, ' ');
+      const widthBound = (availableWidth / label.length) * AVG_CHAR_ASPECT_RATIO;
+      const calculatedFontSize = Math.min(widthBound, availableHeight, MAX_FONT_SIZE);
+      const fontSize = Math.max(calculatedFontSize, MIN_FONT_SIZE);
+
+      const centerX = centroidX;
+      const centerY = centroidY;
 
       return {
         concept,
@@ -204,6 +218,16 @@ export default function VoronoiCloud({
             <stop offset="50%" stopColor="#FF1493" stopOpacity="0.6" />
             <stop offset="100%" stopColor="#00FFFF" stopOpacity="0.8" />
           </linearGradient>
+
+          {/* Per-cell clip paths — one polygon path per concept */}
+          {voronoiCells.map((cell) => {
+            const pathData = `M${cell.polygon.map(([x, y]) => `${x},${y}`).join('L')}Z`;
+            return (
+              <clipPath key={`clip-def-${cell.concept.id}`} id={`clip-${cell.concept.id}`}>
+                <path d={pathData} />
+              </clipPath>
+            );
+          })}
         </defs>
 
         {/* Render Voronoi cells */}
@@ -246,32 +270,34 @@ export default function VoronoiCloud({
                 <PulsingBorder pathData={pathData} />
               )}
 
-              {/* Concept label */}
-              <motion.text
-                x={cell.centerX}
-                y={cell.centerY}
-                dy="0.35em" // Vertically center
-                textAnchor="middle"
-                fill="white"
-                style={{
-                  fontSize: `${cell.fontSize}px`,
-                  pointerEvents: 'none',
-                  textShadow: '0 0 5px rgba(0,0,0,0.7)',
-                }}
-                animate={{
-                  scale: isHovered || isSelected ? 1.1 : 1,
-                  textShadow: isHovered || isSelected
-                    ? '0 0 15px #FFFFFF'
-                    : '0 0 5px rgba(0,0,0,0.7)'
-                }}
-                whileTap={{ scale: 0.9 }}
-                transition={{ 
-                  duration: 0.3,
-                  type: 'spring', stiffness: 300, damping: 20
-                }}
-              >
-                {cell.concept.label.replace(/-/g, ' ')}
-              </motion.text>
+              {/* Concept label — clipped to cell polygon */}
+              <g clipPath={`url(#clip-${cell.concept.id})`}>
+                <motion.text
+                  x={cell.centerX}
+                  y={cell.centerY}
+                  dy="0.35em"
+                  textAnchor="middle"
+                  fill="white"
+                  style={{
+                    fontSize: `${cell.fontSize}px`,
+                    pointerEvents: 'none',
+                    textShadow: '0 0 5px rgba(0,0,0,0.7)',
+                  }}
+                  animate={{
+                    scale: isHovered || isSelected ? 1.1 : 1,
+                    textShadow: isHovered || isSelected
+                      ? '0 0 15px #FFFFFF'
+                      : '0 0 5px rgba(0,0,0,0.7)'
+                  }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{
+                    duration: 0.3,
+                    type: 'spring', stiffness: 300, damping: 20
+                  }}
+                >
+                  {cell.concept.label.replace(/-/g, ' ')}
+                </motion.text>
+              </g>
             </g>
           );
         })}

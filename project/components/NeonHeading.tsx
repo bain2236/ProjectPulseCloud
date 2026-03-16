@@ -4,7 +4,7 @@ import React from 'react';
 
 interface NeonHeadingProps {
   level: 1 | 2;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const NeonHeading: React.FC<NeonHeadingProps> = ({ level, children }) => {

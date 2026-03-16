@@ -2,14 +2,15 @@
   "name": "pulse-cloud-root",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Root for PulseCloud project, containing data pipeline and project workspace.",
   "scripts": {
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest",
-    "pipeline:run": "node -r ts-node/register data/3_pipeline/process_raw_data.ts",
+    "pipeline:run": "node --loader ts-node/esm data/3_pipeline/process_raw_data.ts",
     "pipeline:fresh": "npm run cache:clear && npm run pipeline:run",
-    "validate:output": "node -r ts-node/register data/scripts/validate-output.ts",
+    "validate:output": "node --loader ts-node/esm data/scripts/validate-output.ts",
     "cache:clear": "node -e \"require('fs').rmSync('data/.llm-cache', { recursive: true, force: true }); console.log('LLM cache cleared.')\"",
     "cache:stats": "node -e \"const f=require('fs');const d='data/.llm-cache';if(!f.existsSync(d)){console.log('Cache empty.')}else{const files=f.readdirSync(d);console.log(files.length+' cached responses, '+Math.round(f.statSync(d).size/1024||files.reduce((a,n)=>a+f.statSync(d+'/'+n).size,0)/1024)+'KB')}\" "
   },

@@ -41,15 +41,15 @@ export const useAnalyticsEvents = () => {
     
     trackContactClick: (contactType: string) => {
       const session = getSessionEntry();
-      trackEvent('conversion_contact', { 
-        contactType, 
-        ...session 
+      trackEvent('conversion_contact', {
+        contactType,
+        ...(session ?? {})
       });
     },
-    
+
     trackPageView: () => {
       const session = getSessionEntry();
-      trackEvent('page_view', session);
+      trackEvent('page_view', session ?? undefined);
     }
   };
 };
