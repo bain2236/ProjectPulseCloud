@@ -322,6 +322,34 @@ describe('SiteRating', () => {
     });
   });
 
+  describe('Mobile positioning', () => {
+    it('applies bottom-4 right-4 positioning classes to the floating button', async () => {
+      render(<SiteRating />);
+
+      await waitFor(() => {
+        expect(screen.getByRole('button')).toBeInTheDocument();
+      });
+
+      const button = screen.getByRole('button');
+      expect(button).toHaveClass('bottom-4');
+      expect(button).toHaveClass('right-4');
+    });
+
+    it('applies bottom-4 right-4 to the already-rated heart button', async () => {
+      mockSessionStorage.getItem.mockReturnValue('true');
+
+      render(<SiteRating />);
+
+      await waitFor(() => {
+        expect(screen.getByRole('button')).toBeInTheDocument();
+      });
+
+      const button = screen.getByRole('button');
+      expect(button).toHaveClass('bottom-4');
+      expect(button).toHaveClass('right-4');
+    });
+  });
+
   describe('Accessibility', () => {
     it('should have no accessibility violations', async () => {
       const { container } = render(<SiteRating />);

@@ -109,7 +109,7 @@ export default function ConceptModal({ concept, evidence, onClose }: ConceptModa
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 flex items-center justify-center p-4"
+        className="fixed inset-0 z-50 flex items-end md:items-center justify-center md:p-4"
         onClick={handleClose}
       >
         {/* Backdrop */}
@@ -126,11 +126,11 @@ export default function ConceptModal({ concept, evidence, onClose }: ConceptModa
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
           transition={{ type: "spring", duration: 0.5 }}
-          className="relative bg-black/90 backdrop-blur-sm border border-gray-700 rounded-2xl max-w-4xl w-full max-h-[80vh] overflow-hidden shadow-2xl"
+          className="relative bg-black/90 backdrop-blur-sm border border-gray-700 rounded-none md:rounded-2xl w-full md:max-w-4xl h-full md:h-auto md:max-h-[80vh] overflow-hidden shadow-2xl flex flex-col"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
-          <div className="flex items-center justify-between p-6 border-b border-gray-700">
+          <div className="flex items-center justify-between p-4 md:p-6 border-b border-gray-700">
             <div>
               <h2 className="text-2xl font-bold text-white mb-1">
                 {concept.label.replace(/-/g, ' ')}
@@ -147,7 +147,7 @@ export default function ConceptModal({ concept, evidence, onClose }: ConceptModa
             
             <motion.button
               onClick={handleClose}
-              className="p-2 text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-gray-800"
+              className="p-3 text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-gray-800 min-w-[44px] min-h-[44px] flex items-center justify-center"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label="close"
@@ -157,7 +157,7 @@ export default function ConceptModal({ concept, evidence, onClose }: ConceptModa
           </div>
 
           {/* Content */}
-          <div className="p-6 max-h-[60vh] overflow-y-auto custom-scrollbar">
+          <div className="p-4 md:p-6 flex-1 overflow-y-auto custom-scrollbar">
             {relatedEvidence.length > 0 ? (
               <div className="space-y-4">
                 <h3 className="text-lg font-semibold text-white mb-4">

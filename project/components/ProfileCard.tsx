@@ -24,7 +24,7 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ duration: 0.5, delay: 0.2, type: "spring" }}
-        className="relative mb-6"
+        className="relative mb-3 md:mb-6"
       >
         {profile.avatar ? (
           <Image
@@ -33,11 +33,11 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
             width={96}
             height={96}
             quality={100}
-            className="w-24 h-24 rounded-full mx-auto border-2 border-gradient-to-r from-cyan-400 to-pink-500 p-0.5 object-cover"
+            className="w-12 h-12 md:w-24 md:h-24 rounded-full mx-auto border-2 border-gradient-to-r from-cyan-400 to-pink-500 p-0.5 object-cover"
           />
         ) : (
-          <div className="w-24 h-24 rounded-full mx-auto bg-gradient-to-br from-cyan-400 to-pink-500 flex items-center justify-center">
-            <User className="w-12 h-12 text-black" />
+          <div className="w-12 h-12 md:w-24 md:h-24 rounded-full mx-auto bg-gradient-to-br from-cyan-400 to-pink-500 flex items-center justify-center">
+            <User className="w-6 h-6 md:w-12 md:h-12 text-black" />
           </div>
         )}
         <motion.div
@@ -58,7 +58,7 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className="text-2xl font-bold text-center mb-2 text-white"
+        className="text-lg md:text-2xl font-bold text-center mb-2 text-white"
       >
         {profile.displayName}
       </motion.h1>
@@ -69,7 +69,7 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-gray-300 text-center mb-6 leading-relaxed"
+          className="hidden md:block text-gray-300 text-center mb-6 leading-relaxed"
         >
           {profile.bio}
         </motion.p>
@@ -83,7 +83,7 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
         className="space-y-3"
       >
         {profile.location && (
-          <div className="flex items-center text-gray-300 hover:text-cyan-400 transition-colors">
+          <div className="hidden md:flex items-center text-gray-300 hover:text-cyan-400 transition-colors">
             <MapPin className="w-4 h-4 mr-2" />
             <span className="text-sm">{profile.location}</span>
           </div>
@@ -94,7 +94,7 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
             href={profile.website}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center text-gray-300 hover:text-pink-400 transition-colors group"
+            className="hidden md:flex items-center text-gray-300 hover:text-pink-400 transition-colors group"
           >
             <Globe className="w-4 h-4 mr-2" />
             <span className="text-sm group-hover:underline">{profile.website}</span>
@@ -108,7 +108,7 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
           })}
         </div>
 
-        <div className="pt-4 border-t border-gray-700">
+        <div className="hidden md:block pt-4 border-t border-gray-700">
           <div className="flex items-center justify-between text-xs text-gray-400">
             <span>Created</span>
             <span>{new Date(profile.createdAt).toLocaleDateString()}</span>

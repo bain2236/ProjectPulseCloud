@@ -67,4 +67,30 @@ describe('ProfileCard', () => {
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
+
+  it('hides the bio on mobile using hidden md:block classes', () => {
+    render(<ProfileCard profile={mockProfile} />);
+    const bio = screen.getByText(mockProfile.bio!);
+    expect(bio).toHaveClass('hidden');
+    expect(bio).toHaveClass('md:block');
+  });
+
+  it('hides the created-at section on mobile using hidden md:block classes', () => {
+    render(<ProfileCard profile={mockProfile} />);
+    const createdLabel = screen.getByText('Created');
+    const createdSection = createdLabel.closest('div.hidden');
+    expect(createdSection).toBeInTheDocument();
+    expect(createdSection).toHaveClass('md:block');
+  });
+
+  it('renders a smaller avatar on mobile using w-12 h-12 md:w-24 md:h-24 classes', () => {
+    render(<ProfileCard profile={mockProfile} />);
+    // The avatar img or fallback div should carry responsive size classes
+    const avatarWrapper = screen.getByRole('img', { name: mockProfile.displayName })
+      .closest('div') ?? screen.getByRole('img', { name: mockProfile.displayName });
+    // The Image element itself carries the responsive classes
+    const img = screen.getByRole('img', { name: mockProfile.displayName });
+    expect(img).toHaveClass('w-12');
+    expect(img).toHaveClass('md:w-24');
+  });
 })

@@ -94,4 +94,31 @@ describe('TabStrip', () => {
         const results = await axe(container);
         expect(results).toHaveNoViolations();
     });
+
+    it('wraps the tab list in a horizontally scrollable container', () => {
+        const { container } = render(
+          <TabStrip tabs={mockTabs} activeTab="personal" onTabChange={() => {}} />
+        );
+        // The outermost element should be the scroll wrapper
+        const scrollWrapper = container.firstChild as HTMLElement;
+        expect(scrollWrapper).toHaveClass('overflow-x-auto');
+    });
+
+    it('applies scrollbar-hide class to the scroll wrapper', () => {
+        const { container } = render(
+          <TabStrip tabs={mockTabs} activeTab="personal" onTabChange={() => {}} />
+        );
+        const scrollWrapper = container.firstChild as HTMLElement;
+        expect(scrollWrapper).toHaveClass('scrollbar-hide');
+    });
+
+    it('applies reduced padding on mobile tab buttons', () => {
+        render(<TabStrip tabs={mockTabs} activeTab="personal" onTabChange={() => {}} />);
+        const buttons = screen.getAllByRole('button');
+        // All tab buttons should have responsive padding
+        buttons.forEach(btn => {
+          expect(btn).toHaveClass('px-3');
+          expect(btn).toHaveClass('md:px-6');
+        });
+    });
 });
