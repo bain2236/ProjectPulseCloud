@@ -1,41 +1,10 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { vi } from 'vitest';
-import { JSX } from 'react/jsx-runtime';
+import posthog from 'posthog-js';
 import SiteRating from '../SiteRating';
-import { useAnalytics } from '@/hooks/useAnalytics';
 
-// Mock the analytics hook
-vi.mock('@/hooks/useAnalytics');
-const mockUseAnalytics = vi.mocked(useAnalytics);
-
-// Mock Framer Motion so animations are instant and AnimatePresence unmounts immediately
-vi.mock('framer-motion', () => {
-  const original = vi.importActual('framer-motion');
-  const mockMotionComponent = (tag: keyof JSX.IntrinsicElements) => {
-    const Component = ({ children, ...props }: { children?: React.ReactNode; [key: string]: any }) => {
-      const {
-        animate, initial, exit, variants, transition,
-        layoutId, whileHover, whileTap,
-        ...rest
-      } = props;
-      const Tag = tag;
-      return <Tag {...rest}>{children}</Tag>;
-    };
-    Component.displayName = `motion.${tag}`;
-    return Component;
-  };
-
-  return {
-    ...(typeof original === 'object' && original !== null ? original : {}),
-    motion: {
-      div: mockMotionComponent('div'),
-      button: mockMotionComponent('button'),
-      span: mockMotionComponent('span'),
-    },
-    AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>,
-  };
-});
+// posthog-js is mocked globally in vitest.setup.tsx
 
 // Mock sessionStorage
 const mockSessionStorage = {
@@ -60,14 +29,8 @@ async function renderAndShowButton() {
 }
 
 describe('SiteRating', () => {
-  const mockTrackEvent = vi.fn();
-
   beforeEach(() => {
     vi.clearAllMocks();
-    mockUseAnalytics.mockReturnValue({
-      trackEvent: mockTrackEvent,
-      getSessionEntry: vi.fn(),
-    });
     mockSessionStorage.getItem.mockReturnValue(null);
   });
 
@@ -256,7 +219,8 @@ describe('SiteRating', () => {
       const submitButton = screen.getByRole('button', { name: /submit rating/i });
       fireEvent.click(submitButton);
 
-      expect(mockTrackEvent).toHaveBeenCalledWith('site_rated', {
+      // Check analytics tracking
+      expect(posthog.capture).toHaveBeenCalledWith('site_rated', {
         score: 5,
         category: 'design',
         hasComment: true,

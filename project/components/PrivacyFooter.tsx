@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Shield, Mail } from 'lucide-react';
+import { Shield } from 'lucide-react';
 
 export default function PrivacyFooter() {
   return (
@@ -19,17 +19,10 @@ export default function PrivacyFooter() {
         
         <div className="text-center sm:text-right">
           <p className="mb-1">
-            I use lightweight analytics to understand how visitors interact with this portfolio.
+            Anonymous analytics via PostHog EU — no cookies, no personal data, data stored in Frankfurt.
           </p>
           <p className="text-xs text-gray-500">
-            No personal data is collected or sold. 
-            <a 
-              href="mailto:privacy@yourdomain.com" 
-              className="text-cyan-400 hover:text-cyan-300 transition-colors ml-1 inline-flex items-center"
-            >
-              <Mail className="w-3 h-3 mr-1" />
-              Contact for data removal
-            </a>
+            Page views and interactions are tracked anonymously. No identifiers are stored or sold.
           </p>
         </div>
       </div>

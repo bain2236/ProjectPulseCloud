@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, MessageSquare, X, Send, Heart, Zap, Palette } from 'lucide-react';
-import { useAnalytics } from '@/hooks/useAnalytics';
+import { usePostHog } from '@/hooks/usePostHog';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface RatingData {
@@ -22,7 +22,7 @@ export default function SiteRating() {
   const [hasRated, setHasRated] = useState(false);
   const [showButton, setShowButton] = useState(false);
 
-  const { trackEvent } = useAnalytics();
+  const { capture } = usePostHog();
 
   // Check if user has already rated (using sessionStorage)
   useEffect(() => {
@@ -58,7 +58,7 @@ export default function SiteRating() {
     };
 
     // Track the rating event
-    trackEvent('site_rated', {
+    capture('site_rated', {
       score: rating,
       category: selectedCategory || 'overall',
       hasComment: comment.trim().length > 0,
