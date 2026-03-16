@@ -29,13 +29,6 @@ export function weightToFontSize(weight: number): number {
 }
 
 /**
- * Map weight (0-1) to area multiplier for Voronoi cell sizing
- */
-export function weightToArea(weight: number): number {
-  return Math.max(0.5, weight * 3);
-}
-
-/**
  * Debounce function for performance optimization
  */
 export function debounce<T extends (...args: any[]) => void>(

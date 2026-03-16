@@ -36,17 +36,17 @@ describe('ProfileCard', () => {
 
   it('renders the profile bio', () => {
     render(<ProfileCard profile={mockProfile} />)
-    expect(screen.getByText(mockProfile.bio)).toBeInTheDocument()
+    expect(screen.getByText(mockProfile.bio!)).toBeInTheDocument()
   })
 
   it('renders the profile location', () => {
     render(<ProfileCard profile={mockProfile} />)
-    expect(screen.getByText(mockProfile.location)).toBeInTheDocument()
+    expect(screen.getByText(mockProfile.location!)).toBeInTheDocument()
   })
 
   it('renders the profile website', () => {
     render(<ProfileCard profile={mockProfile} />)
-    const websiteLink = screen.getByText(mockProfile.website);
+    const websiteLink = screen.getByText(mockProfile.website!);
     expect(websiteLink).toBeInTheDocument();
     expect(websiteLink.closest('a')).toHaveAttribute('href', mockProfile.website);
   })
@@ -56,7 +56,7 @@ describe('ProfileCard', () => {
 
     // Check for each link via its accessible name (aria-label)
     mockProfile.links?.forEach(link => {
-      const linkEl = screen.getByLabelText(link.label);
+      const linkEl = screen.getByLabelText(link.label!);
       expect(linkEl).toBeInTheDocument();
       expect(linkEl).toHaveAttribute('href', link.url);
     });
