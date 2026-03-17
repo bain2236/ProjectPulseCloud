@@ -36,7 +36,6 @@ function EvidenceCard({ evidence }: EvidenceCardProps) {
 
   return (
     <motion.div
-      layout
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
@@ -187,9 +186,9 @@ export default function ConceptModal({ concept, evidence, onClose }: ConceptModa
                 {relatedEvidence.map((evidenceItem, index) => (
                   <motion.div
                     key={evidenceItem.id}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.25, delay: index * 0.07 }}
                   >
                     <EvidenceCard evidence={evidenceItem} />
                   </motion.div>

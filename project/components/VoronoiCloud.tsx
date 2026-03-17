@@ -133,7 +133,7 @@ export default function VoronoiCloud({
           );
           const centroidX = centroid[0] / cell.length;
           const centroidY = centroid[1] / cell.length;
-          const w = weightedConcepts[index].weight;
+          const w = concepts[index].weight; // use raw weight so cell area tracks the authored percentage
           const pull = w * WEIGHT_PULL;
           return [
             centroidX * (1 - pull) + canvasCentreX * pull,
@@ -240,16 +240,26 @@ export default function VoronoiCloud({
           const pathData = `M${cell.polygon.map(([x, y]) => `${x},${y}`).join('L')}Z`;
 
           return (
-            <g 
+            <g
               key={cell.concept.id}
+              tabIndex={0}
+              role="button"
+              aria-label={cell.concept.label.replace(/-/g, ' ')}
+              style={{ outline: 'none' }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleClick(cell.concept);
+                }
+              }}
+              onFocus={() => handleMouseEnter(cell.concept.id)}
+              onBlur={handleMouseLeave}
             >
               {/* Cell background */}
               <motion.path
                 d={pathData}
-                fill={isViewedCell ? 'rgba(255,255,255,0.04)' : 'transparent'}
-                fillOpacity={isViewedCell ? 0.45 : 1}
+                fill={isViewedCell ? 'rgba(0,200,200,0.06)' : 'transparent'}
                 data-viewed={isViewedCell ? 'true' : undefined}
-                whileHover={{ fillOpacity: 0 }}
               />
 
               {/* Cell border */}
@@ -276,13 +286,14 @@ export default function VoronoiCloud({
                 <PulsingBorder pathData={pathData} />
               )}
 
-              {/* Viewed dot indicator */}
-              {isViewedCell && (
-                <circle
-                  cx={cell.centerX + (cell.polygon.reduce((max, [x]) => Math.max(max, x), -Infinity) - cell.centerX) * 0.7}
-                  cy={cell.polygon.reduce((min, [, y]) => Math.min(min, y), Infinity) + 6}
-                  r={3}
-                  fill="rgba(0,200,200,0.6)"
+              {/* Viewed border — dim cyan outline, hidden when hovered/selected (pulsing border takes over) */}
+              {isViewedCell && !isHovered && !isSelected && (
+                <path
+                  d={pathData}
+                  fill="none"
+                  stroke="#00CCCC"
+                  strokeOpacity={0.45}
+                  strokeWidth={1.5}
                   pointerEvents="none"
                   data-viewed="true"
                 />
