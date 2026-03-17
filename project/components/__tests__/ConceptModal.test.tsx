@@ -137,4 +137,72 @@ describe('ConceptModal', () => {
         // Minimum touch target: p-3 gives 44px with the 18px icon (12px icon + 24px padding)
         expect(closeButton).toHaveClass('p-3');
     });
+
+  it('hides the source badge when evidence.source is "..."', () => {
+    const evidenceWithPlaceholderSource: Evidence[] = [
+      {
+        ...mockEvidence[0],
+        source: '...',
+      },
+    ];
+    render(
+      <ConceptModal concept={mockConcept} evidence={evidenceWithPlaceholderSource} onClose={() => {}} />
+    );
+    // The badge should not appear — query by role region to confirm absence
+    expect(screen.queryByText('...')).not.toBeInTheDocument();
+  });
+
+  it('hides the source badge when evidence.source is empty string', () => {
+    const evidenceWithEmptySource: Evidence[] = [
+      {
+        ...mockEvidence[0],
+        source: '',
+      },
+    ];
+    render(
+      <ConceptModal concept={mockConcept} evidence={evidenceWithEmptySource} onClose={() => {}} />
+    );
+    // Ensure no badge element is rendered for empty source
+    const badges = document.querySelectorAll('.text-gray-500.bg-gray-800');
+    expect(badges.length).toBe(0);
+  });
+
+  it('maps "LinkedIn Recommendation" source to the label "LinkedIn"', () => {
+    render(
+      <ConceptModal concept={mockConcept} evidence={mockEvidence} onClose={() => {}} />
+    );
+    // mockEvidence[0].source = 'LinkedIn Recommendation'
+    expect(screen.getByText('LinkedIn')).toBeInTheDocument();
+    expect(screen.queryByText('LinkedIn Recommendation')).not.toBeInTheDocument();
+  });
+
+  it('maps "CV" source to the label "CV"', () => {
+    const evidenceWithCVSource: Evidence[] = [
+      { ...mockEvidence[0], source: 'CV' },
+    ];
+    render(
+      <ConceptModal concept={mockConcept} evidence={evidenceWithCVSource} onClose={() => {}} />
+    );
+    expect(screen.getByText('CV')).toBeInTheDocument();
+  });
+
+  it('maps "Personal Win" source to the label "Win"', () => {
+    const evidenceWithWinSource: Evidence[] = [
+      { ...mockEvidence[0], source: 'Personal Win' },
+    ];
+    render(
+      <ConceptModal concept={mockConcept} evidence={evidenceWithWinSource} onClose={() => {}} />
+    );
+    expect(screen.getByText('Win')).toBeInTheDocument();
+  });
+
+  it('falls back to raw source string when source is not in the SOURCE_LABELS map', () => {
+    const evidenceWithUnknownSource: Evidence[] = [
+      { ...mockEvidence[0], source: 'Blog Post' },
+    ];
+    render(
+      <ConceptModal concept={mockConcept} evidence={evidenceWithUnknownSource} onClose={() => {}} />
+    );
+    expect(screen.getByText('Blog Post')).toBeInTheDocument();
+  });
 });

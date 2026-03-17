@@ -12,6 +12,17 @@ interface ConceptModalProps {
   onClose: () => void;
 }
 
+const SOURCE_LABELS: Record<string, string> = {
+  CV: 'CV',
+  'LinkedIn Recommendation': 'LinkedIn',
+  'Personal Win': 'Win',
+};
+
+function getSourceLabel(source: string | null | undefined): string | null {
+  if (!source || source.trim() === '' || source === '...') return null;
+  return SOURCE_LABELS[source] ?? source;
+}
+
 interface EvidenceCardProps {
   evidence: Evidence;
 }
@@ -51,9 +62,11 @@ function EvidenceCard({ evidence }: EvidenceCardProps) {
           </div>
         </div>
         
-        <div className="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded">
-          {evidence.source}
-        </div>
+        {getSourceLabel(evidence.source) !== null && (
+          <div className="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded">
+            {getSourceLabel(evidence.source)}
+          </div>
+        )}
       </div>
 
       {/* Text content */}
