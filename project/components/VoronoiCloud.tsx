@@ -15,6 +15,7 @@ interface VoronoiCloudProps {
   height: number;
   onConceptClick: (concept: Concept) => void;
   recencyDecayDays: number;
+  isViewed?: (id: string) => boolean;
 }
 
 interface VoronoiCell {
@@ -46,7 +47,8 @@ export default function VoronoiCloud({
   width,
   height,
   onConceptClick,
-  recencyDecayDays
+  recencyDecayDays,
+  isViewed = () => false,
 }: VoronoiCloudProps) {
   const { capture } = usePostHog();
   const [hoverState, setHoverState] = useState<HoverState>({ conceptId: null });
@@ -234,6 +236,7 @@ export default function VoronoiCloud({
         {voronoiCells.map((cell) => {
           const isHovered = hoverState.conceptId === cell.concept.id;
           const isSelected = selectedConceptId === cell.concept.id;
+          const isViewedCell = isViewed(cell.concept.id);
           const pathData = `M${cell.polygon.map(([x, y]) => `${x},${y}`).join('L')}Z`;
 
           return (
@@ -243,7 +246,10 @@ export default function VoronoiCloud({
               {/* Cell background */}
               <motion.path
                 d={pathData}
-                fill="transparent"
+                fill={isViewedCell ? 'rgba(255,255,255,0.04)' : 'transparent'}
+                fillOpacity={isViewedCell ? 0.45 : 1}
+                data-viewed={isViewedCell ? 'true' : undefined}
+                whileHover={{ fillOpacity: 0 }}
               />
 
               {/* Cell border */}
@@ -268,6 +274,18 @@ export default function VoronoiCloud({
 
               {(isHovered || isSelected) && (
                 <PulsingBorder pathData={pathData} />
+              )}
+
+              {/* Viewed dot indicator */}
+              {isViewedCell && (
+                <circle
+                  cx={cell.centerX + (cell.polygon.reduce((max, [x]) => Math.max(max, x), -Infinity) - cell.centerX) * 0.7}
+                  cy={cell.polygon.reduce((min, [, y]) => Math.min(min, y), Infinity) + 6}
+                  r={3}
+                  fill="rgba(0,200,200,0.6)"
+                  pointerEvents="none"
+                  data-viewed="true"
+                />
               )}
 
               {/* Concept label — clipped to cell polygon */}

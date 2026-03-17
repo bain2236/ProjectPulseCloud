@@ -4,6 +4,7 @@ import { useEffect, useState, useMemo, Suspense } from 'react';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { ProfileData, Concept } from '@/lib/types';
+import { useViewedConcepts } from '@/hooks/useViewedConcepts';
 import ProfileCard from '@/components/ProfileCard';
 import TabStrip from '@/components/TabStrip';
 import VoronoiCloud from '@/components/VoronoiCloud';
@@ -19,6 +20,7 @@ function HomePageContent() {
   const [profileData, setProfileData] = useState<ProfileData | null>(null);
   const [selectedConcept, setSelectedConcept] = useState<Concept | null>(null);
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
+  const { markViewed, isViewed } = useViewedConcepts();
 
   const activeTab = searchParams.get('tab') || 'about';
 
@@ -73,6 +75,9 @@ function HomePageContent() {
 
   const handleConceptClick = (concept: Concept | null) => {
     setSelectedConcept(concept);
+    if (concept) {
+      markViewed(concept.id);
+    }
     const params = new URLSearchParams(searchParams.toString());
     if (concept) {
       params.set('concept', concept.id);
@@ -150,6 +155,7 @@ function HomePageContent() {
                 height={dimensions.height}
                 onConceptClick={handleConceptClick}
                 recencyDecayDays={profileData.settings.recencyDecayDays}
+                isViewed={isViewed}
               />
             )}
           </motion.div>
