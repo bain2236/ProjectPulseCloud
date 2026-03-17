@@ -86,7 +86,6 @@ This project is equipped with a full suite of tools to ensure code quality, cons
 - 🎨 **Neon Dark Theme** - Black background with cyan/pink neon highlights
 - 🔮 **Voronoi Word Cloud** - Interactive concept visualization using d3-delaunay
 - ✨ **Smooth Animations** - Powered by Framer Motion with hover/click effects
-- 📱 **Responsive Design** - Optimized for desktop and mobile devices
 - 🎯 **Tab-based Navigation** - Filter concepts by Personal/Leader/Engineer/Colleague
 - 🚀 **Performance Optimized** - Debounced resize, useMemo, and reduced motion support
 - ♿ **Accessible** - WCAG compliant with keyboard navigation and screen reader support
@@ -151,25 +150,38 @@ This project is configured for static export and can be deployed to various host
    Commit the generated `profile.json` file to your repository.
 
 2. **Environment Variables**: 
-   - `OPENAI_API_KEY`: Required for running the pipeline (not needed for static site hosting)
-   - `NEXT_PUBLIC_URL`: Optional, set to your production domain for SEO and metadata
+   - `OPENAI_API_KEY`: Required for running the pipeline locally (not needed on Vercel)
+   - `NEXT_PUBLIC_URL`: Set to your production domain for OG metadata and sitemap (e.g. `https://yourdomain.com`)
+   - `NEXT_PUBLIC_POSTHOG_KEY`: PostHog project API key — set this in Vercel project settings for analytics
 
-Vercel is optimized for Next.js and offers zero-config deployment.
+### Vercel (Recommended)
 
-**Steps:**
-1. Push your code to GitHub
-2. Import your repository in the [Vercel Dashboard](https://vercel.com/dashboard)
-3. Configure build settings:
-   - **Framework Preset**: Next.js
-   - **Root Directory**: `project`
-   - **Build Command**: `npm run build` (default)
-   - **Output Directory**: `.next` (default, or `out` for static export)
-4. Add environment variables if needed (for future pipeline runs)
-5. Deploy
+**One-time setup (manual — do this in the Vercel dashboard):**
 
-**Note**: Since you're using static export (`output: 'export'` in `next.config.js`), Vercel will automatically detect and use the static build.
+1. Create a free account at [vercel.com](https://vercel.com) and sign in with GitHub.
+2. Click **Add New → Project** and import this repository.
+3. In the project configuration screen, set **Root Directory** to `project`. This is required — the Next.js app is not at the repo root.
+4. Leave **Build Command** as `npm run build` and **Output Directory** as `out`. Do not change the Framework Preset from "Other" — setting it to "Next.js" will break static export.
+5. Under **Environment Variables**, add:
+   - `NEXT_PUBLIC_URL` — your production domain, e.g. `https://yourdomain.com`
+   - `NEXT_PUBLIC_POSTHOG_KEY` — your PostHog project API key (from posthog.com → Project Settings → API Keys)
+6. Click **Deploy**.
 
-**Custom Domain**: Add your domain in Vercel project settings → Domains.
+**After initial setup, deployment is automatic:**
+- Push to `main` → Vercel builds and deploys to production.
+- Push to any other branch → Vercel creates a preview deployment URL.
+
+**Custom domain:** Add your domain in Vercel project settings → Domains. Vercel provisions HTTPS automatically via Let's Encrypt.
+
+**Important — `profile.json` workflow:** The data pipeline does NOT run on Vercel. You must run it locally, then commit and push `project/public/profile.json`. Vercel builds the static site from the committed file.
+
+```bash
+# To update your profile data and deploy:
+npm run pipeline:run         # runs from repo root
+git add project/public/profile.json
+git commit -m "data: update profile.json"
+git push                     # Vercel auto-deploys
+```
 
 ### CI/CD Pipeline
 
@@ -195,7 +207,7 @@ After deployment:
 
 - **Build fails**: Ensure `profile.json` exists in `project/public/` before building
 - **Missing data**: Re-run the pipeline and commit the updated `profile.json`
-- **Environment variables**: Only needed for pipeline runs, not for static site hosting
+- **Environment variables**: `OPENAI_API_KEY` is only needed for local pipeline runs. `NEXT_PUBLIC_URL` and `NEXT_PUBLIC_POSTHOG_KEY` must be set in Vercel project settings before building — Next.js bakes `NEXT_PUBLIC_*` variables into the static bundle at build time.
 - **404 errors**: Ensure your hosting platform is configured to serve static files correctly
 
 ## Analytics & User Feedback
@@ -213,15 +225,6 @@ This portfolio includes a comprehensive analytics and user feedback system desig
 - **Multimedia Evidence**: Allow images and videos to be included as evidence sources, linking them to concepts.
 - **Advanced Analytics**: A/B testing, heatmaps, and user journey analysis
 - **Performance Optimization**: Real-time performance monitoring and optimization suggestions
-
-## Browser Support
-
-- Chrome 88+
-- Firefox 85+  
-- Safari 14+
-- Edge 88+
-
-Requires modern browser support for CSS Grid, Flexbox, and ES2020 features.
 
 ## License
 
