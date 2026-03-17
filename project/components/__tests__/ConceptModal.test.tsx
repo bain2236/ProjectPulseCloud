@@ -205,4 +205,45 @@ describe('ConceptModal', () => {
     );
     expect(screen.getByText('Blog Post')).toBeInTheDocument();
   });
+
+  it('renders evidence text as plain string when highlights is absent', () => {
+    render(
+      <ConceptModal concept={mockConcept} evidence={mockEvidence} onClose={() => {}} />
+    );
+    // Evidence text renders, no <mark> elements present
+    expect(screen.getByText(/Alex is extremely positive/)).toBeInTheDocument();
+    expect(document.querySelector('mark')).toBeNull();
+  });
+
+  it('renders <mark> elements around highlight phrases in evidence text', () => {
+    const evidenceWithHighlights: Evidence[] = [
+      {
+        ...mockEvidence[0],
+        text: 'Alex is extremely positive and is a real asset to any team.',
+        highlights: ['real asset'],
+      },
+    ];
+    render(
+      <ConceptModal concept={mockConcept} evidence={evidenceWithHighlights} onClose={() => {}} />
+    );
+    const mark = document.querySelector('mark.highlight');
+    expect(mark).not.toBeNull();
+    expect(mark!.textContent).toBe('real asset');
+  });
+
+  it('renders highlight match case-insensitively (preserves original casing)', () => {
+    const evidenceWithHighlights: Evidence[] = [
+      {
+        ...mockEvidence[0],
+        text: 'Alex is extremely Positive and is a Real Asset to any team.',
+        highlights: ['real asset'],
+      },
+    ];
+    render(
+      <ConceptModal concept={mockConcept} evidence={evidenceWithHighlights} onClose={() => {}} />
+    );
+    const mark = document.querySelector('mark.highlight');
+    expect(mark).not.toBeNull();
+    expect(mark!.textContent).toBe('Real Asset');
+  });
 });

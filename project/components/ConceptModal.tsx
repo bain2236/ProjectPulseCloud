@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Concept, Evidence } from '@/lib/types';
 import { X, User, Calendar, Building, ExternalLink } from 'lucide-react';
 import { usePostHog } from '@/hooks/usePostHog';
+import { applyHighlights } from '@/lib/highlights';
 
 interface ConceptModalProps {
   concept: Concept | null;
@@ -70,11 +71,17 @@ function EvidenceCard({ evidence }: EvidenceCardProps) {
       </div>
 
       {/* Text content */}
-      <motion.p 
+      <motion.p
         className="text-gray-300 text-sm leading-relaxed mb-3"
         animate={{ opacity: 1 }}
       >
-        {isExpanded ? evidence.text : (shouldTruncate ? truncatedText : evidence.text)}
+        {isExpanded
+          ? applyHighlights(evidence.text, evidence.highlights ?? [])
+          : (shouldTruncate
+              ? truncatedText
+              : applyHighlights(evidence.text, evidence.highlights ?? [])
+            )
+        }
       </motion.p>
 
       {/* Expand button - only show if text is truncated */}
