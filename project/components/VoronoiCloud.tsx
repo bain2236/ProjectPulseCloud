@@ -103,7 +103,7 @@ export default function VoronoiCloud({
 
       // Combine weight, confidence, and evidence count for final scoring
       const evidenceBonus = Math.min(relatedEvidence.length / 2.5, 1); // Ramps up slightly slower
-      const finalWeight = concept.weight * concept.confidence * (0.4 + 0.2 * avgRecency + 0.4 * evidenceBonus);
+      const finalWeight = concept.weight * (concept.confidence ?? 1) * (0.4 + 0.2 * avgRecency + 0.4 * evidenceBonus);
       return { ...concept, weight: Math.min(1, finalWeight) };
     });
 
