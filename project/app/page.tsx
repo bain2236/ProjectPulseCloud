@@ -38,7 +38,7 @@ function HomePageContent() {
         }
       })
       .catch(console.error);
-  }, [searchParams]);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Handle window resize
   useEffect(() => {
@@ -58,7 +58,6 @@ function HomePageContent() {
     return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 
-  console.log(profileData);
 
   // Filter concepts by active tab
   const filteredConcepts = useMemo(() => {
@@ -80,7 +79,7 @@ function HomePageContent() {
     } else {
       params.delete('concept');
     }
-    router.push(`${pathname}?${params.toString()}`);
+    window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
   };
 
   const handleModalClose = () => {
