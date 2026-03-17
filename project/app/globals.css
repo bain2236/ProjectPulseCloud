@@ -171,3 +171,11 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
+
+/* Evidence highlight marks */
+mark.highlight {
+  background: rgba(0, 200, 200, 0.2);
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 2px;
+}
