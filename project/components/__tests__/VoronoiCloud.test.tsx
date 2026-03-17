@@ -209,6 +209,63 @@ describe('VoronoiCloud', () => {
         const results = await axe(container);
         expect(results).toHaveNoViolations();
     });
+
+  it('renders without errors when isViewed prop is not provided (optional prop)', () => {
+    cellPolygonMock.mockReturnValue([[0, 0], [100, 0], [100, 100], [0, 100]]);
+    // No isViewed prop — should not throw
+    expect(() =>
+      render(
+        <VoronoiCloud
+          concepts={mockConcepts}
+          evidence={mockEvidence}
+          width={500}
+          height={500}
+          onConceptClick={() => {}}
+          recencyDecayDays={30}
+        />
+      )
+    ).not.toThrow();
+  });
+
+  it('applies data-viewed attribute to a cell whose id isViewed returns true for', () => {
+    cellPolygonMock.mockReturnValue([[0, 0], [100, 0], [100, 100], [0, 100]]);
+    const isViewed = (id: string) => id === 'concept-1';
+
+    const { container } = render(
+      <VoronoiCloud
+        concepts={mockConcepts}
+        evidence={mockEvidence}
+        width={500}
+        height={500}
+        onConceptClick={() => {}}
+        recencyDecayDays={30}
+        isViewed={isViewed}
+      />
+    );
+
+    const viewedDots = container.querySelectorAll('[data-viewed="true"]');
+    expect(viewedDots.length).toBeGreaterThan(0);
+  });
+
+  it('does not apply data-viewed to cells whose id isViewed returns false for', () => {
+    cellPolygonMock.mockReturnValue([[0, 0], [100, 0], [100, 100], [0, 100]]);
+    const isViewed = (_id: string) => false;
+
+    const { container } = render(
+      <VoronoiCloud
+        concepts={mockConcepts}
+        evidence={mockEvidence}
+        width={500}
+        height={500}
+        onConceptClick={() => {}}
+        recencyDecayDays={30}
+        isViewed={isViewed}
+      />
+    );
+
+    const viewedDots = container.querySelectorAll('[data-viewed="true"]');
+    expect(viewedDots.length).toBe(0);
+  });
 });
 
 describe('utils — dead code removed', () => {

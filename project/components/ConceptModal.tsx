@@ -5,11 +5,23 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Concept, Evidence } from '@/lib/types';
 import { X, User, Calendar, Building, ExternalLink } from 'lucide-react';
 import { usePostHog } from '@/hooks/usePostHog';
+import { applyHighlights } from '@/lib/highlights';
 
 interface ConceptModalProps {
   concept: Concept | null;
   evidence: Evidence[];
   onClose: () => void;
+}
+
+const SOURCE_LABELS: Record<string, string> = {
+  CV: 'CV',
+  'LinkedIn Recommendation': 'LinkedIn',
+  'Personal Win': 'Win',
+};
+
+function getSourceLabel(source: string | null | undefined): string | null {
+  if (!source || source.trim() === '' || source === '...') return null;
+  return SOURCE_LABELS[source] ?? source;
 }
 
 interface EvidenceCardProps {
@@ -24,7 +36,6 @@ function EvidenceCard({ evidence }: EvidenceCardProps) {
 
   return (
     <motion.div
-      layout
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
@@ -51,17 +62,25 @@ function EvidenceCard({ evidence }: EvidenceCardProps) {
           </div>
         </div>
         
-        <div className="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded">
-          {evidence.source}
-        </div>
+        {getSourceLabel(evidence.source) !== null && (
+          <div className="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded">
+            {getSourceLabel(evidence.source)}
+          </div>
+        )}
       </div>
 
       {/* Text content */}
-      <motion.p 
+      <motion.p
         className="text-gray-300 text-sm leading-relaxed mb-3"
         animate={{ opacity: 1 }}
       >
-        {isExpanded ? evidence.text : (shouldTruncate ? truncatedText : evidence.text)}
+        {isExpanded
+          ? applyHighlights(evidence.text, evidence.highlights ?? [])
+          : (shouldTruncate
+              ? truncatedText
+              : applyHighlights(evidence.text, evidence.highlights ?? [])
+            )
+        }
       </motion.p>
 
       {/* Expand button - only show if text is truncated */}
@@ -167,9 +186,9 @@ export default function ConceptModal({ concept, evidence, onClose }: ConceptModa
                 {relatedEvidence.map((evidenceItem, index) => (
                   <motion.div
                     key={evidenceItem.id}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.25, delay: index * 0.07 }}
                   >
                     <EvidenceCard evidence={evidenceItem} />
                   </motion.div>

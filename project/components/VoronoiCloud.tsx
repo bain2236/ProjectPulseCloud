@@ -15,6 +15,7 @@ interface VoronoiCloudProps {
   height: number;
   onConceptClick: (concept: Concept) => void;
   recencyDecayDays: number;
+  isViewed?: (id: string) => boolean;
 }
 
 interface VoronoiCell {
@@ -46,7 +47,8 @@ export default function VoronoiCloud({
   width,
   height,
   onConceptClick,
-  recencyDecayDays
+  recencyDecayDays,
+  isViewed = () => false,
 }: VoronoiCloudProps) {
   const { capture } = usePostHog();
   const [hoverState, setHoverState] = useState<HoverState>({ conceptId: null });
@@ -131,7 +133,7 @@ export default function VoronoiCloud({
           );
           const centroidX = centroid[0] / cell.length;
           const centroidY = centroid[1] / cell.length;
-          const w = weightedConcepts[index].weight;
+          const w = concepts[index].weight; // use raw weight so cell area tracks the authored percentage
           const pull = w * WEIGHT_PULL;
           return [
             centroidX * (1 - pull) + canvasCentreX * pull,
@@ -234,16 +236,30 @@ export default function VoronoiCloud({
         {voronoiCells.map((cell) => {
           const isHovered = hoverState.conceptId === cell.concept.id;
           const isSelected = selectedConceptId === cell.concept.id;
+          const isViewedCell = isViewed(cell.concept.id);
           const pathData = `M${cell.polygon.map(([x, y]) => `${x},${y}`).join('L')}Z`;
 
           return (
-            <g 
+            <g
               key={cell.concept.id}
+              tabIndex={0}
+              role="button"
+              aria-label={cell.concept.label.replace(/-/g, ' ')}
+              style={{ outline: 'none' }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleClick(cell.concept);
+                }
+              }}
+              onFocus={() => handleMouseEnter(cell.concept.id)}
+              onBlur={handleMouseLeave}
             >
               {/* Cell background */}
               <motion.path
                 d={pathData}
-                fill="transparent"
+                fill={isViewedCell ? 'rgba(0,200,200,0.06)' : 'transparent'}
+                data-viewed={isViewedCell ? 'true' : undefined}
               />
 
               {/* Cell border */}
@@ -268,6 +284,19 @@ export default function VoronoiCloud({
 
               {(isHovered || isSelected) && (
                 <PulsingBorder pathData={pathData} />
+              )}
+
+              {/* Viewed border — dim cyan outline, hidden when hovered/selected (pulsing border takes over) */}
+              {isViewedCell && !isHovered && !isSelected && (
+                <path
+                  d={pathData}
+                  fill="none"
+                  stroke="#00CCCC"
+                  strokeOpacity={0.45}
+                  strokeWidth={1.5}
+                  pointerEvents="none"
+                  data-viewed="true"
+                />
               )}
 
               {/* Concept label — clipped to cell polygon */}
